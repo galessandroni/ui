@@ -1,0 +1,177 @@
+
+/*
+.events #right-bar {
+float:right;
+width:22%;
+font-size:0.9em;
+}
+
+.events #main #center {
+float:left;
+width:50%;
+margin-left:1%;
+}
+*/
+
+#event-content,
+#calendar-content ul.events {
+margin:0;
+padding:1em;
+float:left;
+width:90%;
+}
+
+.events #right-bar {
+font-size:0.9em;
+}
+
+.breadcrumb {
+text-align:center;
+font-weight: bold;
+font-size: 1.1em;
+margin-bottom:0.1em;
+}
+
+ul.day-topbar {
+margin:0;
+padding:0;
+float:left;
+width: 95%;
+text-align:center;
+}
+
+ul.day-topbar li {
+font-size:0.8em;
+float:left;
+background-color:#eee;
+margin:1%;
+padding:0 1%;
+display:block;
+}
+
+ul.day-topbar li a {
+text-decoration:none;
+}
+
+li#bar-prev-day {
+width:25%;
+min-width:25%;
+text-align:left;
+}
+
+li#bar-curr-day {
+text-align:center;
+width:36%;
+}
+
+li#bar-next-day {
+min-width:25%;
+width:25%;
+text-align:right;
+}
+
+
+.event-place {
+margin:1em 0;
+}
+
+.event-back {
+margin:1em;
+background-color:#eee;
+border:solid 1px #ddd;
+padding:0.2em;
+text-align:center;
+}
+
+#events-info h3 {
+text-align:center;
+font-size:1em;
+word-spacing:0.2em;
+background-color:#ccc;
+}
+
+#submit-event,
+#curr-day,
+#curr-week,
+#curr-month,
+#event-search {
+border: solid 1px #ddd;
+margin: 0 0 1em 0;
+background-color:#eee;
+}
+
+#submit-event a {
+margin:0.2em 0.5em;
+}
+
+#curr-day div {
+text-align:center;
+}
+
+#curr-day .dom {
+font-size: 1.7em;
+font-weight: bold;
+}
+
+#curr-day .back-today {
+background-color:#ccc;
+}
+
+#curr-week ul {
+margin:0;
+padding:0;
+}
+
+#curr-week li {
+padding-left:0.3em;
+}
+
+#curr-week li a {
+text-decoration:none;
+}
+
+#curr-month {
+text-align:center;
+}
+
+#curr-month table {
+border-collapse: collapse;
+width: 100%;
+margin: 2px;
+}
+
+#curr-month table td {
+border: 0 solid #000;
+}
+
+#curr-month table td.dow {
+background-color:#777;
+color:#fff;
+}
+
+#curr-month table td.off {
+background-color:#aaa;
+}
+
+#curr-month table td.current {
+font-weight:bold;
+background-color:#ddd;
+}
+
+#curr-month table a {
+text-decoration:none
+}
+
+#event-search {
+text-align: center;
+}
+
+#event-search input {
+width: 80%;
+font-size: 0.9em;
+margin: 0.2em;
+}
+
+.events #right-bar ul.items {
+width:85%;
+}

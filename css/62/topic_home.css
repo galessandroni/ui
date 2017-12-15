@@ -1,0 +1,22 @@
+/* CSS */
+
+.item-breadcrumb {
+text-align:right;
+font-family:times,serif;
+color:#008ff0;
+margin-top:5px;
+float:right;
+clear:right;
+}
+
+.item-breadcrumb a {
+color:#008ff0;
+}
+
+#center ul.items img.left,
+#center ul.items img.right {
+float:right;
+margin-left:15px;
+border:solid 1px #000;
+
+}

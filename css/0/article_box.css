@@ -1,0 +1,21 @@
+#box-wrapper
+{
+position:absolute;
+left:0px;
+top:0px;
+display:table;
+}
+
+.article_box
+{
+padding:1em;
+}
+
+body {
+    text-align: left;
+}
+
+#window-close {
+text-align:center;
+margin:1em;
+}

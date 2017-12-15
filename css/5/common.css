@@ -1,0 +1,11 @@
+/* CSS */
+
+body { background-color: #005151;color:#fff;}
+a { text-decoration:underline; color: #FFFFFF; }
+a:hover { color: #FFFF00; }
+#head-writing td { background-color:#004242;padding:3px 10px; }
+#cellcenter { padding:1em 0 0 2em;}
+ul#tool-bar li { background-color:#fff;}
+
+ul.subtopics li { background-color:transparent;}
+

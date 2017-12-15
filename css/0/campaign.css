@@ -1,0 +1,51 @@
+#campaign-description,
+#campaign-description_long
+{
+margin: 1em 0;
+}
+
+#campaign-promoter
+{
+margin: 0.5em 0;
+font-style:italic;
+}
+
+ul.sign-options
+{
+margin:0;
+list-style-type: circle;
+}
+
+#campaign-content h2
+{
+margin:0;
+}
+
+form#sign textarea
+{
+width:300px;
+height:120px;
+}
+
+.person-item .comment,
+.org-item .comment
+{
+font-size:0.9em;
+font-style:italic;
+margin-left:2em;
+}
+
+#vips 
+{
+font-style:italic;
+}
+
+#campaign-content .over 
+{
+margin:0.5em 0;
+padding:0.5em;
+background-color: #fdd;
+border: solid 2px #900;
+font-size:1.2em;
+font-weight:bold;
+}

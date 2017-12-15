@@ -1,0 +1,23 @@
+/* CSS */
+
+/* SAN LIBERO */
+body#id26.topic_home .header {
+border-top:solid 1px red;
+border-bottom:solid 1px red;
+float:left;
+wisth:95%;
+margin-bottom:1em;
+padding:1em;
+}
+
+body#id26.topic_home .header img#gra-58 {
+float:left;
+margin-right: 1em;
+}
+
+body#id26.topic_home .header h2 {
+font-size:2em;
+color:#18085A;
+}
+
+

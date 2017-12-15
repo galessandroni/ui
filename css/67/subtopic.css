@@ -1,0 +1,398 @@
+/* CSS */
+
+
+.lettura {
+float:right;
+  font-size:0.8em;
+  font-weight:normal;
+}
+
+#center ul.items h3 .lettura a {
+color: #ee4600;
+font-weight:normal;
+}
+
+#right-bar .lettura {
+display:none;
+}
+
+#id277.subtopic #center ul.subtopics {display:none}
+
+.altro ul.subtopics {
+width:100%;
+margin:0;
+padding:0;
+}
+
+.altro ul.subtopics li {
+background:none;
+border:none;
+background-image: url(https://www.peacelink.it/images/321.gif);
+background-repeat: no-repeat; 
+background-position: 10px 4px;
+padding: 3px 0 3px 45px;
+margin:15px 0 0 0;
+width:40%;
+}
+
+.altro ul.subtopics li a
+{
+font-weight: normal;
+text-decoration: none;
+}
+
+.archivio #center .sottoarchivio1 h1 {
+display:block;
+color:#fff;
+font-size: 10pt;
+background: #444444;
+border-bottom: 2px solid #fff;
+position:relative;
+background-image: url(https://www.peacelink.it/images/312.gif);
+background-repeat: no-repeat; 
+background-position: 10px 10px;
+font-weight:normal;
+padding: 3px 0 3px 45px;
+margin:15px 0 0 0;
+text-transform:uppercase;
+}
+
+.archivio .sottoarchivio1 .header {
+background:#444444;
+float:left;
+width: 500px;
+color:#fff;
+font-size: 10pt;
+}
+
+.archivio .sottoarchivio1 .header .he {
+margin-left: 20px;
+margin-right: 10px;
+}
+
+.archivio .sottoarchivio1 .header img {
+float:left;
+padding:20px 20px;
+}
+
+.archivio .sottoarchivio1 .header h3 {
+font-size: 14pt;
+font-weight:normal;
+padding-top:20px;
+}
+
+.archivio .sottoarchivio1 .header hr {
+display:none;
+}
+
+.archivio ul.subtopics {
+float:left;
+width:500px;
+margin-top:10px;
+padding:0;
+}
+
+.archivio .sottoarchivio ul.subtopics li {
+border-left:none;
+border-bottom:none;
+background-color: #fff;
+padding: 0;
+font-size: 10pt;
+margin: 0 22px 10px 22px;
+float:left;
+width:80px;
+height:180px;
+font-size:8pt;
+}
+
+.archivio .sottoarchivio ul.subtopics li.col1 {
+clear:none;
+}
+
+.archivio .sottoarchivio ul.subtopics li img {
+margin: 0 ;
+}
+
+.archivio #center .sottoarchivio1 ul.subtopics li {
+border-left:none;
+border-bottom:none;
+padding: 0;
+font-size: 10pt;
+margin: 0 22px 10px 22px;
+float:left;
+width:456px;
+height:100%;
+font-size:8pt;
+background:#fff;
+}
+
+.archivio #center .sottoarchivio1 ul.subtopics li a {
+color:#ee4600;
+font-weight: normal;
+font-size:10pt;
+}
+
+.archivio #center .sottoarchivio1 ul.subtopics li .description {
+color:#444444;
+font-weight: bold;
+font-size:10pt;
+}
+
+.archivio #center .sottoarchivio1 ul.subtopics li img {
+float:left;
+margin: 0 20px 10px 0;
+}
+
+
+.archivio #center .sottoarchivio1 .paging-bar {
+display:none;
+}
+
+
+
+/*CENTER*/
+
+#center ul.items  {
+margin:0;
+padding:0;
+width:100%
+}
+
+#center ul.items .halftitle {
+color: #ee4600;
+font-size:8pt;
+margin:5px 0 0px 0;
+}
+
+#center ul.items h3 {
+font-size:11pt;
+margin:5px 0 0 0;
+font-weight:normal;
+}
+
+#center ul.items .protected h3,
+#center ul.items h3 a {
+	color:#444444;
+	font-weight:bold;
+}
+
+.notes {
+	font-style:italc;
+}
+
+#center ul.items .subhead {
+font-size:9pt;
+font-style:normal;
+padding: 0;
+margin:0;
+}
+
+#center ul.items li.article-item {
+
+border:none;
+width:100%;
+position:relative;
+font-weight:normal;
+padding: 0;
+margin:0px 0 5px 0;
+}
+
+#center ul.items li.article-item .article-item {
+float:left;
+border:none;
+border-bottom: 1px dashed #444444;
+width:100%;
+padding: 0 0 12px 0;
+margin:0 0 5px 0;
+}
+
+.archivio #center ul.items .protected h3 {
+padding:0;
+}
+
+
+
+/*RIGHT BAR*/
+
+#right-bar {
+background: #fff;
+}
+
+#right-bar .bordobox {
+float:left;
+margin:12px 0;
+padding:0;
+width:208px;
+border:1px solid #c2c2c2;
+}
+
+#right-bar ul li {
+margin:8px 0;
+padding:0 10px;
+}
+
+#right-bar h3.feature {
+background-color:#fff;
+text-transform:lowercase;
+margin:10px 0em 0em 0em;
+position:relative;
+background-image: url(https://www.peacelink.it/images/314.gif);
+background-repeat: no-repeat; 
+background-position: 10px 10px;
+padding:8px 0 8px 45px ;
+font-size:13pt;
+font-weight:normal;
+color: #ee4600;
+text-align:left;
+}
+
+#right-bar ul h3 {
+margin:8px 0 4px 0;
+font-size:10pt;
+font-weight:normal;
+}
+
+#right-bar ul.items .halftitle {
+text-transform: upppercase;
+}
+
+#right-bar ul.items li.article-item .subhead{
+font-style:italic;
+font-size: 9pt;
+}
+
+
+
+/* FORM */
+
+ul.form-inputs {
+padding:0px;
+margin:0px;
+float:left:
+position:relative;
+width:500px;
+}
+
+ul.form-inputs li {
+padding:0px;
+margin:0px;
+float:left:
+position:relative;
+width:500px;
+}
+
+ul.form-inputs li li,
+fieldset {
+border:none;
+margin:0;
+padding:0;
+}
+
+#center form ul.form-inputs li textarea {
+margin:0;
+padding:0;
+width:500px;
+height:100px;
+}
+
+ul.form-inputs li select
+{
+margin-left:88%;
+position:absolute;
+left:0;
+}
+
+ul.form-inputs li label
+{
+float:left;
+width:490px;
+text-align:left;
+padding: 5px;
+font-size:9pt;
+}
+
+ul.form-inputs li.clearfix {
+width:480px;
+padding:0px 0;
+margin:10px 0;
+}
+
+
+ul.form-inputs .mchoice {
+float:left;
+width:500px;
+margin:10px 0;
+}
+
+ul.form-inputs .mchoice .tslebel {
+float:left;
+width:500px;
+margin:0px 0 -5px 10px;
+font-size:9pt;
+font-weight:bold;
+}
+
+ul.form-inputs .mchoice ul.form-inputs {
+width:500px;
+border:1px solid #c2c2c2;
+padding:0px;
+margin:10px 0 0 0;
+}
+
+ul.form-inputs li input.checkbox,
+ul.form-inputs li input.radio
+{
+margin:4px 0 0 5px;
+}
+
+ul.form-inputs li label.checkbox,
+ul.form-inputs li label.radio
+{
+margin-left:50px;
+text-align:left;
+position:relative;
+top:0px;
+width:90%;
+margin-bottom:0px;
+margin-left:10px}
+
+
+
+
+
+#form1 ul.form-inputs li #param_1,
+#form1 ul.form-inputs li #param_2,
+#form1 ul.form-inputs li #param_3,
+#form1 ul.form-inputs li select,
+#form1 ul.form-inputs li #param_5 {
+margin-left:5px;
+position:static;
+}
+
+#form1 ul.form-inputs li #param_5 {
+margin-left:5px;
+position:static;
+width:380px;
+}
+
+#form1 ul.form-inputs li label {
+width:80px;
+}
+
+#form1 ul.form-inputs li .checkbox {
+margin-left:0;
+margin-right:10px;
+width:420px;
+}
+
+#form1 ul.form-inputs li.buttons {
+margin:10px;
+float:left; ;
+width:380px;
+}
+
+
+
+
+
+

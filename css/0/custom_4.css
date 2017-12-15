@@ -1,0 +1,33 @@
+/* IE7 */
+
+#main-global #center {
+width:42%;
+}
+
+#main #center {
+width: 60%;
+}
+
+ul.items li.article-item .article-item,
+#article-related ul.related li .article-item {
+min-height:0%;
+}
+
+ul.items li.article-item img { 
+margin-bottom: expression("-2px");
+}
+
+#main-wrap.sesicg #main #center {
+width:58%;
+}
+
+ul.form-inputs li label.checkbox,
+ul.form-inputs li label.radio
+{
+margin-left:27%;
+top:-24px;
+}
+
+ul.form-inputs li input.radio {
+margin-left:20%;
+}

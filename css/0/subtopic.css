@@ -1,0 +1,98 @@
+/**** SUBTOPIC SUBTOPICS ****/
+
+
+#center h1
+{
+display:none;
+}
+
+
+#center .headings h1
+{
+display:block;
+}
+
+#center .description
+{
+font-style:italic;
+margin-bottom:1em;
+}
+
+ul.subtopics
+{
+float:left;
+width:98%;
+margin:0;
+padding:0;
+}
+
+ul.subtopics li
+{
+border-left:solid 1px #cde;
+border-bottom:solid 1px #cde;
+background-color: #f5f5f5;
+padding: 0.2em 0.3em;
+font-size: 0.9em;
+margin: 1%;
+float:left;
+width:45%;
+}
+
+ul.subtopics li.col1
+{
+clear:left;
+}
+
+ul.subtopics li a
+{
+font-weight: bold;
+text-decoration: none;
+}
+
+ul.subtopics li a:hover
+{
+text-decoration: underline;
+}
+
+ul.subtopics li img {
+margin-right:8px;
+}
+
+/ * GALLERY ITEMS */
+
+ul.items li.gallery_thumb-item
+{
+margin-bottom: 1em;
+}
+
+ul.items li.gallery_thumb-item img,
+ul.items li.gallery_thumb-item .caption
+{
+display:inline;
+margin-right:1em;
+}
+
+
+/* COMMENTS */
+
+.comments
+{
+border:solid 1px #ddd;
+padding:0.3em;
+margin:0.5em;
+font-style:italic;
+font-size:0.8em;
+background-color:#eee;
+}
+
+.comments h3
+{
+display:inline;
+margin-right:1em;
+font-size:1em;
+font-weight:normal;
+text-transform:uppercase;
+}
+
+
+

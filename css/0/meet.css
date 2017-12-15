@@ -1,0 +1,39 @@
+/* CSS */
+
+#meet-content ul li {
+margin-bottom:0.8em;
+}
+
+#meet-content ul.meeting-slots li .description {
+font-size:0.9em;
+font-style:italic;
+}
+
+#meet-content ul.meeting-slots ul.participants {
+list-style-type: disc;
+margin:0.3em 1.5em;
+padding:0;
+}
+
+#meet-content ul.meeting-slots ul.participants li {
+margin-bottom:0;
+}
+
+#meet-content form.meet-form ul.meeting-slots {
+float:left;
+width:90%;
+}
+
+#meet-content form.meet-form ul.meeting-slots li {
+clear:left;
+}
+
+#meet-content .over 
+{
+margin:0.5em 0;
+padding:0.5em;
+background-color: #fdd;
+border: solid 2px #900;
+font-size:1.2em;
+font-weight:bold;
+}

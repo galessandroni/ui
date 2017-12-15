@@ -1,0 +1,180 @@
+/* CSS */
+
+
+/*IMMAGINE CENTRALE*/
+
+#content-banner {
+height: 192px;
+}
+
+#content-banner a{
+color:#fff;
+}
+
+#content-banner-left h3.feature {
+display:none;
+}
+
+#content-banner-left {
+float:left;
+margin:0;
+padding:0;
+}
+
+#content-banner-left ul.items {
+float:left;
+margin:0;
+padding:0;
+}
+
+#content-banner-left li.gallery-item {
+position:relative;
+float:left;
+margin:0;
+padding:0;
+}
+
+#content-banner-left li.gallery-item img {
+float:left;
+margin:0;
+padding:0;
+}
+
+#content-banner-left #banda-bianca {
+position:absolute;
+bottom:-10px;
+}
+
+#content-banner-right {
+float:right;
+width:388px;
+height:192px;
+color:#fff;
+background:#333333;
+}
+
+#content-banner-right #random-quote {
+font-size:1.05em;
+font-style:normal;
+border-bottom:1px solid #fff;
+width:100%;
+height: 145px;
+float:right;
+overflow: auto;
+}
+
+#content-banner-right #random-quote .quote {
+margin:  0 2em;
+}
+
+#content-banner-right .quote .author {
+margin: 0.7em 0 0 0;
+border:none;
+}
+
+#content-banner-right h3.feature {display:none;}
+
+#content-banner-right .leggi {
+position:absolute;
+height:1em;
+float:left;
+background:#fff;
+}
+
+#content-banner-right .breadcrumb-home {display:none;}
+
+#content-banner-right .halftitle {
+margin:0 0 0.4em 0;
+font-size:0.8em
+}
+
+#content-banner-right h3 {
+font-variant:small-caps;
+font-size:1.3em;
+}
+
+#content-banner-right .subhead {
+margin:1em 0 0 0 ;
+font-size:1.05em
+}
+
+#content-banner-right img {display:none;}
+
+
+/*CENTER*/
+#center h3.feature {display:none}
+
+#center .breadcrumb-home {
+text-transform: uppercase;
+font-variant: small-caps;
+width:200px;
+float:right;
+background: #98846c;
+color:#fff;
+font-size: 0.85em;
+padding: 0 12px;
+}
+
+#center .linea {
+float:right;
+width:100%;
+border-bottom: 1px solid #98846c;
+position:relative;
+background-image: url(http://www.peacelink.it/images/285.gif);
+background-repeat: no-repeat; 
+background-position: 260px;
+font-weight:normal;
+padding: 0;
+margin:0 0 8px 0;
+}
+
+ #center h3 {
+color:#fff;
+margin:0;
+padding:0;
+}
+
+ #center ul.items {
+padding:0;
+margin: 1em 0;
+width:100%
+}
+
+ #center ul.items li {
+padding:0;
+margin: 1em 0;
+width:100%
+}
+
+ #center .halftitle {
+margin: 0 0 5px 0;
+font-size: 0.8em
+}
+
+ #center h3 {
+color: #0e4b78;
+font-variant:small-caps;
+font-size: 1.3em;
+}
+
+ #center .subhead {
+font-size: 1em;
+font-style:normal;
+}
+
+ #center .article-item {
+border:none;
+}
+
+#center ul.items img.left,
+#center ul.items img.right {
+float:left;
+margin:0 15px 0 0;
+border:solid 1px #000;
+}
+
+
+/*LEFT_BAR*/
+#main-center #left-bar .menu-footer {
+margin:2.9em 0;
+}

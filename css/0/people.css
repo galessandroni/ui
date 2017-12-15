@@ -1,0 +1,75 @@
+/* people */
+
+#login-links,
+#verification-info,
+fieldset#security
+{
+float:left;
+width:90%;
+}
+
+#login-links li
+{
+margin:0.3em 0;
+}
+
+#user-details li {
+margin-bottom:1em;
+}
+
+fieldset#security {
+margin-top:1em;
+}
+
+fieldset#security legend {
+font-size:0.9em;
+padding:0 0.5em;
+}
+
+fieldset#security li {
+font-style:italic;
+}
+
+form#people-login fieldset#security ul.form-inputs li label.radio {
+display:block;
+}
+
+/* HISTORY */
+
+#user-history
+{
+padding:1em;
+}
+
+#user-history h2 { 
+margin: 1em 0 0 0;
+font-size:1.1em;
+}
+
+#user-history ul.hitems {
+margin:0;
+padding-left:1em;
+}
+
+#user-history ul.hitems h3 {
+font-weight:normal;
+font-size:1em;
+}
+
+#user-history ul.hitems li {
+margin-bottom:1em;
+}
+
+.hdate
+{
+font-size: 0.8em;
+font-style:italic;
+margin-left:-0.5em;
+}
+
+#people-contact .newsletter-info
+{
+font-size:0.8em;
+margin-left:4em;
+font-style:italic;
+}

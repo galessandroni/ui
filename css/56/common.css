@@ -1,0 +1,103 @@
+/* CSS */
+
+.quote {
+font-size: .8em;
+font-weight: bold;
+text-align: right;
+}
+
+.quote .author{
+font-size: 1em;
+font-weight: bold;
+font-style: italic;
+text-align: right;
+}
+
+
+#citazione {
+  float: right;
+  height: 80px;
+  width: 30%;
+  position: relative;
+  
+}
+
+#banner-g8 {
+float: right;
+}
+
+#bannerhp img {
+height: 60px;
+}
+
+#top-nav ul#content-links
+{
+background-color: #f00;
+float:left;
+width:100%;
+margin:0;
+padding:0;
+}
+
+#top-nav ul#content-links li.selected {
+background-color:#2f2f6b;
+}
+
+#top-nav ul#pck-links 
+{
+margin:0;
+padding:0;
+background-color:#FFCC00;
+float:right;
+width:100%;
+text-align:right;
+}
+
+#top-nav ul#pck-links a
+{
+text-align:center;
+color:#EF570E;
+}
+
+#top-nav ul#content-links a
+{
+text-align:center;
+color:#FFCC00;
+}
+
+#top-nav ul#content-links
+{
+background-color:#EF570E;
+}
+
+
+
+
+.colonnahp
+
+{
+width: 48%;
+display: block;
+float: left;
+margin-top: 0pt;
+margin-right: 0pt;
+margin-bottom: 4px;
+margin-left: 0pt;
+padding-top: 2px;
+padding-right: 2px;
+padding-bottom: 2px;
+padding-left: 2px;
+}
+
+#right-bar h3 {
+text-decoration: none;
+text-align: center;
+color: #0000aa;
+}
+
+
+
+.last-update {
+width: 98%
+}
+

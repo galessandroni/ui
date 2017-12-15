@@ -1,0 +1,41 @@
+/* CSS */
+
+ul.feeds {
+margin:0;
+padding:0;
+float:left;
+width:95%;
+}
+
+ul.groups,
+ul.topics {
+margin:0;
+padding:0 0 0 1em;
+}
+
+ul.feeds li { 
+margin:0.5em 0; 
+}
+
+ul.feeds li.group {
+margin:1em 0;
+}
+
+ul.feeds li.group a {
+font-weight:bold;
+}
+
+ul.feeds li.topic a,
+ul.feeds li.group div a {
+font-weight:normal;
+}
+
+ul.feeds li div { 
+font-size:0.95em;
+font-style:italic; 
+margin-left:0.5em;
+}
+
+ul.feeds li.topic {
+font-size:0.9em;
+}

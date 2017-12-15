@@ -1,0 +1,11 @@
+/* IE7 */
+
+.topic_home #main #center {
+width: 720px;
+}
+
+.topic_home #cd-boxes .cd-box {
+width:220px;
+}
+
+#cd-search { padding:0 0 2px 0; }

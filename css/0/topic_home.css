@@ -1,0 +1,30 @@
+/* CSS */
+
+.last-update {
+font-size:0.9em;
+margin:1em;
+padding:0.5em;
+border-top: dotted 1px #666;
+font-style:italic;
+float:left;
+width:90%;
+}
+
+#id2.topic_home #center ul.items {
+width:70%;
+}
+
+.topichome-addons {
+float:right;
+width:25%;
+background-color:#eee;
+border:solid 1px #ddd;
+}
+
+.topichome-addons h3.lister-title {
+text-align:center;
+}
+
+.topichome-addons li {
+margin-bottom:0.6em;
+}

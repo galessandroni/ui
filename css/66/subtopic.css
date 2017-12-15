@@ -1,0 +1,17 @@
+/* CSS */
+
+.subtopic-headings {
+display:none;
+}
+
+ul.items li.gallery_thumb-item {
+float:left;
+width:120px;
+margin:5px;
+border-bottom:none;
+clear:none;
+}
+
+.highslide-caption {
+background-color:#FFFFFF;
+}

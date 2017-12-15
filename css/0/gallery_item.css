@@ -1,0 +1,7 @@
+#center h1, #center .description {
+display:none;
+}
+
+.gallery-image img {
+float:left;
+}

@@ -1,0 +1,158 @@
+/* CSS */
+
+body { 
+background: #62a8dc; 
+font-family:Verdana,Arial,Helvetica,sans-serif;
+padding:12px;
+}
+
+#marquee{
+margin-bottom:10px;
+}
+
+#rid-wrap {
+background:transparent;
+text-align:left;
+}
+
+#rid-wrap {width:105%; min-width:1020px;}
+
+#rid-left { 
+float:left;
+width:210px;
+text-align:right;
+padding: 0 1em 1em 0;
+margin:1em 0;
+background:transparent;
+}
+
+#rid-content {
+background: #62a8dc; 
+text-align:left;
+padding:5px;
+margin:10px 0;
+margin-left:220px;
+width:770px;
+}
+
+#rid-clear {
+clear:left;
+color:#fff;
+}
+
+ul.menu li a {
+font-weight:bold;
+color:#003366;
+font-size:22px;
+text-transform:lowercase;
+}
+
+ul.menu li a:hover {
+color:#666;
+text-decoration:none;
+}
+
+ul.menu li ul li a {
+font-weight:normal;
+color:#005;
+font-size:14px;
+}
+
+ul.menu li ul li a:hover {
+color:#666;
+text-decoration:none;
+}
+
+.breadcrumb { 
+border:solid 1px #c8deef;
+background-color:#183952;
+padding:1px 5px;
+font-style:italic;
+font-size:0.8em;
+color:#fff;
+text-transform:uppercase;
+}
+
+#rid-content .breadcrumb a { 
+color:#fff;
+}
+
+.breadcrumb a:hover { 
+text-decoration:underline;
+}
+
+ul#tool-bar li {
+background-color:#c8deef;
+}
+
+.headings h1 {
+color:#183952;
+}
+
+#rid-left h2,
+ul.menu li#ms1025 ul,
+ul.menu li#ms1026 ul {
+display:none;
+}
+
+#rid-content a {
+color: #295271;
+}
+
+#rid-content a:hover {
+color: #fd9603;
+}
+
+#rss {
+text-align:right;
+}
+
+
+#rid-wrap #rid-home ul.items li.article-item .article-item {
+border:none;
+}
+
+/* APPROFONDIMENTI */
+
+#appro h3.feature {
+color:#000000;
+text-align:left;
+font-size:1.2em;
+background-color:#ffffff;
+display: none;
+
+}
+
+appro {
+clear:left;
+width:200px
+padding-top:10px;
+padding-bottom:10px;
+margin:0;
+font-size:0.9em;
+text-align:left;
+}
+
+#appro h3 {
+font-size:1em;
+text-align:left;
+background-color:#e5e5e5;
+padding: 2px;
+}
+
+li.article-item{
+background-color:#e5e5e5;
+padding: 2px;
+}
+
+#appro .halftitle {
+display: none;
+}
+
+#appro .notes {
+display: none;
+}
+
+#appro .subhead {
+display: none;
+}

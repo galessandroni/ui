@@ -1,0 +1,46 @@
+/* CSS */
+
+#center .breadcrumb {
+width:476px;
+float:left;
+background: #bb3300;
+color:#fff;
+font-size: 9pt;
+padding: 0 12px;
+border:none;
+margin:1em 0 1.5em 0;
+}
+
+#center .breadcrumb a {
+color:#fff;
+}
+
+#center .book  {
+width:500px;
+float:left;
+}
+
+#center .book h1 {
+font-size:14pt;
+font-weight:normal;
+color:#ee4600;
+margin:0.2em 0 0.7em 0;
+}
+
+#center .book #book-summary {
+margin-left:220px;
+padding-left:0em;
+}
+
+#center .book #book-details {
+clear:none;
+margin-left:220px;
+padding-left:0em;
+}
+
+
+#books-content #book-search ul.form-inputs {
+margin-bottom: 20px;
+}
+
+

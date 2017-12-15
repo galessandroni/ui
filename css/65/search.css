@@ -1,0 +1,41 @@
+/* CSS */
+
+#center ul.breadcrumb {
+float:left;
+width:100%;
+margin:1em 0 0.3em 0;
+padding:0;
+background:#fff;
+color:#4b474e;
+font-size:1.1em;
+font-weight:bold;
+}
+
+#center .item-breadcrumb {
+font-size:0.8em
+}
+
+#center ul li {
+margin:0.8em 0;
+border:none;
+border-bottom: 1px solid #98846c;
+}
+
+
+#center .halftitle {
+margin:0.4em 0;
+font-size:0.9em;
+}
+
+#center ul.items li h3 {
+margin:0.4em 0;
+}
+
+#center ul.items li .subhead {
+margin:0.4em 0;
+font-style:normal;
+}
+
+#center ul.items li .notes {
+font-size: 0.8em;
+}

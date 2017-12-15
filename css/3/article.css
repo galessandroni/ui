@@ -1,0 +1,38 @@
+/* CSS */
+
+#similar ul {
+margin:0.5em;
+padding:0;
+}
+
+#similar ul.items li {
+border-bottom-width:0;
+margin-bottom:1em;
+}
+
+#similar li .item-breadcrumb {
+background-color:#dedede;
+padding:1px 5px;
+}
+
+#similar li .item-breadcrumb a {
+color:#444;
+}
+
+#similar li .item-breadcrumb a:hover {
+color:#00e;
+}
+
+.article-box {
+border: solid 4px #ddd;
+padding:0.8em;
+font-style:italic;
+}
+
+ul.article { 
+  list-style: square;
+  font-size: 1.0em;
+  line-height: 1.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.1em; 
+}

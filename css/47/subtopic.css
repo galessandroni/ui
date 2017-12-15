@@ -1,0 +1,15 @@
+/* CSS */
+
+#center .header {
+margin:1em;
+font-weight:bold;
+}
+
+#center h1
+{
+display:block;
+}
+
+#center ul.subtopics {
+margin-bottom:1.5em;
+}

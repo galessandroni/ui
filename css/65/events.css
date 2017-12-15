@@ -1,0 +1,95 @@
+/* CSS */
+
+.breadcrumb, ul.day-topbar,.event-back { display:none; }
+
+#calendar-content #event-content {
+width:100%;
+margin:1em 0 0 0;
+padding:0;
+}
+
+#calendar-content #event-content .event-type {
+text-transform: uppercase;
+font-variant: small-caps;
+width:200px;
+float:right;
+background: #98846c;
+color:#fff;
+font-size: 0.85em;
+padding: 0 12px;
+}
+
+#calendar-content #event-content .linea {
+float:right;
+width:100%;
+border-bottom: 1px solid #98846c;
+position:relative;
+background-image: url(http://www.peacelink.it/images/285.gif);
+background-repeat: no-repeat; 
+background-position: 260px;
+font-weight:normal;
+padding: 0;
+margin:0 0 8px 0;
+}
+
+#calendar-content #event-content .event-place,
+#calendar-content #event-content .event-time {
+font-size:1.0em;
+color:#f7720f;
+}
+
+#calendar-content #event-content .event-place {
+margin:0;
+padding:0;
+}
+
+#calendar-content #event-content .event-place .event-place-details {
+margin:1em 0;
+color:#4b474e;;
+font-weight:normal;
+font-size:0.833em;
+}
+
+#calendar-content #event-content h1 {
+color:#0e4b78;
+font-size:1.5em;
+}
+
+
+/*right BAR */
+
+#right-bar {
+margin:1em 0 0 0;
+background:#fff;
+}
+
+#right-bar #events-info #event-search,
+#right-bar #day-week #curr-day, 
+#right-bar #events-info #submit-event  {
+background:#e9f4ff;
+}
+
+#submit-event a {
+margin:0;
+}
+
+#right-bar #events-info #submit-event-insert {
+margin:0.5em 0.8em;
+}
+
+#right-bar #events-info #event-search h3,
+#right-bar #day-week #curr-day h3, 
+#right-bar #events-info #submit-event h3 {
+background:#6699cc;
+color:#fff;
+}
+
+#right-bar #events-info #event-search h3 a {
+color:#fff;
+}
+
+#right-bar h3.feature {display:none}
+
+
+
+

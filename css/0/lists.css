@@ -1,0 +1,42 @@
+/* CSS */
+
+ul#ml-groups {
+padding:0 1em;
+margin:0;
+}
+
+ul#ml-groups li,
+ul#ml-lists li {
+margin-bottom:1em;
+}
+
+ul#ml-groups li li,
+ul#ml-lists li li {
+margin:0.6em 0;
+}
+
+ul#ml-groups li a,
+ul#ml-lists li a {
+font-weight:bold;
+}
+
+ul#ml-groups li li a,
+ul#ml-lists li li a {
+font-weight:normal;
+}
+
+#lists-content .rss-feed {
+border-top:solid 4px #eee;
+margin:1em 0;
+padding:1em;
+float:left;
+width:95%;
+overflow:auto;
+}
+
+.list-description,
+#center #lists-content .article-item .description {
+font-size:0.9em;
+font-style:italic;
+padding-left:0.8em;
+}

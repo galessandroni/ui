@@ -1,0 +1,22 @@
+/* CSS */
+
+ol.documents-list {
+margin:0 1em;
+padding:0;
+}
+
+ol.documents-list li {
+margin-bottom:0.5em;
+}
+
+ol.documents-list li .file-info {
+font-size:0.9em;
+}
+
+ol.documents-list li .doc-author {
+font-weight:bold;
+}
+
+ol.documents-list li h3 {
+font-size:1.2em;
+}

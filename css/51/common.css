@@ -1,0 +1,64 @@
+/* CSS */
+
+body {
+background-color:#eee;
+}
+
+#ssntable {
+background-image: url(https://www.peacelink.it/images/246.jpg);
+}
+
+td#ssncenter,
+td#ssnleft {
+padding:0 1em;
+}
+
+td#ssnleft {
+border-right:solid 2px #eee;
+text-align:center;
+width:170px;
+}
+
+td#ssnleft  ul.menu li {
+margin:0;
+padding:2px;
+}
+
+td#ssnleft  ul.menu li a {
+color:#000;
+}
+
+td#ssnleft  ul.menu li a:hover {
+color:#fff;
+}
+
+td#ssnleft  ul.menu li#ms2725,
+td#ssnleft  ul.menu li#ms3118  { background-color: #BD92FA; }
+td#ssnleft  ul.menu li#ms2729,
+td#ssnleft  ul.menu li#ms3492 { background-color: #6D81FD; }
+td#ssnleft  ul.menu li#ms2727,
+td#ssnleft  ul.menu li#ms3491 { background-color: #6DE7FD; }
+td#ssnleft  ul.menu li#ms3055 { background-color: #6FD572; }
+td#ssnleft  ul.menu li#ms3024 { background-color: #FCFE6C; }
+td#ssnleft  ul.menu li#ms2728 { background-color: #FFDA6F; }
+td#ssnleft  ul.menu li#ms2726 { background-color: #FD786E; }
+
+.last-update {
+display:none;
+}
+
+.breadcrumb {
+
+}
+
+#ssnleft h2 {margin-top:0;}
+
+ul#tool-bar li { background-color:#fff; }
+
+td#ssnleft #rss {
+margin:2em 0;
+}
+
+#ssnleft .banner {
+margin:1em 0;
+}

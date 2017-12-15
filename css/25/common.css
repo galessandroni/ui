@@ -1,0 +1,59 @@
+/* CSS */
+
+body { background: white url(http://www.peacelink.it/images/129.jpg) no-repeat top left; font-family: Arial, Helvetica, sans-serif; font-size: 90%; text-decoration: none; padding: 0; margin: 10px; text-align:left; }
+
+td { font-family: Arial, Helvetica, sans-serif; font-size: 90%; }
+
+a { color: #000000; }
+a:hover { color: #E97117; }
+
+th { font-size: 10pt; background-color: #EEEEEE; font-variant: small-caps}
+
+textarea { font-size: 10pt; }
+
+hr { height: 2px; color: #E26105; background-color: #E26105; border-style: none; margin: 0px 0px; }
+
+/* MAIN */
+#cell-menu { background-color: #E97117; }
+.left_bar { padding: 0.5em; color: #FFF; }
+.left_bar a { color:#FFF; text-decoration: none; }
+.left_bar a:hover { color:#FFF; text-decoration: underline; }
+
+#cell-content { padding: 0.5em 1em 1em 1em; }
+.content { margin: 1em 0 0 0; }
+.menubar { color: #F98937; background-color: #E26105; }
+
+.breadcrumb { font-size: 1.2em; font-weight: bold; padding: 0.2em 0; border-bottom: solid 2px #E97117; border-left-width:0; }
+.subpath a { text-decoration: none; }
+.last_update { font-size: 0.9em; margin: 4px 0px; border: solid 1px #CCCC99; }
+.print_box { float: right; padding: 2px; margin: 3px; border: 1px solid #E97117;  }
+.print_page,.send_email { font-size: 0.8em; text-align: center; margin: 2px; padding: 1px; }
+
+/* MENU */
+.menu { padding-top: 1px; padding-bottom: 5px; }
+.menu_title { font-size: 1.2em; font-weight: bold; text-align: right; }
+.menu_items { text-align: right;  }
+.menu_item { margin: 1em 0 0 0; }
+.menu_level_1 { font-weight: bold; }
+.menu_level_2 { margin-left: 7px; }
+.menu_footer { font-size: 0.9em; }
+
+/* TABLES */
+.pager { color: #999999; }
+.list_item_0 { background-color: #ECF1F4; }
+.list_item_1 { background-color: #FFFFFF; }
+.column_cell { padding: 5pt; }
+
+/* ITEM (article, event) */
+.heading {  }
+.headline { font-size: 1.4em;  font-weight: bold }
+.subhead { font-style: italic; }
+.heading_notes { margin: 0.3em 0 1em 0; }
+.notes { font-style: italic; }
+
+/* LIST ITEM */
+.item { margin-top: 4px; margin-bottom: 16px; }
+.item_path {  }
+.item_title { font-weight: bold; }
+.item_title_big { font-weight: bold; }
+.item_box { margin-bottom: 5px; margin-top: 5px; padding: 2pt; border-style: solid; border-width: 1pt; border-color: #EEEEEE; }

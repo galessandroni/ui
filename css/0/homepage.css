@@ -1,0 +1,73 @@
+/* CSS */
+
+#center .pckbox {
+width:420px;
+}
+
+#center #fotonotizia {
+padding:10px;
+text-align:center;
+background-color:#fbdcab; 
+width:400px;
+margin-top:0;
+}
+
+#fotonotizia h3.feature {
+display:none;
+}
+
+#fotonotizia .description {
+font-style:italic;
+padding:0.2em;
+}
+
+#speciale #topic-desc {
+padding: 0.5em 1em;
+background: #fbdcab url(http://www.peacelink.it/images/261.jpg) no-repeat fixed left center;
+text-align: right;
+font-style: italic;
+}
+
+#notizia-gold .article-item {
+padding:0.5em;
+}
+
+#notizia-gold h3.feature {
+background-color:#f9f60e;
+color:#2f2f6b;
+text-transform:uppercase;
+}
+
+.item-breadcrumb {
+color:#333;
+font-size:0.9em;
+font-style:italic;
+padding-left:0.2em;
+
+}
+
+.item-breadcrumb a {
+color:#333;
+}
+
+.item-breadcrumb a:hover {
+color:#d44;
+}
+
+#giornalismi .rss-feed h4 a, #giornalismi .notes {
+display: none;
+}
+
+#giornalismi img {
+width: 90%;
+height: auto;
+}
+
+#facebook {
+text-align:center;
+margin:0.5em;
+}
+
+#pck-gaza, .pluginLikeboxStream {
+font-size:0.85em !important;
+}

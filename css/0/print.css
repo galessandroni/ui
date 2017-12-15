@@ -1,0 +1,94 @@
+body
+{
+padding: 0.25em; 
+text-align: left;
+background-color:#fff;
+color:#000;
+}
+
+a
+{
+text-decoration:none;
+color:#000;
+}
+
+a img
+{
+border-width:0;
+}
+
+.banner,
+#preview-toolbar,
+#tool-bar,
+#rss,
+#top-nav,
+.comments,
+#left-bar,
+#right-bar,
+#bottom-bar,
+#logo
+{
+display:none;
+}
+
+/* TITLES */
+
+.headings
+{
+margin: 0.5em 0;
+}
+
+.headings .notes,
+.headings .source
+{
+margin-top:0.25em;
+font-size:0.9em;
+}
+
+h1
+{
+font-variant:small-caps;
+font-size:1.3em;
+}
+
+.subhead
+{
+font-style:italic;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb
+{
+margin: 0 0 1em 0;
+padding: 0.2em 0.5em;
+border-left:solid 2px #ddd;
+border-bottom:solid 2px #ddd;
+font-family: arial, "lucida console", sans-serif;
+font-weight: bold
+}
+
+/* IMAGES */
+
+img
+{
+border-width:0;
+}
+
+img.right
+{
+float:right;
+margin: 0 0 0.5em 0.5em;
+}
+
+img.left
+{
+float:left;
+margin: 0 0.5em 0.5em 0;
+}
+
+img.standalone
+{
+display:block;
+margin:0.5em 0;
+}

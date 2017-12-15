@@ -1,0 +1,23 @@
+/* forum */
+
+.forum-insert {
+margin:0.5em;
+font-style:italic;
+}
+
+.thread .source, 
+.thread .author {
+font-size:0.9em;
+margin: 0.5em 0;
+font-style:italic;
+}
+
+#forum-content .over 
+{
+margin:0.5em 0;
+padding:0.5em;
+background-color: #fdd;
+border: solid 2px #900;
+font-size:1.2em;
+font-weight:bold;
+}

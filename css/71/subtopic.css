@@ -1,0 +1,27 @@
+/* CSS */
+
+.subtopic-headings {
+display:none;
+}
+
+.article-highlight {
+padding:1em;
+background-color:#e7d1a3;
+border:inset 1px #e7d1a3;
+}
+
+.article-highlight .article-item h3 {
+font-size:1.5em;
+}
+
+ul.items li.gallery_thumb-item {
+float:left;
+width:120px;
+margin:5px;
+border-bottom:none;
+clear:none;
+}
+
+.highslide-caption {
+background-color:#FFFFFF;
+}

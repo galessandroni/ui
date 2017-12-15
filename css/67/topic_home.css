@@ -1,0 +1,307 @@
+/* CSS HOME MOSAICO */
+
+
+/*IMMAGINE CENTRALE*/
+
+#content-banner a{
+color:#fff;
+}
+
+#content-banner h3.feature {
+display:none;
+}
+
+#content-banner {
+float:left;
+width:730px;
+color:#fff;
+background:#444444;
+border-top:1px solid #fff;
+font-size: 10pt;
+}
+
+#content-banner img.right,
+#content-banner img.left {
+float:left;
+margin:10px 64px 10px 44px;
+background:#444444;
+}
+
+
+#content-banner .article-item  {
+margin:1em 1em 1em 0;
+overflow: auto;
+}
+
+#content-banner .top  {
+float:left;
+width:730px;
+border-bottom:2px solid #fff;
+}
+
+#content-banner .breadcrumb-home {display:none;}
+
+#content-banner .halftitle {
+margin:0 0 0.4em 0;
+font-size:8pt
+}
+
+#content-banner h3 {
+font-size:13pt;
+font-weight:normal;
+}
+
+#content-banner .subhead {
+margin:1em 0 0 0 ;
+font-size:10pt;
+}
+
+
+#content-banner .linea {display:none;}
+
+#content-banner .leggi {
+float:right;
+width:250px;
+text-transform:uppercase;
+font-size: 8pt;
+background-image: url(https://www.peacelink.it/images/312.gif);
+background-repeat: no-repeat; 
+background-position: 0px 7px;
+padding:3px 0 3px 20px;
+}
+
+#content-banner .leggi a {
+padding:0 15px;
+}
+
+
+
+
+
+
+
+/*CENTER*/
+#center h3.feature {display:none}
+
+#center .breadcrumb-home {
+width:200px;
+float:right;
+background: #bb3300;
+color:#fff;
+font-size: 9pt;
+padding: 0 12px;
+}
+
+#center .linea {
+float:right;
+width:100%;
+border-bottom: 1px solid #bb3300;
+position:relative;
+background-image: url(https://www.peacelink.it/images/316.gif);
+background-repeat: no-repeat; 
+background-position: 260px;
+font-weight:normal;
+padding: 0;
+margin:0 0 8px 0;
+}
+
+#center ul.items {
+padding:0;
+margin: 1em 0;
+width:100%
+}
+
+#center ul.items li {
+padding:0;
+margin: 1em 0;
+width:100%
+}
+
+#center .halftitle {
+text-transform:none;
+margin: 0;
+font-size: 9pt;
+}
+
+#center h3 {
+color: #0e4b78;
+font-weight:normal;
+text-transform: uppercase;
+font-size: 11pt;
+margin:0;
+padding:0;
+}
+
+#center .subhead {
+font-size: 10pt;
+font-style:normal;
+}
+
+#center .article-item {
+border:none;
+}
+
+#center ul.items img.left,
+#center ul.items img.right {
+float:left;
+margin:0 15px 5px 10px;
+}
+
+
+
+/* BOX NEWS */
+#center .bottom-home .boxleft {
+float:left;
+width:240px;
+}
+
+#center .bottom-home .freccia {
+float:left;
+background-image: url(https://www.peacelink.it/images/316.gif);
+background-repeat: no-repeat;
+background-position: 72px 0px ;
+}
+
+#center .bottom-home .boxright {
+margin-left:260px;
+width:240px;
+}
+
+#center .bottom-home h3.feature {
+display:block;
+width:130px;
+float:right;
+color:#fff;
+font-size: 9pt;
+text-transform:none;
+padding: 0px 12px;
+}
+
+#center .bottom-home h3 {
+font-size: 9pt;
+}
+
+#center .bottom-home .boxleft h3.feature {
+background: #014566;
+}
+
+#center .bottom-home .boxright h3.feature {
+background: #50aa22;
+}
+
+#center .bottom-home ul.items {
+margin:0 0 15px 0;
+padding:0;
+}
+
+#center .bottom-home .boxleft ul.items {
+background: #bbccdd;
+}
+
+#center .bottom-home .boxright ul.items {
+background: #ccddcc;
+}
+
+#center .bottom-home .boxleft .linea {
+border-color: #014566;
+}
+
+#center .bottom-home .boxright .linea {
+border-color: #50aa22;
+}
+
+#center .bottom-home ul.items li{
+margin:0 0 1em 0;
+padding:0px;
+}
+
+#center .bottom-home .boxleft ul.items li a {
+color:#014566;
+}
+
+#center .bottom-home .boxright ul.items li a {
+color:#50aa22;
+}
+
+#center .bottom-home ul.items li.article-item .article-item {
+margin:0;
+padding:10px;
+}
+
+#center .bottom-home ul.items li.article-item .article-item .notes,
+#center .bottom-home ul.items li.article-item .article-item .halftitle{
+font-size:8pt;
+}
+
+#center .bottom-home ul.items li.article-item .article-item .subhead{
+font-size:9pt;
+}
+
+#center .bottom-home .breadcrumb-home {
+display:none;
+}
+
+
+
+/* RIGHT BAR */
+
+#right-bar .nascondi h3.feature {display:none;}
+
+#right-bar .generic-text {
+margin:10px;
+}
+
+#right-bar .calendario {
+border-top:1px solid #444444;
+border-bottom:1px solid #444444;
+float:left;
+padding:0 0 15px 0;
+}
+
+#right-bar ul.iniziative {
+float:left;
+padding:0 0 15px 10px;
+width:190px;
+}
+
+#right-bar ul.iniziative h3.feature {
+margin:5px 0 15px 5px;
+}
+
+#right-bar #iniziative li h3 {
+font-weight:normal;
+margin-left: 100px;
+float:right;
+}
+
+#right-bar ul.iniziative li {
+float:left;
+margin:1em 0em 0em 0.5em;
+padding:0;
+width:auto;
+border:none;
+}
+
+#right-bar ul.iniziative li h3 {
+font-weight:normal;
+margin:1em 0em 0em 85px;
+padding:0em;
+border:none;
+}
+
+#right-bar ul.iniziative li img {
+float:left;
+padding:0em;
+width:auto;
+border:none;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+/* CSS */
+
+body { background-color:#F9D5AF; }
+td#cell-menu,td#cell-content,td#cell-logo { padding:10px; }
+td#cell-logo { background-color:#8080C0; text-align:center; }
+a { color: #334363; }
+a:hover { text-decoration: underline; color: #9c3000; }

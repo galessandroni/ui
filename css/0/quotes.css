@@ -1,0 +1,24 @@
+/* CSS */
+
+.quote
+{
+margin 1em 0;
+}
+
+.quote p
+{
+margin:0;
+font-style:italic;
+}
+
+.quote .author
+{
+font-size:0.9em;
+}
+
+.codebox
+{
+margin:0.5em 0;
+border:solid 1px #888;
+padding:0.5em;
+}

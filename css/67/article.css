@@ -1,0 +1,316 @@
+/*CSS ARTICLE */
+
+#article-text,
+.halftitle,
+.subhead {
+font-size: 11pt;
+}
+
+
+.headings {
+clear:both;
+}
+
+.headings .halftitle {
+}
+
+.headings h1 {
+font-size:20pt;
+font-weight:normal;
+color:#ee4600;
+margin:0.2em 0 0.7em 0;
+}
+
+#id276 #center .sottoarchivio1 h1 {
+display:none;
+}
+
+#id276 #center .sottoarchivio1 .headings h1 {
+display:block;
+font-size:20pt;
+font-weight:normal;
+color:#ee4600;
+margin:0.2em 0 0.7em 0;
+background: none;
+}
+
+.headings .notes {
+margin:10px 0 0 0;
+color: #ee4600;
+font-size:11pt;
+}
+
+.headings .notes a {
+color: #ee4600;
+}
+
+.headings .source {
+color: #ee4600;
+margin:0 0 10px 0;
+}
+
+#center #article-content #article-text img {
+padding-bottom:2px;
+border-bottom:8px solid #0e4b78;
+}
+
+
+
+
+
+/*RIGHT BAR */
+
+#right-bar {
+background: #fff;
+}
+
+.subtopic #right-bar .bordobox,
+.subtopic #right-bar #similar.pckbox {
+margin-top:13px;
+}
+
+#right-bar .bordobox,
+#right-bar #similar.pckbox {
+margin-top:45px;
+width:206px;
+border:1px solid #c2c2c2;
+padding-bottom:6px;
+}
+
+.subtopic #right-bar .bordobox ul.items li,
+.subtopic #right-bar #similar.pckbox ul.items li {
+margin:  0;
+}
+
+#right-bar .bordobox ul.items li,
+#right-bar #similar.pckbox ul.items li {
+float:left;
+padding:0 10px;
+margin: 10px 0;
+width:188px;
+}
+
+#right-bar #similar.pckbox ul .item-breadcrumb  {
+display:block;
+}
+
+#right-bar .bordobox ul li .article-item h3,
+#right-bar #similar.pckbox ul li .article-item h3 {
+background-image:none; 
+padding:0;
+font-size:10pt;
+font-weight:normal;
+}
+
+#right-bar  .bordobox ul.halftitle,
+#right-bar .bordobox ul.subhead,
+#right-bar .bordobox ul .notes {display:block;}
+
+.pckbox h3.feature {
+color:#ee4600;;
+text-align:center;
+}
+
+
+#right-bar #similar.pckbox h3.feature {
+background-color:#fff;
+}
+
+#right-bar #similar.pckbox .halftitle {
+font-size:9pt;
+display:block;
+}
+
+#right-bar #similar.pckbox .subhead {
+display:block;
+font-size:9pt;
+}
+
+#right-bar #similar.pckbox .notes {
+display:block;
+font-size:8pt;
+}
+
+#right-bar .article-notes {
+background: #fff;
+float:left;
+}
+
+#right-bar #article-related,
+#right-bar #article-docs,
+#right-bar .article-notes,
+#right-bar ul li {
+padding:0;
+width:208px;
+border:none;
+}
+
+#right-bar #article-docs {
+border:none;
+padding:0
+}
+
+#right-bar #similar.pckbox ul li,
+#right-bar #article-related ul.related li,
+#right-bar #article-docs h3,
+#right-bar #article-docs ul.article-docs li {
+margin:0;
+padding:0;
+}
+
+#right-bar .article-notes h3,
+#right-bar #article-docs h3,
+#right-bar #article-related h3#related-title {
+background:#fff;
+text-transform:lowercase;
+margin:1.4em 0em 0em 0em;
+position:relative;
+background-repeat: no-repeat; 
+background-position: 0px 8px;
+padding:8px 0 8px 35px ;
+font-size:13pt;
+font-weight:normal;
+color: #ee4600;
+text-align:left;
+}
+
+#right-bar #similar.pckbox h3.feature {
+background-image: url(https://www.peacelink.it/images/314.gif);
+text-transform:lowercase;
+margin:10px 0em 0em 15px;
+position:relative;
+background-repeat: no-repeat; 
+background-position: 0px 12px;
+padding:8px 0 8px 35px ;
+font-size:13pt;
+font-weight:normal;
+color: #ee4600;
+text-align:left
+}
+
+
+#right-bar .article-notes h3 {
+background-image: url(https://www.peacelink.it/images/315.gif);
+font-size:13pt;
+}
+
+#right-bar #article-docs h3 {
+background-image: url(https://www.peacelink.it/images/315.gif);
+}
+
+#right-bar #article-related h3#related-title {
+background-image: url(https://www.peacelink.it/images/314.gif);
+}
+
+#right-bar ul.related .article-item div,
+#right-bar ul .halftitle,
+#right-bar ul .subhead,
+#right-bar ul .notes,
+#right-bar ul .item-breadcrumb,
+#right-bar ul img {display:none;}
+
+#right-bar #article-docs .format-info {display:none;}
+
+#right-bar #article-docs .title {
+margin:0.3em 0em 0.4em 0em;
+position:relative;
+background-image: url(https://www.peacelink.it/images/313.gif);
+background-repeat: no-repeat; 
+background-position: 0px 4px;
+padding:0 10px;
+font-size:10pt;
+color: #4b474e;
+font-weight:normal;
+}
+
+#right-bar #article-docs .title {
+margin:8px 0;
+font-size:10pt;
+}
+
+#right-bar #article-docs li {
+margin:8px 0;
+font-size:10pt;
+}
+
+#right-bar ul.related .article-item h3 {
+margin:8px 0;
+font-size:10pt;
+}
+
+
+
+
+/*CONDIVISIONE*/
+
+#share h4 {
+font-weight:normal;
+margin:0;
+padding:0;
+float:left;
+font-size:9pt;
+}
+
+
+.share-tool {
+position:relative;
+float:left;
+margin:10px 0 0 0;
+width:100%;
+}
+
+#share {
+float:left;
+position:relative;
+margin:0 5px 0 0;
+width:300px;}
+
+#share ul li {
+position:relative;
+float:left;
+margin:0 5px;
+font-size:7pt;
+width:auto;
+}
+
+*html #share ul li {
+display:none;
+}
+
+.share-tool #tool-bar li a,
+.share-tool #share ul li a {
+text-decoration: none; 
+height:20px;
+}
+
+.share-tool #tool-bar {
+position:relative;
+float:right;
+width:178px;
+margin: 0px;
+padding:0 0px 0 10px;
+border:none;
+}
+
+.share-tool #tool-bar li {
+height:20px;
+background-color:#fff;
+background-repeat: no-repeat; 
+background-position: 0px;
+padding:0 0 0 25px;
+}
+
+.share-tool #tool-bar .send li {
+padding-right:10px;
+float:right;
+position:relative;
+background-image: url(https://www.peacelink.it/images/291.gif);
+}
+
+.share-tool #tool-bar .print li {
+float:right;
+position:relative;
+background-image: url(https://www.peacelink.it/images/292.gif);
+}
+
+

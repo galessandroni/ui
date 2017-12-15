@@ -1,0 +1,59 @@
+/* CSS */
+
+#top-bar #banner-g4 img {
+width: 234;
+}
+
+.item-breadcrumb {
+font-size: 0.9em;
+padding-bottom:0.2em;
+color:#339;
+}
+
+.item-breadcrumb a {
+color:#339;
+}
+
+.item-breadcrumb a:hover {
+color:#f33;
+}
+
+.warning {
+background-color:#f94;
+padding:0.5em;
+}
+
+#left-bar #banner-g3 {
+text-align:center;
+margin:1em auto;
+}
+
+#left-bar #banner-g3 img {
+margin-top:1em;
+border:solid 1px #ccc;
+}
+
+.quote {
+font-size: .8em;
+font-weight: bold;
+text-align: right;
+}
+
+.quote .author{
+font-size: 1em;
+font-weight: bold;
+font-style: italic;
+text-align: right;
+}
+
+
+#citazione {
+  float: left;
+  height: 150px;
+  width: 28%;
+  position: relative;
+  }
+
+#logopck {
+text-align: center;
+}

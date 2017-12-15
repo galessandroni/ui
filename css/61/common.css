@@ -1,0 +1,41 @@
+/* CSS */
+
+#geo-search {
+margin-top:1em;
+float:left;
+}
+
+body#id81.topic_home #right-bar .gdpbox h3.feature,
+body#id81.topic_home #right-bar .pckbox h3.feature {
+display:block;
+}
+
+.gdpbox {
+text-align:center;
+margin:1em 0;
+background-color:#eee;
+padding-bottom:0.5em;
+}
+
+.gdpbox h3.feature {
+background-color:#CCCCCC;
+color:#2F2F6B;
+text-align:center;
+display:block;
+}
+
+#video-dida {
+font-style:italic;
+font-size:0.9em;
+}
+
+#gdppdf,
+#podcast {
+margin:0.5em 0;
+text-align:center;
+}
+
+#gdppdf h4,
+#podcast h4 {
+margin:0
+}

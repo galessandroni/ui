@@ -1,0 +1,50 @@
+/* CSS */
+
+
+#main #center {
+margin-left:220px;
+width: 740px;
+padding:0;
+}
+
+#main #center #cd-home #cd-current {
+float:left;
+width:490px;
+padding:10px;
+}
+
+#cd-boxes {
+float:left;
+width:98%;
+}
+
+#cd-boxes .cd-box {
+float:left;
+margin-left:15px;
+width:225px;
+}
+
+#cd-boxes .cd-box h3 {
+font-size:1.2em;
+margin-bottom:4px;
+}
+
+#cd-home h2 { 
+color:#f00;
+margin:0;
+}
+
+#fotohome .description,
+#cd-current .header {
+padding:10px 10px 0 10px;
+}
+
+#cd-current h1 { 
+color:#f00;
+margin:0;
+text-transform:uppercase;
+}
+
+#cd-current img, #cd-current .headings { margin: 0 }
+
+#cd-current p {font-size:0.9em; }

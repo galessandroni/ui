@@ -1,0 +1,34 @@
+/* CSS */
+
+article-item .halftitle {
+border: none;
+}
+
+article-item {
+border: none;
+}
+
+#rid-content{
+background: #ffffff; 
+padding:2px;
+}
+
+h1{
+padding:7px;
+background-color: #ffffcc;
+}
+
+#rid-content .description{
+padding:7px;
+background-color: #ffffcc;
+}
+
+#rid-content .header{
+padding:7px;
+background-color: #ffffff;
+}
+
+#li .col2 .description{
+padding:4px;
+background-color: #ffffff;
+}

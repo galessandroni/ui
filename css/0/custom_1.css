@@ -1,0 +1,66 @@
+/* Custom hacks for IE6 */
+
+/*
+img { margin-bottom: expression("-3px"); }
+img{vertical-align:bottom;}
+*/
+
+#main-global #center {
+width:40%;
+}
+
+#main #center {
+width: 57%;
+}
+
+#center #fotonotizia {
+width:360px;
+}
+
+#center .pckbox {
+width:380px;
+}
+
+#right-bar .pckbox, 
+#right-bar .pckbox2, 
+#right-bar #gallerie, 
+#right-bar #libri {
+width:160px;
+padding:0;
+}
+
+#article-docs,
+#article-related {
+width:90%;
+}
+
+ul.items li.article-item .article-item,
+#article-related ul.related li .article-item {
+min-height:1%;
+border:solid 1px #fff;
+}
+
+#left-bar ul.items li.article-item .article-item {
+border-color:#eee;
+}
+
+ul.form-inputs {
+width:100%;
+}
+
+ul.form-inputs li input.checkbox,
+ul.form-inputs li input.radio {
+margin-left:20px;
+}
+
+ul.form-inputs li label.checkbox,
+ul.form-inputs li label.radio {
+display:block;
+margin-left:50px;
+}
+
+#login-links,
+#verification-info,
+fieldset#security {
+margin-left:1em;
+}

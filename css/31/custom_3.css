@@ -1,0 +1,24 @@
+/* IE6 */
+
+.topic_home #main #center {
+width: 720px;
+}
+
+.topic_home #cd-boxes .cd-box {
+width:220px;
+}
+
+#cd-search { padding: 0; }
+
+#main #center #cd-home #cd-current {
+width:470px;
+}
+
+#cd-boxes .cd-box {
+margin-left:10px;
+width:225px;
+}
+
+#main #center {
+width: 490px;
+}

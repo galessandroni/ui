@@ -1,0 +1,34 @@
+/* MEDIA */
+
+.media-video .video-box {
+width:360px;
+}
+
+.media-video .video-info {
+margin-top:1em;
+}
+
+.media-video .video-info p.description {
+font-style:italic;
+}
+
+.media-video .video-embed {
+padding:1em 0;
+}
+
+.media-video .video-embed label {
+font-weight:bold;
+display:block;
+margin-top:1em;
+}
+
+.media-video .video-embed input,
+.media-video .video-embed textarea {
+width:320px;
+background-color:#eef;
+}
+
+.media-video .video-embed textarea {
+height:7em;
+font-size:0.9em;
+}

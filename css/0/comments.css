@@ -1,0 +1,45 @@
+/* comments */
+
+div.comments
+{
+border:solid 1px #ddd;
+padding:0.3em;
+margin:0.5em;
+font-style:italic;
+font-size:0.8em;
+background-color:#eee;
+}
+
+#comment-insert
+{
+margin:1em 0;
+}
+
+ul.thread li .author,
+#comment .author
+{
+font-size:0.8em;
+font-style:italic;
+}
+
+ul.thread li
+{
+padding:0;
+margin-bottom:1em;
+}
+
+ul.thread li h3
+{
+font-weight:normal;
+margin:0;
+}
+
+#comment h2
+{
+margin-bottom:0
+}
+
+#comment .comment-text
+{
+padding:1em;
+}

@@ -1,0 +1,65 @@
+/* CSS */
+
+.header img {
+margin-left:2em;
+}
+
+#pal-galleries {
+float:left;
+width:320px;
+padding:10px 10px 10px 0;
+text-align:center;
+}
+
+#pal-galleries .pal-gal {
+margin:0 1em 1em 1em;
+border-bottom:dotted 1px #eee;
+padding-bottom:1em;
+}
+
+#pal-galleries .pal-gal h3 {
+padding-bottom:0.2em;
+}
+
+#main #center {
+padding-left:0;
+}
+
+#center #pal-home {
+float:left;
+}
+
+#center #pal-home ul.items {
+float:left;
+width:355px;
+padding-top:0.5em;
+}
+
+#center #pal-home ul.items .item-breadcrumb{
+font-style:italic;
+padding:0 0 0.1em 0.3em;
+}
+
+#slide-caption .author,
+#slide-caption .source,
+.rss-feed h4,
+.rss-feed li.article-item .notes {
+display:none;
+}
+
+#slide-caption.gallery-image .image-info {
+width:280px;
+margin:0;
+padding:0;
+}
+
+.ticker-box, .rss-feed {
+background:none;
+border:1px dotted #BBBBBB;
+font-size:0.9em;
+margin:0 10px;
+padding:0.6em;
+width:auto;
+float:left;
+text-align:left;
+}

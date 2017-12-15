@@ -1,0 +1,490 @@
+/* CSS */
+
+body {
+margin:0 0 2em 0;
+padding-top:0;
+font-family: Tahoma; Trebuchet MS; arial; georgia; times; sans-serif;
+font-size: 10pt;
+color:#444444;
+}
+
+a {
+color:#ee4600;
+}
+
+a:hover {
+color:#ee4600;
+}
+
+.paging-bar {
+font-size:9pt;
+margin:0 0 10px 0;
+padding:0;
+width:100%;
+border: none;
+color: #ee4600;
+}
+
+.paging-bar a {
+font-weight:bold;
+color: #ee4600;
+}
+
+/*STRUTTURA*/
+
+#main {margin:0}
+
+#main #main-center {
+float:left;
+position:relative;
+width:730px;
+margin:0;
+}
+
+#main #main-center #center {
+position:relative;
+float:right;
+margin:0;
+padding:0;
+width:500px;
+}
+
+#main #right-bar {
+float:right;
+width:208px;
+margin:0;
+padding:0;
+min-height:750px;
+}
+
+#main #main-center #left-bar {
+float:left;
+width:208px;
+margin:0;
+padding:0;
+background:#ee7711;
+color:#fff;
+text-transform:lowercase;
+font-variant:small-caps;
+border:none;
+border-top: 1px solid #fff;
+min-height:950px;
+}
+
+
+
+/*CENTER*/
+#center .breadcrumb {
+width:300px;
+float:right;
+background: #bb3300;
+color:#fff;
+font-size: 9pt;
+padding: 0 12px;
+border:none;
+margin:0;
+}
+
+#center ul.items  {
+width:500px;
+}
+
+#center .linea {
+float:right;
+width:100%;
+border-bottom: 1px solid #bb3300;
+position:relative;
+background-image: url(https://www.peacelink.it/images/316.gif);
+background-repeat: no-repeat; 
+background-position: 160px 3px;
+font-weight:normal;
+padding: 0;
+margin:1em 0 8px 0;
+}
+
+#center .linea a {
+color:#fff;
+}
+
+/*RIGHT BAR*/
+
+#right-bar h3.feature {
+margin:1.4em 0.1em 0em 1em;
+position:relative;
+background-image: url(https://www.peacelink.it/images/312.gif);
+background-repeat: no-repeat; 
+background-position: 0px 8px;
+padding:0 0 0 35px;
+font-size:11pt;
+font-weight:normal;
+clear:both;
+float:left;
+}
+
+#right-bar ul.items {
+margin: 0em;
+padding:0 ;
+}
+
+#right-bar ul li {
+float:none;
+margin:1em 0em 0em 0.5em;
+padding:0;
+width:auto;
+border:none;
+}
+
+#right-bar ul li.gallery_thumb-item {
+float:left;
+margin:1em 0em 0em 1.5em;
+padding:0em;
+width:185px;
+border:none;
+}
+
+#right-bar ul li.gallery_thumb-item img {
+float:left;
+padding:0em;
+width:auto;
+border:none;
+}
+
+#right-bar ul li.gallery_thumb-item .caption {
+margin:10px 0 0 90px;
+padding:0em;
+width:auto;
+border:none;
+font-size:9.5pt;
+text-transform:uppercase;
+color:#ee4600;
+}
+
+#right-bar .event-type {
+text-transform:lowercase;
+margin:0 0 5px 10px;
+position:relative;
+background-image: url(https://www.peacelink.it/images/313.gif);
+background-repeat: no-repeat; 
+background-position: 0px 4px;
+padding:0 10px;
+font-size:9pt;
+color: #4b474e;
+}
+
+#right-bar .event-item .event-date  {
+margin:0 0 0 10px;
+color: #4b474e;
+}
+
+#right-bar .event-item h3  {
+margin:0 0 0 10px;
+text-transform:uppercase;
+font-size:10pt;
+font-weight:normal;
+}
+
+#right-bar .event-item h3 a {
+color: #3c4e9a;
+}
+
+#right-bar .event-item .notes  {
+margin:0 0 0 10px;
+font-size:9pt;
+0color: #4b474e;
+}
+
+
+/*LEFT_BAR*/
+#main-center #left-bar a {
+color:#fff;
+}
+
+#main-center #left-bar ul.menu {
+margin:0;
+padding:10px;
+border-bottom: 1px solid #fff;
+font-size:10pt;
+}
+
+#main-center #left-bar ul li {
+position:relative;
+background-image: url(https://www.peacelink.it/images/317.gif);
+background-repeat: no-repeat; 
+background-position: 0px 6px;
+font-weight:bold;
+padding: 0px 12px;
+margin:0;
+}
+
+#main-center #left-bar ul li li {
+position:relative;
+background-image: url(https://www.peacelink.it/images/317.gif);
+font-weight:normal;
+}
+
+#main-center #left-bar ul li ul {
+margin: 0 0 5px 0;
+padding:0;
+}
+#main-center #left-bar img {
+margin:15px 8px ;
+padding:0;
+}
+
+#main-center #left-bar ul.menu li.selected a,
+#main-center #left-bar ul.menu li.selected a:hover
+{
+background:#e9f4ff;
+color:#ee7711;
+}
+
+#main-center #left-bar ul.menu li.selected li a,
+#main-center #left-bar ul.menu li.selected li a:hover
+{
+background:#ee7711;
+color:#fff;
+font-weight: normal;
+}
+
+#main-center #left-bar a #gra-318 {
+margin:10px 7px;
+padding:0;
+}
+
+#main-center #left-bar a #gra-319 {
+padding:10px 7px 5px 7px;
+margin:0;
+border-top:1px solid #fff;
+}
+
+#main-center #left-bar a #gra-320 {
+padding:10px 12px 5px 7px;
+margin:0;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+}
+
+
+#main-center #left-bar .banner {
+margin: 0;
+padding:0 7px;
+0border-bottom:1px solid #fff;
+}
+
+#main-center #left-bar #banner-g34,
+#main-center #left-bar #banner-g31 {
+border-top:1px solid #fff;
+}
+
+
+
+/*LEFT-BAR ULTIMO NUMERO */
+
+#ultimo-numero a{
+color:#fff;
+}
+
+#ultimo-numero {
+float:left;
+width:208px;
+color:#fff;
+background:#444444;
+}
+
+#ultimo-numero .article-item img.right,
+#ultimo-numero .article-item img.left {
+float:none;
+margin:20px;
+padding:0;
+}
+
+#ultimo-numero .article-item  {
+margin: 0 33px;
+padding:0;
+}
+
+#ultimo-numero h3.feature,
+#ultimo-numero .breadcrumb-home,
+#ultimo-numero .halftitle,
+#ultimo-numero h3,
+#ultimo-numero .subhead,
+#ultimo-numero .notes {
+display:none;
+}
+
+#ultimo-numero .leggi {
+width:208px;
+float:right;
+text-transform:uppercase;
+font-size:8pt;
+text-align:right;
+clear:both;
+background-image: url(https://www.peacelink.it/images/312.gif);
+background-repeat: no-repeat; 
+background-position: 70px 7px;
+border-top:2px solid #fff;
+border-bottom:1px solid #fff;
+padding:3px 0;
+}
+
+#ultimo-numero .leggi a {
+padding:0 15px;
+}
+
+
+
+/* TOP NAV */
+
+#top-nav {
+margin-top:3px;
+padding:0;
+}
+
+.top-right {float:right}
+
+#top-nav #top-nav-top {
+background-color:#eeeeee;
+height:24px;
+float:left;
+width:100%
+}
+
+#top-nav-top #search-form {
+float:left;
+}
+
+#top-nav-top #search-form fieldset legend { display:none;}
+
+
+#top-nav-top #search-form input.search-input {
+width:180px;
+margin:0.2em
+}
+
+#top-nav-top #search-form input.search-submit {
+float:left;
+border:none;
+background:none;
+color:#444444;
+font-size:9pt;
+margin:0.4em 0.5em;
+}
+
+#top-nav #top-nav-top .top-right {
+margin:0.4em 0.5em;
+font-size:8.5pt;
+color:#444444;
+} 
+
+#top-nav #top-nav-top .top-right a {
+font-weight:normal;
+color:#444444;
+} 
+
+#top-nav #top-nav-bottom {
+background-color:#444444;
+height:24px;
+float:left;
+width:100%;
+} 
+
+#top-nav #top-nav-bottom ul.top-left {
+margin:5px 0;
+color:#fff;
+padding-left:1em;
+float:left;
+}
+
+#top-nav #top-nav-bottom .top-left .top-item-left {
+text-transform:uppercase;
+padding:0 5px;
+font-size:9pt;
+}
+
+
+
+#top-nav #top-nav-bottom #user-info {
+float:right;
+margin:5px 0;
+color:#fff;
+background:#444444;
+}
+
+#top-nav #top-nav-bottom a {
+color:#fff;
+padding:0;
+font-weight:normal;
+}
+
+
+/*TOP BAR*/
+
+#top-bar #top-bar-top #logo  img {
+float:right;
+}
+
+#top-bar #top-bar-top #logo-left {
+float:left;
+}
+
+00000#top-bar #top-bar-top #logo-left img {
+}
+
+#top-bar #logo {
+float: none;
+}
+
+#top-bar #top-bar-bottom {
+background-color:#ee7711;
+float:left;
+width:100%;
+}
+
+#top-bar #top-bar-bottom {
+color:#fff;
+text-transform:uppercase;
+font-size:9pt;
+}
+
+#top-bar #top-bar-bottom ul.top-left {
+float:left;
+margin:0;
+padding:0.25em 1.1em;
+}
+
+#top-bar #top-bar-bottom ul.top-right {
+float:right;
+margin:0;
+padding:0.25em 1.1em;
+}
+
+#top-bar #top-bar-bottom ul.top-left li.top-item-left {
+float:left;
+margin:0 0.2em;
+}
+
+#top-bar #top-bar-bottom a {
+color:#fff;
+}
+
+
+ /*BOTTOM BAR */
+#main-wrap #bottom-bar {
+font-size:8pt;
+color: #ee4600;
+border-top: 1px solid #bb3300;
+padding:0em;
+background: #fff;
+}
+
+#main-wrap #bottom-bar a {
+color: #ee4600;
+}
+
+#main-wrap #bottom-bar #page-footer {
+padding:1em 0 0.5em 0;
+background: #fff;
+}
+
+
+
