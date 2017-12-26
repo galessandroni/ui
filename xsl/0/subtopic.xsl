@@ -150,10 +150,10 @@ $().ready(function() {
 <xsl:choose>
 <xsl:when test="$form_node/params/param/@type='upload' or $form_node/params/param/@type='upload_image'">
 <xsl:attribute name="enctype">multipart/form-data</xsl:attribute>
-<xsl:attribute name="action"><xsl:value-of select="/root/site/@upload_host_secure"/>/tools/actions.php</xsl:attribute>
+<xsl:attribute name="action"><xsl:value-of select="/root/site/@upload_host"/>/tools/actions.php</xsl:attribute>
 </xsl:when>
 <xsl:otherwise>
-<xsl:attribute name="action"><xsl:value-of select="/root/site/@base_ssl"/>/tools/actions.php</xsl:attribute>
+<xsl:attribute name="action"><xsl:value-of select="/root/site/@base"/>/tools/actions.php</xsl:attribute>
 </xsl:otherwise>
 </xsl:choose>
 <input type="hidden" name="from" value="form"/>

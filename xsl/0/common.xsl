@@ -131,7 +131,7 @@
      ############################### -->
 <xsl:template name="articleContent">
 <xsl:param name="a" select="/root/article"/>
-<div id="article-content">
+<div id="article-content" data-ts="{$a/@ts}">
 <xsl:attribute name="class">text-<xsl:value-of select="$a/@text-align"/> clearfix</xsl:attribute>
 
 <xsl:choose>

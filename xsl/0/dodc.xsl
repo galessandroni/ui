@@ -68,7 +68,7 @@
 <xsl:with-param name="name" select="/root/modc/@label"/>
 </xsl:call-template>
 <xsl:choose>
-<xsl:when test="/root/itatour/search_terms">
+<xsl:when test="/root/modc/search_terms">
 <xsl:value-of select="$breadcrumb_separator"/>
 <xsl:call-template name="createLink">
 <xsl:with-param name="name" select="key('label','search')/@tr"/>

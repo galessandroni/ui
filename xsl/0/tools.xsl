@@ -562,6 +562,7 @@
 <div id="preview-toolbar">Preview Toolbar
  - <a href="{/root/preview/@edit}"><b>Edit</b></a>
  - <a href="{/root/preview/@xml}"><b>XML</b></a>
+<xsl:if test="not(/root/publish/@ui='1')">
  - <b>XSL</b> gen: 
 <xsl:for-each select="/root/preview/generic/xsl">
 <a href="{@edit}"><xsl:value-of select="@type"/></a>
@@ -585,6 +586,7 @@ s<xsl:value-of select="/root/preview/style/@id"/>:
 <a href="{@edit}"><xsl:value-of select="@type"/></a>
 <xsl:if test="position()!=last()">,</xsl:if>
 </xsl:for-each>
+</xsl:if>
 </xsl:if>
  - <b>Features</b> gen:
 <xsl:if test="/root/preview/generic/features">
@@ -785,14 +787,9 @@ $().ready(function() {
 	CAPTCHA WRAPPER
 	############################### -->
 <xsl:template name="captchaWrapper">
-<xsl:choose>
-<xsl:when test="/root/site/@captcha='securimage'">
-<xsl:call-template name="securimage"/>
-</xsl:when>
-<xsl:when test="/root/site/@recaptcha_public_key">
+<xsl:if test="/root/site/@recaptcha_public_key">
 <xsl:call-template name="recaptcha"/>
-</xsl:when>
-</xsl:choose>
+</xsl:if>
 </xsl:template>
 
 
@@ -800,32 +797,10 @@ $().ready(function() {
 	RECAPTCHA
 	############################### -->
 <xsl:template name="recaptcha">
-<xsl:param name="theme" select="'white'"/>
-<xsl:param name="captcha_width" select="'500'"/>
-<xsl:param name="captcha_height" select="'300'"/>
-<script type="text/javascript">
-var RecaptchaOptions = {
-theme: '<xsl:value-of select="$theme"/>',
-lang: '<xsl:value-of select="$current_lang"/>'
-};
-</script>
-<script type="text/javascript" src="http://api.recaptcha.net/challenge?k={/root/site/@recaptcha_public_key}"></script>
-<noscript>
-<iframe src="http://api.recaptcha.net/noscript?k={/root/site/@recaptcha_public_key}" height="{$captcha_height}" width="{$captcha_width}" frameborder="0"></iframe><br/>
-<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
-<input type="hidden" name="recaptcha_response_field" value="manual_challenge"/>
-</noscript>
-</xsl:template>
-
-
-<!-- ###############################
-	SECURIMAGE
-	############################### -->
-<xsl:template name="securimage">
-<img id="siimage" src="/securimage/securimage_show.php" alt="CAPTCHA Image" align="left" style="border: 1px solid #000; margin-right: 15px" />
-<a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = '/securimage/securimage_show.php?sid=' + Math.random(); this.blur(); return false"><img src="/securimage/images/refresh.png" alt="Reload Image" onclick="this.blur()" align="bottom" border="0"/></a><br />
-<strong>Enter Code*:</strong>
-<input type="text" name="siimage_code" required="required" size="10" maxlength="6" />
+<xsl:param name="theme" select="'light'"/>
+<xsl:param name="size" select="'normal'"/>
+<script src='https://www.google.com/recaptcha/api.js?hl={$current_lang}'></script>
+<div class="g-recaptcha" data-sitekey="{/root/site/@recaptcha_public_key}" data-theme="{$theme}" data-size="{$size}"></div>
 </xsl:template>
 
     
