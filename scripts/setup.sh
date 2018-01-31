@@ -5,7 +5,7 @@
 #
 
 CURRENTDIR=`dirname $0`
-source $CURRENTDIR/config_test.sh
+source $CURRENTDIR/config.sh
 
 cd $PCKDIR
 ln -s $PCKUIDIR/xsl xsl
