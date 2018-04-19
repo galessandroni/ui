@@ -149,6 +149,11 @@ $().ready(function() {
 <xsl:with-param name="varname">comments</xsl:with-param>
 <xsl:with-param name="type">textarea</xsl:with-param>
 </xsl:call-template>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="Invia"/></li>
 </ul>
 </form>

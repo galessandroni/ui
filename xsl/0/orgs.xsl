@@ -6,7 +6,7 @@
    PhPeace - Portal Management System
 
    Copyright notice
-   (C) 2003-2017 Francesco Iannuzzelli <francesco@phpeace.org>
+   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
    All rights reserved
 
    This script is part of PhPeace.
@@ -395,6 +395,11 @@ $().ready(function() {
 </ul>
 </fieldset>
 <ul class="form-inputs">
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}"/></li>
 </ul>
 </form>

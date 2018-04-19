@@ -173,6 +173,11 @@ $().ready(function() {
 <xsl:with-param name="varname">email</xsl:with-param>
 <xsl:with-param name="required" select="true()"/>
 </xsl:call-template>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" name="action_subscribe" value="{/root/labels/label[@word='subscribe']/@tr}"/>
 <input type="submit" name="action_unsubscribe" value="{/root/labels/label[@word='unsubscribe']/@tr}"/>
 </li>
