@@ -733,6 +733,10 @@ color:#fff;
 text-align:center;
 }
 
+.pckbox h3.feature a {
+color:#fff;
+}
+
 #left-bar .pckbox h3.feature
 {
 background-color:#2f2f6b;
@@ -1039,3 +1043,7 @@ height:30px !important;
 }
 
 #article-content .headings img.user-image { width: 40px; height: auto; margin-right:10px;  }
+
+label.required abbr {
+margin-left:2px;
+}

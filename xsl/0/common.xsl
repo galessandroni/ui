@@ -6,7 +6,7 @@
    PhPeace - Portal Management System
 
    Copyright notice
-   (C) 2003-2017 Francesco Iannuzzelli <francesco@phpeace.org>
+   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
    All rights reserved
 
    This script is part of PhPeace.
@@ -131,7 +131,7 @@
      ############################### -->
 <xsl:template name="articleContent">
 <xsl:param name="a" select="/root/article"/>
-<div id="article-content">
+<div id="article-content" data-ts="{$a/@ts}">
 <xsl:attribute name="class">text-<xsl:value-of select="$a/@text-align"/> clearfix</xsl:attribute>
 
 <xsl:choose>

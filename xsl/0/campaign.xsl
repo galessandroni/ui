@@ -6,7 +6,7 @@
    PhPeace - Portal Management System
 
    Copyright notice
-   (C) 2003-2017 Francesco Iannuzzelli <francesco@phpeace.org>
+   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
    All rights reserved
 
    This script is part of PhPeace.
@@ -274,6 +274,11 @@ $().ready(function() {
 <xsl:with-param name="tr_label"><xsl:value-of select="/root/campaign_insert/privacy_warning" disable-output-escaping="yes"/></xsl:with-param>
 <xsl:with-param name="value" select="true()"/>
 </xsl:call-template>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}" name="action_sign"/></li>
 </ul>
 </form>
@@ -345,6 +350,11 @@ $().ready(function() {
 </xsl:call-template>
 <li class="form-notes"><xsl:call-template name="signNotes"/></li>
 <xsl:if test="$ca/@notify"><li class="form-notes"><xsl:value-of select="$ca/@notify"/></li></xsl:if>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}" name="action_sign"/></li>
 </ul>
 <xsl:call-template name="signFooter"/>
@@ -444,6 +454,11 @@ $().ready(function() {
 </xsl:call-template>
 <li class="form-notes"><xsl:call-template name="signNotes"/></li>
 <xsl:if test="$ca/@notify"><li class="form-notes"><xsl:value-of select="$ca/@notify"/></li></xsl:if>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}" name="action_sign"/></li>
 </ul>
 <xsl:call-template name="signFooter"/>

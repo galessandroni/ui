@@ -22,7 +22,7 @@
 <xsl:if test="/root/publish/@global=1 and /root/publish/@id_type=0 and $show_widgets=true()">
 <link type="text/css" rel="stylesheet" href="{$css_url}/0/custom_6.css{/root/publish/@css_version}" media="screen"/>
 </xsl:if>
-<xsl:call-template name="googleAnalytics">
+<xsl:call-template name="googleUniversalAnalytics">
 <xsl:with-param name="ua-id" select="'UA-27168243-1'" />
 </xsl:call-template>
 </head>
@@ -353,7 +353,11 @@ TOP NAV PCK
 <xsl:call-template name="pckGaza"/>
 -->
 <xsl:call-template name="editorialPck"/>
-<xsl:call-template name="pckLive"/>
+<div class="pckbox">
+<xsl:apply-templates select="/root/c_features/feature[@id='189']" />
+</div>
+<xsl:call-template name="pckYoutube"/>
+<!-- <xsl:call-template name="pckLive"/> -->
 <xsl:call-template name="articoloinevidenzaPck"/>
 <xsl:call-template name="newsPck"/>
 <xsl:call-template name="supportPck"/>
@@ -384,6 +388,16 @@ TOP NAV PCK
 <div class="pckbox">
 <iframe width="313" height="202" src="https://cdn.livestream.com/embed/peacelinkonair?layout=4&amp;color=0x000000&amp;autoPlay=false&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc&amp;allowchat=true&amp;height=202&amp;width=313" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
 </div>
+</xsl:template>
+
+
+<!-- ###############################
+      PEACELINK YOUTUBE
+      ############################### -->
+<xsl:template name="pckYoutube">
+<div class="pckbox">
+<h3 class="feature"><a href="https://www.youtube.com/user/peacelinkvideo" title="Canale YouTube di PeaceLink">Canale YouTube di PeaceLink</a></h3>
+<iframe src="https://www.youtube.com/embed/?listType=user_uploads&amp;list=peacelinkvideo" width="315" height="262"></iframe></div>
 </xsl:template>
 
 
@@ -659,5 +673,25 @@ PAYPAL PCK
  ############################### -->
 <xsl:template name="javascriptCustom">
 </xsl:template>
+
+<!-- ###############################
+GOOGLE UNIVERSAL ANALYTICS
+############################### -->
+<xsl:template name="googleUniversalAnalytics">
+<xsl:param name="ua-id" />
+<xsl:if test="$preview=false() and $ua-id != ''">
+<script type="text/javascript">
+<xsl:text disable-output-escaping="yes">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', '</xsl:text><xsl:value-of select="$ua-id"/><xsl:text disable-output-escaping="yes">', 'auto');
+ga('send', 'pageview');
+</xsl:text>
+</script>
+</xsl:if>
+</xsl:template>
+
 
 </xsl:stylesheet>

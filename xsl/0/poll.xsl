@@ -6,7 +6,7 @@
    PhPeace - Portal Management System
 
    Copyright notice
-   (C) 2003-2017 Francesco Iannuzzelli <francesco@phpeace.org>
+   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
    All rights reserved
 
    This script is part of PhPeace.
@@ -215,6 +215,11 @@
 </li>
 </xsl:if>
 <xsl:if test="$po/@id_type='0' or $po/@id_type='1' or $po/@id_type='2'">
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}"/>
 <input type="reset" value="{key('label','reset')/@tr}"/>
 </li>
@@ -286,6 +291,11 @@
 <xsl:with-param name="type">textarea</xsl:with-param>
 <xsl:with-param name="size">large</xsl:with-param>
 </xsl:call-template>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}" name="action_sign"/></li>
 </ul>
 </form>
@@ -403,6 +413,11 @@
 </ul>
 <xsl:call-template name="pollSteps"/>
 <ul id="poll-buttons" class="form-inputs">
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}"/></li>
 </ul>
 </form>

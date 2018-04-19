@@ -6,7 +6,7 @@
    PhPeace - Portal Management System
 
    Copyright notice
-   (C) 2003-2017 Francesco Iannuzzelli <francesco@phpeace.org>
+   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
    All rights reserved
 
    This script is part of PhPeace.
@@ -480,50 +480,6 @@ $().ready(function() {
 
 <xsl:if test="$u/@auth='1'">
 
-<xsl:if test="$u/itatour/tourops/tourop">
-<li id="ptourops">
-<h3><xsl:value-of select="$u/itatour/@label"/></h3>
-<ul>
-<xsl:for-each select="$u/itatour/tourops/tourop[@is_agency=0]">
-<li>
-<strong>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="manage"/>
-<xsl:with-param name="name" select="@name"/>
-</xsl:call-template>
-</strong>
-<xsl:if test="@name2!=''">
-<div><xsl:value-of select="@name2"/></div>
-</xsl:if>
-<div><xsl:value-of select="concat(@town,' - ',@geo_group)"/></div>
-<xsl:if test="@pending_label">
-<em>[<xsl:value-of select="@pending_label"/>]</em>
-</xsl:if>
-</li>
-</xsl:for-each>
-</ul>
-
-<xsl:if test="$u/itatour/tourops/tourop[@is_agency=1]">
-<h3><xsl:value-of select="$u/itatour/@label_agency"/></h3>
-<ul>
-<xsl:for-each select="$u/itatour/tourops/tourop[@is_agency=1]">
-<li>
-<strong>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="manage"/>
-<xsl:with-param name="name" select="@name"/>
-</xsl:call-template>
-</strong>
-<xsl:if test="@pending_label">
- <em>[<xsl:value-of select="@pending_label"/>]</em>
-</xsl:if>
-</li>
-</xsl:for-each>
-</ul>
-</xsl:if>
-
-</li>
-</xsl:if>
 <li id="contact-options">
 <h3>
 <xsl:call-template name="createLink">
@@ -801,6 +757,11 @@ $().ready(function() {
 <xsl:with-param name="required" select="true()"/>
 <xsl:with-param name="value" select="/root/user/@email"/>
 </xsl:call-template>
+<xsl:if test="/root/site/@captcha">
+<li class="clearfix">
+<xsl:call-template name="captchaWrapper"/>
+</li>
+</xsl:if>
 <li class="buttons"><input type="submit" value="{key('label','submit')/@tr}" /></li>
 </ul>
 </form>
