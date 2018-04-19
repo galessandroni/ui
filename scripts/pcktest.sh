@@ -10,17 +10,15 @@ TEMPDIR="/data/temp/testdb"
 CURDIR="/data/pckui/test"
 
 # sync images
-sudo -u www-data rsync -apR --delete --info=progress2 $PCKDIR/uploads/ $TESTDIR/uploads/
-
-# test logo
-sudo cp $CURDIR/assets/peacetest.jpg $TESTDIR/uploads/custom/logo.jpg
+sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'custom' $PCKDIR/uploads/ $TESTDIR/uploads/
+sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'css' --exclude 'robots.txt' $PCKDIR/pub/ $TESTDIR/pub/
 
 # block search engines
 sudo cp /data/phpeace/disallow.txt $TESTDIR/pub/robots.txt
 
 # set perms
 sudo chown -R www-data.www-data $TESTDIR
-
+exit
 # extract db credentials
 DBNAME=`php -r 'include_once("/data/phpeace/peacetest/custom/config.php");$c=new Config();echo $c->dbconf["database"];'`
 DBUSER=`php -r 'include_once("/data/phpeace/peacetest/custom/config.php");$c=new Config();echo $c->dbconf["user"];'`
