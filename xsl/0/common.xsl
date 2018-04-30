@@ -1799,10 +1799,11 @@ $(function () {
 <xsl:param name="id"/>
 <xsl:param name="width"/>
 <xsl:param name="height"/>
+<xsl:param name="format" select="jpg"/>
 <xsl:param name="alt_text" select="/root/site/@title"/>
 <xsl:choose>
 <xsl:when test="/root/site/@ui='1'">
-<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}" id="gra-{$id}">
+<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.{$format}" id="gra-{$id}">
 </img>
 </xsl:when>
 <xsl:otherwise>
