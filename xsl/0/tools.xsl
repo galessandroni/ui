@@ -921,6 +921,26 @@ _gaq.push(['_trackPageview']);
 
 
 <!-- ###############################
+     GOOGLE UNIVERSAL ANALYTICS
+     ############################### -->
+<xsl:template name="googleUniversalAnalytics">
+<xsl:param name="ua-id" />
+<xsl:if test="$preview=false() and $ua-id != ''">
+<script type="text/javascript">
+<xsl:text disable-output-escaping="yes">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', '</xsl:text><xsl:value-of select="$ua-id"/><xsl:text disable-output-escaping="yes">', 'auto');
+ga('send', 'pageview');
+</xsl:text>
+</script>
+</xsl:if>
+</xsl:template>
+
+
+<!-- ###############################
      GOOGLE PLUS ONE
      ############################### -->
 <xsl:template name="googlePlusOne">
