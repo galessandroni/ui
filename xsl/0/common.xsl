@@ -1802,7 +1802,7 @@ $(function () {
 <xsl:param name="alt_text" select="/root/site/@title"/>
 <xsl:choose>
 <xsl:when test="/root/site/@ui='1'">
-<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.gif" id="gra-{$id}">
+<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}" id="gra-{$id}">
 </img>
 </xsl:when>
 <xsl:otherwise>
