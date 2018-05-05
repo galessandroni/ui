@@ -15,10 +15,10 @@ $PHPEACEDIR/dev/scripts/phdistrib.sh test
 source $PHPEACEDIR/custom/buildconfig.sh
 UPDATE=$DESTDIR/testing/updates/update_$CURRENTBUILD.tar.gz
 
+# deploy package
 if [ ! -d "$PCKDIR/temp" ]; then 
     mkdir "$PCKDIR/temp";
     chmod 775 $PCKDIR/temp
-
 fi
 cp -r $UPDATE $PCKDIR/temp/
 chmod 664 $PCKDIR/temp/*
