@@ -1800,7 +1800,12 @@ $(function () {
 <xsl:param name="width"/>
 <xsl:param name="height"/>
 <xsl:param name="format" select="'jpg'"/>
-<xsl:param name="alt_text" select="/root/site/@title"/>
+<xsl:param name="alt_text">
+<xsl:choose>
+<xsl:when test="/root/topic"><xsl:value-of select="/root/topic/@name"/></xsl:when>
+<xsl:otherwise><xsl:value-of select="/root/site/@title"/></xsl:otherwise>
+</xsl:choose>
+</xsl:param>
 <xsl:choose>
 <xsl:when test="/root/site/@ui='1'">
 <img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.{$format}" id="gra-{$id}"/>

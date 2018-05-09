@@ -56,6 +56,7 @@ TOP NAV PCK
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'258'"/>
+<xsl:with-param name="format" select="'png'"/>
 </xsl:call-template>
 </a>
 <a>
@@ -76,6 +77,7 @@ TOP NAV PCK
 <a href="http://www.alternativenews.org" target="_blank">
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="260"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </div>

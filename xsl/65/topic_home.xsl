@@ -20,7 +20,11 @@ GALLERY ITEM
 </xsl:call-template>
 </xsl:attribute>
 </img>
-<div id="banda-bianca"><xsl:call-template name="graphic"><xsl:with-param name="id" select="301"/></xsl:call-template></div>
+<div id="banda-bianca">
+<xsl:call-template name="graphic">
+<xsl:with-param name="id" select="301"/>
+<xsl:with-param name="format" select="'png'"/>
+</xsl:call-template></div>
 </xsl:if>
 </xsl:template>
 
@@ -144,9 +148,10 @@ ARTICLE ITEM
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="299"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="300"/></xsl:call-template>
+<xsl:call-template name="graphic"><xsl:with-param name="id" select="300"/><xsl:with-param name="format" select="'gif'"/></xsl:call-template>
 </div>
 
 </xsl:template>

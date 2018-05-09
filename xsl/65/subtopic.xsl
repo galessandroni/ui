@@ -54,9 +54,13 @@ CONTENT
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="299"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="300"/></xsl:call-template>
+<xsl:call-template name="graphic">
+<xsl:with-param name="id" select="300"/>
+<xsl:with-param name="format" select="'gif'"/>
+</xsl:call-template>
 </div>
 
 </xsl:template>

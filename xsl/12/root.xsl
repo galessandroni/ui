@@ -25,6 +25,7 @@
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'32'"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </td></tr>

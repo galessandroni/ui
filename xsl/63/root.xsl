@@ -185,6 +185,7 @@ TOP NAV
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="5"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </div>
