@@ -3,6 +3,11 @@
 # Deploy current dev release of PhPeace into PeaceLink dev
 #
 
+if [ "$(whoami)" != "www-data" ]; then
+  echo "Script must be run as Apache user: www-data"
+  exit 0
+fi
+
 CURRENTDIR=`dirname $0`
 source $CURRENTDIR/config.sh
 
@@ -21,6 +26,4 @@ if [ ! -d "$PCKDIR/temp" ]; then
     chmod 775 $PCKDIR/temp
 fi
 cp -r $UPDATE $PCKDIR/temp/
-chmod 664 $PCKDIR/temp/*
-chown -R $LOCALUSER:$APACHE_GROUP $PCKDIR/temp
 $PCKDIR/scripts/phpeace/phpeace_manual_update.sh $CURRENTBUILD

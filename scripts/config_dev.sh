@@ -6,4 +6,6 @@ PCKUIDIR="/var/www/pckui"
 
 PHPEACEDIR="/var/www/phpeace"
 
+TESTDIR="/var/www/pck"
+
 LOCALUSER="francesco"
