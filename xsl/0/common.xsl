@@ -2527,6 +2527,17 @@ $().ready(function() {
 <xsl:otherwise>website</xsl:otherwise></xsl:choose>
 </xsl:attribute>
 </meta>
+
+<xsl:if test="$pagetype='article' and /root/article/images/image[@associated='1']">
+<meta property="og:image">
+<xsl:attribute name="content">
+<xsl:call-template name="createLinkUrl">
+<xsl:with-param name="node" select="/root/article/images/image[@associated='1']"/>
+</xsl:call-template>
+</xsl:attribute>
+</meta>
+</xsl:if>
+
 <meta property="og:url" content="{/root/page/@url}" />
 <meta property="og:site_name" content="{$current_site_name}" />
 <meta property="og:description" content="{$meta_description}"/>
