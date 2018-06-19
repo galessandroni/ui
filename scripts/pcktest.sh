@@ -22,10 +22,10 @@ sudo chown -R www-data.www-data $TESTDIR
 pcksan.sh
 
 # update script
-mkdir -p $TESTDIR/scripts/custom
-cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
+sudo -u www-data mkdir -p $TESTDIR/scripts/custom
+sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
 cd $TESTDIR
-pwd
+
 php $TESTDIR/scripts/custom/pcktest.php
 
 # slack
