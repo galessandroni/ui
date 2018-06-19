@@ -15,10 +15,10 @@ PCKUIDIR="/data/pckui"
 REPO="peacelink/ui.git"
 
 if [ "$ENV" == "live" ]; then
-  DEPLOYDIR = "$PCKUIDIR/$ENV"
+  DEPLOYDIR="$PCKUIDIR/$ENV"
   BRANCH="master"
 else
-  DEPLOYDIR = "$PCKUIDIR/test"
+  DEPLOYDIR="$PCKUIDIR/test"
   BRANCH="dev"
 fi
 
