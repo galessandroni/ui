@@ -23,7 +23,7 @@ if [ ! -e $LOCKFILE ]; then
     echo "Up-to-date"
    elif [ $LOCAL = $BASE ]; then
     pckui_deploy.sh
-    { echo "Auto-deployment on https://test.peacelink.org"; cat $WORKDIR/version.txt; echo; echo "New commits:"; git log @{1}.. --pretty=format:"%h - %cd - %cn - %s"; } | slacktee.sh
+    { echo "Auto-deployment on https://test.peacelink.org"; cat $WORKDIR/css/version.txt; echo; echo "New commits:"; git log @{1}.. --pretty=format:"%h - %cd - %cn - %s"; } | slacktee.sh
    elif [ $REMOTE = $BASE ]; then
     echo "Need to push!!"
    else
