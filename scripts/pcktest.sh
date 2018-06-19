@@ -6,7 +6,7 @@
 
 
 CURRENTDIR=`dirname $0`
-source $CURRENTDIR/config.sh
+source $CURRENTDIR/config.sh || exit
 
 # sync images
 sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'custom' $PCKDIR/uploads/ $TESTDIR/uploads/
