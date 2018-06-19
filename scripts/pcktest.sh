@@ -4,8 +4,9 @@
 #
 # Run as ubuntu user
 
-PCKDIR="/data/phpeace/peacelink"
-TESTDIR="/data/phpeace/peacetest"
+
+CURRENTDIR=`dirname $0`
+source $CURRENTDIR/config.sh
 
 # sync images
 sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'custom' $PCKDIR/uploads/ $TESTDIR/uploads/
@@ -16,3 +17,15 @@ sudo cp /data/phpeace/disallow.txt $TESTDIR/pub/robots.txt
 
 # set perms
 sudo chown -R www-data.www-data $TESTDIR
+
+# sanitise db
+pcksan.sh
+
+# update script
+mkdir -p $TESTDIR/scripts/custom
+cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
+cd $TESTDIR
+pwd
+php $TESTDIR/scripts/custom/pcktest.php
+
+# slack

@@ -8,4 +8,6 @@ PHPEACEDIR="/var/www/phpeace"
 
 TESTDIR="/var/www/pck"
 
+TEMPDIR="/tmp/testdb"
+
 LOCALUSER="francesco"
