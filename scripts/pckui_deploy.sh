@@ -27,17 +27,14 @@ sudo chown -R ubuntu.ubuntu $DEPLOYDIR
 
 cd $DEPLOYDIR
 
-# use deployment key
-git remote set-url origin git@github.com:$REPO
+# make sure we use ssl remote
+# git remote set-url origin https://github.com/$REPO
 
 # checkout local changes
 git reset --hard
 
 # git pull using deployment key
 git pull origin $BRANCH
-
-# back to ssl remote
-git remote set-url origin https://github.com/$REPO
 
 # fix permissions
 sudo chown -R www-data.www-data $DEPLOYDIR
