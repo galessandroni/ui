@@ -2,7 +2,7 @@
 
 PCKDIR="/data/phpeace/peacelink"
 
-PCKUIDIR="/data/phpeace/pckui"
+PCKUIDIR="/data/pckui"
 
 PHPEACEDIR="/data/phpeace/phpeace"
 

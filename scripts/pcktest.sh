@@ -14,7 +14,7 @@ sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'css' -
 
 # block search engines
 sudo cp /data/phpeace/disallow.txt $TESTDIR/pub/robots.txt
-sudo cp $PCKUIDIR/custom/peacetest.gif $TESTDIR/uploads/graphics/orig/1.gif
+sudo cp $PCKUIDIR/test/custom/peacetest.gif $TESTDIR/uploads/graphics/orig/1.gif
 
 # set perms
 sudo chown -R www-data.www-data $TESTDIR
