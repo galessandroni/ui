@@ -15,4 +15,3 @@ ln -s $PCKUIDIR/custom uploads/custom
 ln -s $PCKUIDIR/graphics/orig uploads/graphics/orig
 ln -s $PCKUIDIR/graphics/favicon uploads/graphics/favicon
 ln -s $PCKUIDIR/custom/admin.css admin/include/css/custom.css
-ln -s $PCKUIDIR/custom/admin.js uploads/custom/admin.js
