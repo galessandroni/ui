@@ -36,9 +36,6 @@ git reset --hard
 # git pull using deployment key
 git pull origin $BRANCH
 
-# fix permissions
-sudo chown -R www-data.www-data $DEPLOYDIR
-
 # Gather version info
 PCKUI_VERSION=$(cat $DEPLOYDIR/version.txt)
 GIT_REF=$(git log --pretty=%H -1)
@@ -54,3 +51,6 @@ sed -i 's/CACHE_BUST/'$GIT_REF_SHORT'/g' $DEPLOYDIR/xsl/0/common.xsl
 sed -i 's/CACHE_BUST/'$GIT_REF_SHORT'/g' $DEPLOYDIR/xsl/0/root.xsl
 
 echo "$VERSION_INFO" | sudo tee $DEPLOYDIR/css/version.txt
+
+# fix permissions
+sudo chown -R www-data.www-data $DEPLOYDIR
