@@ -629,6 +629,7 @@ PeaceLink C.P. 2009 - 74100 Taranto (Italy) - CCP 13403746 -  Sito realizzato co
 <xsl:with-param name="name" select="/root/c_features/feature[@id='18']/@name"/>
 </xsl:call-template>
 - <a href="https://www.peacelink.it/peacelink/a/41776.html">Informativa sui cookies</a>
+- <a href="https://www.peacelink.it/peacelink/diritto-di-replica">Diritto di replica</a>
 - <a href="mailto:associazione.peacelink@pec.it" title="Posta Elettronica Certificata">Posta elettronica certificata (PEC)</a>
 <xsl:if test="$preview=false()">
 <script type="text/javascript" src="/cookie-bar/cookiebar-latest.min.js?forceLang=it&amp;tracking=1&amp;thirdparty=1&amp;noGeoIp=1&amp;remember=90&amp;scrolling=1&amp;privacyPage=https%3A%2F%2Fwww.peacelink.it%2Fpeacelink%2Fa%2F44843.html"></script>

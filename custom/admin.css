@@ -1,0 +1,15 @@
+/* Custom CSS */
+
+#admin-text {
+font-size:0.9em;
+}
+
+#maintitle {
+background-color:#241f83;
+color:#eee;
+}
+
+#finput-jump_to_source {
+display:none;
+}
+
