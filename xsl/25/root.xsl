@@ -26,6 +26,7 @@
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'108'"/>
+<xsl:with-param name="format" select="'png'"/>
 </xsl:call-template>
 </a>
 </div>

@@ -28,7 +28,10 @@ NAVIGATION MENU - left
 <xsl:otherwise></xsl:otherwise>
 </xsl:choose>
 <div class="menu-footer">
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="297"/></xsl:call-template>
+<xsl:call-template name="graphic">
+<xsl:with-param name="id" select="297"/>
+<xsl:with-param name="format" select="'gif'"/>
+</xsl:call-template>
 <xsl:apply-templates select="/root/menu/menu_footer"/>
 </div>
 </xsl:template>
@@ -253,12 +256,14 @@ ITEM
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="298"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </div>
 <div id="logo">
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="283"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </div>
 </xsl:template>

@@ -4,26 +4,6 @@
 <xsl:include href="root.xsl" />
 <xsl:include href="tools.xsl" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- ###############################
 EVENT ITEM
 ############################### -->
@@ -124,15 +104,6 @@ NAVIGATION MENU - left
 <xsl:call-template name="ScriviRedazione"/>
 </xsl:otherwise>
 </xsl:choose>
-<!-- ##<div class="banner">
-<a title="Rispondi al Questionario">
-<xsl:attribute name="href">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="/root/menu/subtopics//subtopic[@id=3402]"/>
-</xsl:call-template>
-</xsl:attribute>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="322"/></xsl:call-template>
-</a></div>## -->
 <xsl:call-template name="bannerGroup"><xsl:with-param name="id" select="'25'"/></xsl:call-template>
 </xsl:template>
 
@@ -165,7 +136,7 @@ NAVIGATION MENU - ABBONATI
 <xsl:with-param name="node" select="/root/menu/subtopics//subtopic[@id=286]"/>
 </xsl:call-template>
 </xsl:attribute>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="318"/></xsl:call-template>
+<xsl:call-template name="graphic"><xsl:with-param name="id" select="318"/><xsl:with-param name="format" select="'gif'"/></xsl:call-template>
 </a>
 </xsl:template>
 
@@ -180,7 +151,7 @@ NAVIGATION MENU - SCRIVI AD ALEX
 <xsl:with-param name="node" select="/root/menu/subtopics//subtopic[@id=2825]"/>
 </xsl:call-template>
 </xsl:attribute>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="319"/></xsl:call-template>
+<xsl:call-template name="graphic"><xsl:with-param name="id" select="319"/><xsl:with-param name="format" select="'gif'"/></xsl:call-template>
 </a>
 </xsl:template>
 
@@ -195,7 +166,7 @@ NAVIGATION MENU - SCRIVI ALLA REDAZIONE
 <xsl:with-param name="node" select="/root/menu/subtopics//subtopic[@id=279]"/>
 </xsl:call-template>
 </xsl:attribute>
-<xsl:call-template name="graphic"><xsl:with-param name="id" select="320"/></xsl:call-template>
+<xsl:call-template name="graphic"><xsl:with-param name="id" select="320"/><xsl:with-param name="format" select="'gif'"/></xsl:call-template>
 </a>
 </xsl:template>
 
@@ -443,6 +414,7 @@ NAVIGATION MENU - BAR
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="310"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 
@@ -457,6 +429,7 @@ NAVIGATION MENU - BAR
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="283"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </div>

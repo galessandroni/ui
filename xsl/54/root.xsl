@@ -34,10 +34,6 @@
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="228"/>
 </xsl:call-template>
-
-<xsl:call-template name="graphic">
-<xsl:with-param name="id" select="254"/>
-</xsl:call-template>
 </xsl:template>
 
 

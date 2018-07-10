@@ -1797,24 +1797,37 @@ $(function () {
      ############################### -->
 <xsl:template name="graphic">
 <xsl:param name="id"/>
-<xsl:param name="node" select="key('graphic',$id)"/>
-<xsl:param name="alt_text" select="$node/@caption"/>
-<xsl:param name="wmode" select="'opaque'"/>
-<xsl:variable name="gurl"><xsl:call-template name="createLinkUrl"><xsl:with-param name="node" select="$node"/></xsl:call-template></xsl:variable>
+<xsl:param name="width"/>
+<xsl:param name="height"/>
+<xsl:param name="format" select="'jpg'"/>
+<xsl:param name="alt_text">
 <xsl:choose>
-<xsl:when test="$node/@format='swf'">
-<div id="gra-{$id}"><p class="flash-warning"><xsl:value-of select="key('label','flash_warning')/@tr" disable-output-escaping="yes"/></p></div>
-<script type="text/javascript">
-var flashvars = {};
-var params = {};
-params.wmode = "<xsl:value-of select="$wmode"/>";
-swfobject.embedSWF("<xsl:value-of select="$gurl"/>", "gra-<xsl:value-of select="$id"/>", "<xsl:value-of select="$node/@width"/>", "<xsl:value-of select="$node/@height"/>", "9.0.0",'<xsl:value-of select="/root/site/@base"/>/tools/expressInstall.swf',flashvars,params);
-</script>
+<xsl:when test="/root/topic"><xsl:value-of select="/root/topic/@name"/></xsl:when>
+<xsl:otherwise><xsl:value-of select="/root/site/@title"/></xsl:otherwise>
+</xsl:choose>
+</xsl:param>
+<xsl:choose>
+<xsl:when test="/root/site/@ui='1'">
+<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.{$format}" id="gra-{$id}"/>
 </xsl:when>
 <xsl:otherwise>
-<img width="{$node/@width}" height="{$node/@height}" alt="{$alt_text}" src="{$gurl}" id="gra-{$id}"/>
+<xsl:call-template name="graphicInternal">
+<xsl:with-param name="id" select="$id"/>
+</xsl:call-template>
 </xsl:otherwise>
 </xsl:choose>
+</xsl:template>
+
+
+<!-- ###############################
+     GRAPHIC IMAGE INTERNAL
+     ############################### -->
+<xsl:template name="graphicInternal">
+<xsl:param name="id"/>
+<xsl:param name="node" select="key('graphic',$id)"/>
+<xsl:param name="alt_text" select="$node/@caption"/>
+<xsl:variable name="gurl"><xsl:call-template name="createLinkUrl"><xsl:with-param name="node" select="$node"/></xsl:call-template></xsl:variable>
+<img width="{$node/@width}" height="{$node/@height}" alt="{$alt_text}" src="{$gurl}" id="gra-{$id}"/>
 </xsl:template>
 
 
@@ -2514,6 +2527,17 @@ $().ready(function() {
 <xsl:otherwise>website</xsl:otherwise></xsl:choose>
 </xsl:attribute>
 </meta>
+
+<xsl:if test="$pagetype='article' and /root/article/images/image[@associated='1']">
+<meta property="og:image">
+<xsl:attribute name="content">
+<xsl:call-template name="createLinkUrl">
+<xsl:with-param name="node" select="/root/article/images/image[@associated='1']"/>
+</xsl:call-template>
+</xsl:attribute>
+</meta>
+</xsl:if>
+
 <meta property="og:url" content="{/root/page/@url}" />
 <meta property="og:site_name" content="{$current_site_name}" />
 <meta property="og:description" content="{$meta_description}"/>

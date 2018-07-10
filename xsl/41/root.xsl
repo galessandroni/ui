@@ -16,6 +16,7 @@
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'216'"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 <xsl:call-template name="navigationMenu"/>

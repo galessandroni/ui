@@ -33,7 +33,7 @@
 </a>
 </div>
 <div id="banner-region">
-<a href="http://www.nuclearabolition.org/" taget="_blank"><xsl:call-template name="graphic"><xsl:with-param name="id" select="323"/></xsl:call-template></a></div>
+<a href="http://www.nuclearabolition.org/" taget="_blank"><xsl:call-template name="graphic"><xsl:with-param name="id" select="323"/><xsl:with-param name="format" select="'gif'"/></xsl:call-template></a></div>
 </div>
 
 <div id="navbar" class="clearfloat">

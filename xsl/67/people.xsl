@@ -81,6 +81,7 @@ CONTENT
 
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'311'"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 <div class="nascondi"><xsl:apply-templates select="/root/c_features/feature[@id='153']" /></div>
 <div class="calendario"><xsl:apply-templates select="/root/features/feature[@id='154']" /></div>

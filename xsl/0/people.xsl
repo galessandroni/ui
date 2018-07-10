@@ -29,7 +29,7 @@
 
 ********************************************************************-->
 
-<xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="http://www.w3.org/TR/html4/strict.dtd" doctype-public="-//W3C//DTD HTML 4.01//EN" />
+<xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="http://www.w3.org/TR/html4/strict.dtd"  doctype-public="-//W3C//DTD HTML 4.01//EN" />
 
 
 <xsl:include href="common.xsl" />
@@ -49,7 +49,7 @@
 <xsl:when test="$subtype='register'"><xsl:value-of select="/root/site/people/register/@label"/></xsl:when>
 <xsl:when test="$subtype='reminder'"><xsl:value-of select="key('label','reminder')/@tr"/></xsl:when>
 <xsl:when test="$subtype='password'"><xsl:value-of select="/root/site/people/password/@label"/></xsl:when>
-<xsl:when test="$subtype='deactivate'"><xsl:value-of select="/root/site/people/deactivate/@label"/></xsl:when>
+<xsl:when test="$subtype='cancel'"><xsl:value-of select="/root/site/people/cancel/@label"/></xsl:when>
 <xsl:when test="$subtype='history'"><xsl:value-of select="key('label','person_history')/@tr"/></xsl:when>
 <xsl:when test="$subtype='contact'"><xsl:value-of select="/root/user/contact/@label"/></xsl:when>
 <xsl:when test="$subtype='data'"><xsl:value-of select="key('label','person_data')/@tr"/></xsl:when>
@@ -74,8 +74,8 @@
 <xsl:when test="$subtype='register'">
 <xsl:call-template name="peopleRegister"/>
 </xsl:when>
-<xsl:when test="$subtype='deactivate' and $u/@auth='1'">
-<xsl:call-template name="peopleDeactivate"/>
+<xsl:when test="$subtype='cancel' and $u/@auth='1'">
+<xsl:call-template name="peopleCancel"/>
 </xsl:when>
 <xsl:when test="$subtype='reminder'">
 <xsl:call-template name="peopleReminder"/>
@@ -105,7 +105,7 @@
 <xsl:call-template name="loginLogout"/>
 </xsl:if>
 
-<xsl:if test="$u/@name!='' and $subtype!='register' and $subtype!='login' and $subtype!='deactivate' ">
+<xsl:if test="$u/@name!='' and $subtype!='register' and $subtype!='login' and $subtype!='cancel' ">
 <xsl:choose>
 <xsl:when test="not($u/@verified='1') ">
 <xsl:call-template name="peopleEmailVerificationButton"/>
@@ -171,11 +171,11 @@
 </xsl:call-template>
 </li>
 </xsl:if>
-<xsl:if test="$u/@auth='1' and /root/site/people/deactivate and $subtype='data'">
+<xsl:if test="$u/@auth='1' and /root/site/people/cancel and $subtype='data'">
 <li>
 <xsl:call-template name="createLink">
-<xsl:with-param name="name" select="/root/site/people/deactivate/@label"/>
-<xsl:with-param name="node" select="/root/site/people/deactivate"/>
+<xsl:with-param name="name" select="/root/site/people/cancel/@label"/>
+<xsl:with-param name="node" select="/root/site/people/cancel"/>
 </xsl:call-template>
 </li>
 </xsl:if>
@@ -377,17 +377,17 @@ $().ready(function() {
 
 
 <!-- ###############################
-     PEOPLE DEACTIVATE
+     PEOPLE CANCEL
      ############################### -->
-<xsl:template name="peopleDeactivate">
-<form action="{/root/site/people/@submit}" method="post" id="people-deactivate" accept-charset="{/root/site/@encoding}">
-<input type="hidden" name="from" value="deactivate"/>
+<xsl:template name="peopleCancel">
+<form action="{/root/site/people/@submit}" method="post" id="people-cancel" accept-charset="{/root/site/@encoding}">
+<input type="hidden" name="from" value="cancel"/>
 <xsl:if test="/root/topic">
 <input type="hidden" name="id_topic" value="{/root/topic/@id}"/>
 </xsl:if>
-<p><xsl:value-of select="/root/site/people/deactivate/@label_confirm"/></p>
+<p><xsl:value-of select="/root/site/people/cancel/@confirm"/></p>
 <ul class="form-inputs">
-<li class="buttons"><input type="submit" name="action_deactivate_yes" value="{key('label','yes')/@tr}" />
+<li class="buttons"><input type="submit" name="action_cancel_yes" value="{key('label','yes')/@tr}" />
 <input type="submit" name="action_deactivate_no" value="{key('label','no')/@tr}" /></li>
 </ul>
 </form>

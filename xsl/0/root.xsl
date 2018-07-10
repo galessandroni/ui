@@ -68,6 +68,7 @@
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="'1'"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 </a>
 </div>
@@ -672,25 +673,6 @@ PAYPAL PCK
  JAVASCRIPT CUSTOM
  ############################### -->
 <xsl:template name="javascriptCustom">
-</xsl:template>
-
-<!-- ###############################
-GOOGLE UNIVERSAL ANALYTICS
-############################### -->
-<xsl:template name="googleUniversalAnalytics">
-<xsl:param name="ua-id" />
-<xsl:if test="$preview=false() and $ua-id != ''">
-<script type="text/javascript">
-<xsl:text disable-output-escaping="yes">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-ga('create', '</xsl:text><xsl:value-of select="$ua-id"/><xsl:text disable-output-escaping="yes">', 'auto');
-ga('send', 'pageview');
-</xsl:text>
-</script>
-</xsl:if>
 </xsl:template>
 
 

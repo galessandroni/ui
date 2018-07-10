@@ -151,6 +151,7 @@ NAVIGATION MENU
 </xsl:attribute>
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="234"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 <h3></h3>
 </a>
@@ -165,6 +166,7 @@ NAVIGATION MENU
 <a title="" href="">
 <xsl:call-template name="graphic">
 <xsl:with-param name="id" select="233"/>
+<xsl:with-param name="format" select="'gif'"/>
 </xsl:call-template>
 <h3></h3>
 </a>
