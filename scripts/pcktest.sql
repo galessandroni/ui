@@ -28,7 +28,7 @@ UPDATE people SET
     token=''
     WHERE email NOT LIKE '%@peacelink%';
 
-UPDATE topics SET domain='';
+UPDATE topics SET domain='',newsletter=0;
 
 TRUNCATE users_log;
 TRUNCATE publish_log;
