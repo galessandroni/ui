@@ -756,6 +756,15 @@ $().ready(function() {
 <input type="file" name="{$varname}[]"/>
 </li>
 </xsl:when>
+<xsl:when test="@type='link'">
+<xsl:call-template name="formInput">
+<xsl:with-param name="tr_label" select="@label"/>
+<xsl:with-param name="varname" select="$varname"/>
+<xsl:with-param name="size">link</xsl:with-param>
+<xsl:with-param name="required" select="$required"/>
+<xsl:with-param name="value" select="@value"/>
+</xsl:call-template>
+</xsl:when>
 <xsl:otherwise>
 <xsl:call-template name="formInput">
 <xsl:with-param name="tr_label" select="@label"/>

@@ -133,6 +133,9 @@ $().ready(function() {
 	<xsl:when test="@type='text' and @use='4'">
 		param_<xsl:value-of select="@id"/>: { required: true, email: true }
 	</xsl:when>
+	<xsl:when test="@type='link'">
+		param_<xsl:value-of select="@id"/>: { required: true, url: true }
+	</xsl:when>
 	<xsl:otherwise>
 		param_<xsl:value-of select="@id"/>: "required"
 	</xsl:otherwise>
