@@ -2519,6 +2519,10 @@ $().ready(function() {
 </xsl:otherwise>
 </xsl:choose>
 
+<xsl:if test="/root/site/@fb_app_id!=''">
+<meta name="fb:app_id" content="{/root/site/@fb_app_id}"/>
+</xsl:if>
+
 <meta property="og:title" content="{$current_page_title}" />
 <meta property="og:type">
 <xsl:attribute name="content">
@@ -2536,6 +2540,8 @@ $().ready(function() {
 </xsl:call-template>
 </xsl:attribute>
 </meta>
+<meta property="og:image:width" content="/root/article/images/image[@associated='1']/@width"/>
+<meta property="og:image:height" content="/root/article/images/image[@associated='1']/@height"/>
 </xsl:if>
 
 <meta property="og:url" content="{/root/page/@url}" />
