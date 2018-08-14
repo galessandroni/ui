@@ -13,11 +13,15 @@ $q->JobsDeleteAll();
 
 // reorganise content
 include_once(SERVER_ROOT."/../classes/topics.php");
+include_once(SERVER_ROOT."/../classes/topic.php");
 $tt = new Topics();
 
 // 1 tematiche => pace
 $tt->gh->GroupUpdate(1, "Pace", "Pace", 0, 0, 1);
 $tt->TopicUpdateGroup(41,1); // zanotelli
+$tt->TopicUpdateGroup(19,1); // kosovo
+$tt->TopicUpdateGroup(9,1); // tuttigiuperterra
+$tt->TopicUpdateGroup(15,1); // boycottalaguerra
 
 // 6 portale => peacelink
 $tt->gh->GroupUpdate(6, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
@@ -29,6 +33,8 @@ $tt->gh->GroupMove(6, 1);
 $tt->TopicUpdateGroup(1,6); // editoriale
 $tt->TopicUpdateGroup(3,6); // peacelink
 $tt->TopicUpdateGroup(6,6); // links
+$tt->TopicUpdateGroup(47,6); // emergenza
+$tt->TopicUpdateGroup(5,6); // emergenza2
 $t = new Topic(75); $t->Delete(); // peacelink.it
 
 // 10 nodi
@@ -69,18 +75,9 @@ $tt->TopicUpdateGroup(103,13); // citizen science
 $tt->TopicUpdateGroup(34,13); // diritto in rete
 $tt->TopicUpdateGroup(10,13); // mediawatch
 $tt->TopicUpdateGroup(30,13); // sociale
-
-/* ??
-|       17 | Genova           |        3 | campagne
-|       19 | Campagna Kossovo |        3 |
-|        5 | Emergenza2       |        7 | archivio campagne
-|        9 | TuttiGiuPerTerra |        7 |
-|       15 | BoycottaLaGuerra |        7 |
-|       38 | SpronaCoop       |        7 |
-|       47 | Emergenza        |        7 |
-|       49 | Votantonio       |        7 |
- */
-
+$tt->TopicUpdateGroup(17,13); // genova
+$tt->TopicUpdateGroup(38,13); // spronacoop
+$tt->TopicUpdateGroup(49,13); // votantonio
 
 $tt->gh->GroupReshuffle();
 
