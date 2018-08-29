@@ -20,8 +20,11 @@ $tt = new Topics();
 $tt->gh->GroupUpdate(1, "Pace", "Pace", 0, 0, 1);
 $tt->TopicUpdateGroup(41,1); // zanotelli
 $tt->TopicUpdateGroup(19,1); // kosovo
+$tt->TopicArchive(19);
 $tt->TopicUpdateGroup(9,1); // tuttigiuperterra
+$tt->TopicArchive(9);
 $tt->TopicUpdateGroup(15,1); // boycottalaguerra
+$tt->TopicArchive(15);
 
 // 6 portale => peacelink
 $tt->gh->GroupUpdate(6, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
@@ -34,7 +37,10 @@ $tt->TopicUpdateGroup(1,6); // editoriale
 $tt->TopicUpdateGroup(3,6); // peacelink
 $tt->TopicUpdateGroup(6,6); // links
 $tt->TopicUpdateGroup(47,6); // emergenza
+$tt->TopicArchive(47);
 $tt->TopicUpdateGroup(5,6); // emergenza2
+$tt->TopicArchive(5);
+
 $t = new Topic(75); $t->Delete(); // peacelink.it
 
 // 10 nodi
@@ -76,8 +82,11 @@ $tt->TopicUpdateGroup(34,13); // diritto in rete
 $tt->TopicUpdateGroup(10,13); // mediawatch
 $tt->TopicUpdateGroup(30,13); // sociale
 $tt->TopicUpdateGroup(17,13); // genova
+$tt->TopicArchive(17);
 $tt->TopicUpdateGroup(38,13); // spronacoop
+$tt->TopicArchive(38);
 $tt->TopicUpdateGroup(49,13); // votantonio
+$tt->TopicArchive(49);
 
 $tt->gh->GroupReshuffle();
 
