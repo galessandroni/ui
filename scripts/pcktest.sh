@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Update test installation from live backup
+# Pass some string as an argument to run the sanitisation script
 #
 # Run as ubuntu user
 
@@ -20,7 +21,7 @@ sudo cp $PCKUIDIR/test/custom/peacetest.gif $TESTDIR/uploads/graphics/orig/1.gif
 sudo chown -R www-data.www-data $TESTDIR
 
 # sanitise db
-if [ -z "$1" ]; then
+if [ ! -z "$1" ]; then
     pcksan.sh
 fi
 
