@@ -10,7 +10,7 @@ CURRENTDIR=`dirname $0`
 source $CURRENTDIR/config.sh || exit
 
 # sync images
-sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'custom' $PCKDIR/uploads/ $TESTDIR/uploads/
+sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'custom' --exclude graphics $PCKDIR/uploads/ $TESTDIR/uploads/
 sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'css' --exclude 'robots.txt' $PCKDIR/pub/ $TESTDIR/pub/
 
 # block search engines
