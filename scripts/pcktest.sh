@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Update test installation from live backup
-# Pass some string as an argument to run the sanitisation script
+# Pass some string as an argument to update and sanitise data
 #
 # Run as ubuntu user
 
@@ -15,20 +15,20 @@ sudo -u www-data rsync -rtup --links --delete --info=progress2 --exclude 'css' -
 
 # block search engines
 sudo cp /data/phpeace/disallow.txt $TESTDIR/pub/robots.txt
+# update logo
 sudo cp $PCKUIDIR/test/custom/peacetest.gif $TESTDIR/uploads/graphics/orig/1.gif
 
 # set perms
 sudo chown -R www-data.www-data $TESTDIR
 
-# sanitise db
+# sync db
 if [ ! -z "$1" ]; then
     pcksan.sh
+    # update script
+    sudo -u www-data mkdir -p $TESTDIR/scripts/custom
+    sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
+    cd $TESTDIR
+    php $TESTDIR/scripts/custom/pcktest.php
 fi
-
-# update script
-sudo -u www-data mkdir -p $TESTDIR/scripts/custom
-sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
-cd $TESTDIR
-php $TESTDIR/scripts/custom/pcktest.php
 
 # slack
