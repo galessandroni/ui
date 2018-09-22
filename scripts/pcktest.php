@@ -4,7 +4,6 @@ define('SERVER_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include_once(SERVER_ROOT."/../classes/phpeace.php");
 $phpeace = new PhPeace();
-echo $phpeace->Copyright();
 
 // clear queue
 include_once(SERVER_ROOT."/../classes/queue.php");
@@ -28,11 +27,6 @@ $tt->TopicArchive(15);
 
 // 6 portale => peacelink
 $tt->gh->GroupUpdate(6, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
-$tt->gh->GroupMove(6, 1);
-$tt->gh->GroupMove(6, 1);
-$tt->gh->GroupMove(6, 1);
-$tt->gh->GroupMove(6, 1);
-$tt->gh->GroupMove(6, 1);
 $tt->TopicUpdateGroup(1,6); // editoriale
 $tt->TopicUpdateGroup(3,6); // peacelink
 $tt->TopicUpdateGroup(6,6); // links
@@ -55,8 +49,8 @@ $tt->TopicUpdateGroup(14,3); // no brain
 $tt->TopicUpdateGroup(36,3); // storia della pace
 $tt->TopicUpdateGroup(109,3); // scuola
 
-// 11 diossina => ecologia
-$tt->gh->GroupUpdate(11, "Ecologia", "Ecologia", 0, 0, 1);
+// 11 ecologia
+$tt->gh->GroupInsert("Ecologia", "Ecologia", 0, 1, "");
 $tt->TopicUpdateGroup(31,11); // ecologia
 $tt->TopicUpdateGroup(102,11); // green tour
 $tt->TopicUpdateGroup(106,11); // processo ilva
@@ -88,7 +82,34 @@ $tt->TopicArchive(38);
 $tt->TopicUpdateGroup(49,13); // votantonio
 $tt->TopicArchive(49);
 
+// sort
 $tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(6, 1);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(6, 1);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(6, 1);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(6, 1);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(2, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(2, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(2, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(2, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(2, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(5, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(5, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(5, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(5, 0);
 
 // publish
 ?>
