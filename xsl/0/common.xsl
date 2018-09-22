@@ -40,7 +40,7 @@
 <xsl:key name="label" match="/root/labels/label" use="@word"/>
 
 <xsl:variable name="assets_url" select="/root/site/@assets_domain"/>
-<xsl:variable name="css_url" select="concat($assets_url,'/css')"/>
+<xsl:variable name="css_url" select="concat($assets_url,'/css/0/css')"/>
 <xsl:variable name="css_version" select="/root/publish/@css_version"/>
 <xsl:variable name="js_version" select="/root/publish/@js_version"/>
 
@@ -283,6 +283,7 @@
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$a/author/image"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -416,6 +417,7 @@
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="cover"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <a title="{@title}">
@@ -495,6 +497,7 @@
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <a title="{$a/headline}">
@@ -685,6 +688,7 @@ getHttpContent('/js/article.php?id_k=<xsl:value-of select="$id_keyword"/><xsl:te
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/thumb"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -879,6 +883,7 @@ getHttpContent('/js/banner.php?id_g=<xsl:value-of select="$id"/><xsl:text disabl
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$b/thumb"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -920,6 +925,7 @@ getHttpContent('/js/banner.php?id_g=<xsl:value-of select="$id"/><xsl:text disabl
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$b"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <div class="blockbooktitle">
@@ -929,6 +935,7 @@ getHttpContent('/js/banner.php?id_g=<xsl:value-of select="$id"/><xsl:text disabl
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$b/image"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -1110,8 +1117,9 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
 <xsl:param name="node"/>
 <xsl:param name="p"/>
 <xsl:param name="additional_params" select="''"/>
+<xsl:param name="cdn" select="false()"/>
 <xsl:choose>
-<xsl:when test="$preview=true() and $node/@qs"><xsl:value-of select="$node/@qs"/><xsl:if test="$p!=''">&amp;p=<xsl:value-of select="$p"/></xsl:if></xsl:when>
+<xsl:when test="$preview=true() and $node/@qs and not($cdn=true())"><xsl:value-of select="$node/@qs"/><xsl:if test="$p!=''">&amp;p=<xsl:value-of select="$p"/></xsl:if></xsl:when>
 <xsl:otherwise>
 <xsl:choose>
 <xsl:when test="$p &gt; 1">
@@ -1595,6 +1603,7 @@ $(function () {
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/src"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <xsl:choose>
@@ -1625,6 +1634,7 @@ $(function () {
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/src"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <div class="gallery-image">
@@ -1706,6 +1716,7 @@ $(function () {
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/aimage"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -1739,6 +1750,7 @@ $(function () {
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/src"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <xsl:choose>
@@ -1808,7 +1820,13 @@ $(function () {
 </xsl:param>
 <xsl:choose>
 <xsl:when test="/root/site/@ui='1'">
-<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.{$format}" id="gra-{$id}"/>
+<xsl:variable name="cdn_params">
+<xsl:choose>
+<xsl:when test="/root/site/@cdn!='' and $format='gif'">?format=png</xsl:when>
+<xsl:otherwise></xsl:otherwise>
+</xsl:choose>
+</xsl:variable>
+<img alt="{$alt_text}" src="{/root/site/@assets_domain}/graphics/{$id}.{$format}{$cdn_params}" id="gra-{$id}"/>
 </xsl:when>
 <xsl:otherwise>
 <xsl:call-template name="graphicInternal">
@@ -1894,6 +1912,7 @@ href="{/root/site/rss/@url}" />
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$src_node"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <a target="_blank" class="highslide">
@@ -1940,6 +1959,7 @@ href="{/root/site/rss/@url}" />
 <xsl:variable name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$node"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:variable>
 <xsl:variable name="class">
@@ -1950,26 +1970,16 @@ href="{/root/site/rss/@url}" />
 </xsl:choose>
 </xsl:variable>
 <xsl:choose>
-<xsl:when test="$node/@format='swf'">
-<div id="swf-{$id}" class="flash-{$class}"><p class="swf-caption"><xsl:value-of select="$node/@caption"/></p><p class="flash-warning"><xsl:value-of select="key('label','flash_warning')/@tr" disable-output-escaping="yes"/></p></div>
-<script type="text/javascript">
-var flashvars = {};
-var params = {};
-params.wmode = "opaque";
-swfobject.embedSWF("<xsl:value-of select="$src"/>", "swf-<xsl:value-of select="$id"/>", "<xsl:value-of select="$node/@width"/>", "<xsl:value-of select="$node/@height"/>", "9.0.0",'<xsl:value-of select="/root/site/@base"/>/tools/expressInstall.swf',flashvars,params);
-</script>
-</xsl:when>
-<xsl:otherwise>
-<xsl:choose>
 <xsl:when test="$node/@zoom='1'">
 <a target="_blank" onclick="open_popup(this,{$node/image_popup/@width + 100},{$node/image_popup/@height + 200}); return false">
 <xsl:attribute name="href">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$node/image_popup"/>
+<xsl:with-param name="cdn" select="true()"/>
 </xsl:call-template>
 </xsl:attribute>
 <xsl:attribute name="title"><xsl:value-of select="concat($node/@caption,' (',$node/image_popup/@label,')')"/></xsl:attribute>
-<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
+xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
 </a>
 </xsl:when>
 <xsl:when test="$node/@zoom='2'">
@@ -1980,13 +1990,9 @@ swfobject.embedSWF("<xsl:value-of select="$src"/>", "swf-<xsl:value-of select="$
 </xsl:call-template>
 </xsl:when>
 <xsl:otherwise>
-<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
+yyy<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
 </xsl:otherwise>
 </xsl:choose>
-</xsl:otherwise>
-</xsl:choose>
-
-
 </xsl:template>
 
 
@@ -3061,6 +3067,7 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$s/image"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -3326,6 +3333,7 @@ getHttpContent('/js/user.php?a=1','user-info')
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/thumb"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
@@ -3351,6 +3359,7 @@ getHttpContent('/js/user.php?a=1','user-info')
 <xsl:attribute name="src">
 <xsl:call-template name="createLinkUrl">
 <xsl:with-param name="node" select="$i/thumb"/>
+<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
 </xsl:call-template>
 </xsl:attribute>
 </img>
