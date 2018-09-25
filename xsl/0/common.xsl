@@ -1,34 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<!--********************************************************************
-
-   PhPeace - Portal Management System
-
-   Copyright notice
-   (C) 2003-2018 Francesco Iannuzzelli <francesco@phpeace.org>
-   All rights reserved
-
-   This script is part of PhPeace.
-   PhPeace is free software; you can redistribute it and/or modify 
-   it under the terms of the GNU General Public License as 
-   published by the Free Software Foundation; either version 2 of 
-   the License, or (at your option) any later version.
-
-   PhPeace is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   The GNU General Public License (GPL) is available at
-   http://www.gnu.org/copyleft/gpl.html.
-   A copy can be found in the file COPYING distributed with 
-   these scripts.
-
-   This copyright notice MUST APPEAR in all copies of the script!
-
-********************************************************************-->
-
 <xsl:variable name="menudepth" select="/root/menu/@depth"/>
 <xsl:variable name="preview" select="boolean(/root/publish/@preview='1')"/>
 <xsl:variable name="async_js" select="not(boolean(/root/topic/@domain and /root/publish/@static='1' and /root/publish/@rewrite='0'))"/>
@@ -75,6 +47,7 @@
      ROOT MATCH
      ############################### -->
 <xsl:template match="/">
+<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;</xsl:text>
 <xsl:call-template name="root"/>
 </xsl:template>
 

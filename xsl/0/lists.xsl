@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<!--********************************************************************
-Questo XSL e' stato modificato a mano per PeaceLink
-********************************************************************-->
-
-<xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="http://www.w3.org/TR/html4/strict.dtd"  doctype-public="-//W3C//DTD HTML 4.01//EN" />
+<xsl:output method="html" encoding="UTF-8" indent="no" />
 
 <xsl:include href="common.xsl" />
 

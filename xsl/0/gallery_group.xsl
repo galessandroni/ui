@@ -1,13 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<!--********************************************************************
-Gestito da Francesco, non modificare
-********************************************************************-->
-
 <xsl:import href="common.xsl" />
 
-<xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="http://www.w3.org/TR/html4/strict.dtd"  doctype-public="-//W3C//DTD HTML 4.01//EN" />
+<xsl:output method="html" encoding="UTF-8" indent="no" />
 
 <xsl:variable name="current_page_title">
 <xsl:value-of select="/root/tree/@name"/>
