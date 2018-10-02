@@ -2520,7 +2520,7 @@ $().ready(function() {
 </xsl:choose>
 
 <xsl:if test="/root/site/@fb_app_id!=''">
-<meta name="fb:app_id" content="{/root/site/@fb_app_id}"/>
+<meta property="fb:app_id" content="{/root/site/@fb_app_id}"/>
 </xsl:if>
 
 <meta property="og:title" content="{$current_page_title}" />
