@@ -13,44 +13,36 @@
      CONTENT
      ############################### -->
 <xsl:template name="content">
-<xsl:call-template name="breadcrumb"/>
-<div id="sitemap">
-<ul class="groups">
-<xsl:apply-templates select="/root/topics" mode="map">
-<xsl:with-param name="level" select="'1'"/>
-</xsl:apply-templates>
-<xsl:if test="/root/publish/@id='0'">
-<li class="group level1">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/galleries"/>
-</xsl:call-template>
-<div><xsl:value-of select="/root/galleries/@description"/></div>
-<ul class="groups">
-<xsl:apply-templates select="/root/galleries" mode="map"/>
-</ul>
-</li>
-<li class="level1">
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="/root/labels/label[@word='calendar']/@tr"/>
-<xsl:with-param name="node" select="/root/site/events"/>
-</xsl:call-template>
-</li>
-<li class="level1">
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="/root/labels/label[@word='search_engine']/@tr"/>
-<xsl:with-param name="node" select="/root/site/search"/>
-</xsl:call-template>
-</li>
-</xsl:if>
-</ul>
-</div>
-<div id="map-latest">
-<!--
-<ul class="items">
-<xsl:apply-templates mode="fulllist" select="/root/latest"/>
-</ul>
--->
-</div>
+  <div id="sitemap">
+    <ul class="groups">
+      <xsl:apply-templates select="/root/topics" mode="map">
+        <xsl:with-param name="level" select="'1'"/>
+      </xsl:apply-templates>
+      <xsl:if test="/root/publish/@id='0'">
+        <li class="group level1">
+          <xsl:call-template name="createLink">
+            <xsl:with-param name="node" select="/root/galleries"/>
+          </xsl:call-template>
+          <div><xsl:value-of select="/root/galleries/@description"/></div>
+          <ul class="groups">
+            <xsl:apply-templates select="/root/galleries" mode="map"/>
+          </ul>
+        </li>
+        <li class="level1">
+          <xsl:call-template name="createLink">
+            <xsl:with-param name="name" select="/root/labels/label[@word='calendar']/@tr"/>
+            <xsl:with-param name="node" select="/root/site/events"/>
+          </xsl:call-template>
+        </li>
+        <li class="level1">
+          <xsl:call-template name="createLink">
+            <xsl:with-param name="name" select="/root/labels/label[@word='search_engine']/@tr"/>
+            <xsl:with-param name="node" select="/root/site/search"/>
+          </xsl:call-template>
+        </li>
+      </xsl:if>
+    </ul>
+  </div>
 </xsl:template>
 
 
@@ -71,29 +63,32 @@
      GROUP
      ############################### -->
 <xsl:template match="group" mode="map">
-<xsl:param name="level"/>
-<li class="group level{$level}">
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="@name"/>
-<xsl:with-param name="node" select="."/>
-</xsl:call-template>
-<div><xsl:value-of select="@description"/></div>
-<xsl:if test="topics">
-<ul class="topics">
-<xsl:apply-templates mode="map" select="topics"/>
-</ul>
-</xsl:if>
-<xsl:if test="galleries">
-<ul class="galleries">
-<xsl:apply-templates mode="map" select="galleries"/>
-</ul>
-</xsl:if>
-<xsl:if test="groups">
-<ul class="groups">
-<xsl:apply-templates select="groups" mode="map"/>
-</ul>
-</xsl:if>
-</li>
+  <xsl:param name="level"/>
+  <li class="group level{$level}">
+    <h1><xsl:value-of select="@name"/></h1>
+    <div><xsl:value-of select="@description"/></div>
+    <xsl:if test="topics">
+      <ul class="topics">
+        <xsl:apply-templates mode="map" select="topics/topic[@archived='0']"/>
+      </ul>
+      <xsl:if test="topics/topic[@archived='1']">
+        <h2>Archivio</h2>
+        <ul class="topics">
+          <xsl:apply-templates mode="map" select="topics/topic[@archived='1']"/>
+        </ul>
+      </xsl:if>
+    </xsl:if>
+    <xsl:if test="galleries">
+      <ul class="galleries">
+        <xsl:apply-templates mode="map" select="galleries"/>
+      </ul>
+    </xsl:if>
+    <xsl:if test="groups">
+      <ul class="groups">
+        <xsl:apply-templates select="groups" mode="map"/>
+      </ul>
+    </xsl:if>
+  </li>
 </xsl:template>
 
 
@@ -110,17 +105,16 @@
      SUBTOPIC
      ############################### -->
 <xsl:template match="subtopic" mode="map">
-<li class="subtopic">
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="@name"/>
-<xsl:with-param name="node" select="."/>
-</xsl:call-template>
-<xsl:if test="subtopics">
-<ul class="subtopics">
-<xsl:apply-templates mode="map" select="subtopics"/>
-</ul>
-</xsl:if>
-</li>
+  <li class="subtopic">
+    <xsl:call-template name="createLink">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
+    <xsl:if test="subtopics">
+      <ul class="subtopics">
+        <xsl:apply-templates mode="map" select="subtopics"/>
+      </ul>
+    </xsl:if>
+  </li>
 </xsl:template>
 
 
@@ -128,22 +122,21 @@
      TOPIC
      ############################### -->
 <xsl:template match="topic" mode="map">
-<li class="topic">
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="@name"/>
-<xsl:with-param name="node" select="."/>
-</xsl:call-template>
-<xsl:if test="description!=''">
-<div><xsl:value-of select="description" disable-output-escaping="yes"/></div>
-</xsl:if>
-<!--
-<xsl:if test="subtopics">
-<ul class="subtopics">
-<xsl:apply-templates mode="map" select="subtopics"/>
-</ul>
-</xsl:if>
--->
-</li>
+  <li class="topic">
+    <h3>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </h3>
+    <xsl:if test="description!=''">
+      <div><xsl:value-of select="description" disable-output-escaping="yes"/></div>
+    </xsl:if>
+    <xsl:if test="subtopics">
+      <ul class="subtopics">
+        <xsl:apply-templates mode="map" select="subtopics"/>
+      </ul>
+    </xsl:if>
+  </li>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -1,24 +1,39 @@
-/* CSS comune a tutti */
-
-body
-{
-font-family: Arial, Helvetica, sans-serif; 
-font-size: 80%; 
-text-decoration: none; 
-background-color:#fff;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-td, input, textarea, select 
-{
-font-family: Arial, Helvetica, sans-serif; 
-}
-
-body
-{
-margin:0 0 2em 0;
-padding: 1em; 
-text-align: center;
-}
 
 a
 {
@@ -73,176 +88,6 @@ line-height:1.2em;
 padding:1em;
 }
 
-
-/**** STRUCTURE ****/
-
-#main-wrap
-{
-width: 1180px;
-margin: 0 auto;
-text-align:left;
-padding:0;
-}
-
-#main,#main-global
-{
-width:100%;
-clear:both;
-margin-bottom:1em;
-}
-
-#main #left-bar
-{
-width:18%;
-float:left;
-}
-
-#main #center
-{
-margin-left: 19%;
-width:59%;
-}
-
-#bottom-bar
-{
-clear:both;
-}
-
-#right-bar
-{
-width:18%;
-float:right;
-padding: 0 0 0.5em 0.5em;
-}
-
-#main-global #left-bar
-{
-width:33%;
-float:left;
-}
-
-#main-global #center {
-margin-left: 34%;
-width:44%;
-}
-
-#main-global.widgets-home #center {
-margin-left: 0;
-padding:0;
-width: 100%;
-}
-
-
-/**** TOP BAR ****/
-
-#top-bar
-{
-padding:0;
-}
-
-#top-bar #logo
-{
-float: left;
-}
-
-#top-bar .banner
-{
-float: right;
-margin-left:1em;
-}
-
-#top-nav
-{
-clear:both;
-padding: 0;
-background-color: #fff;
-}
-
-#top-nav a
-{
-text-align:center;
-color:#fff;
-font-weight:bold;
-font-size:1.0em;
-text-decoration: none;
-padding:0 0.5em;
-}
-
-#top-nav a:hover
-{
-text-decoration: underline;
-}
-
-#top-nav ul#pck-links 
-{
-margin:0;
-padding:0;
-background-color:#f7a100;
-float:right;
-width:100%;
-text-align:right;
-}
-
-#top-nav li
-{
-text-align: center;
-display:inline;
-}
-
-#top-nav ul#pck-links li {
-border-left:solid 3px #fff;
-}
-
-#top-nav ul#content-links li {
-border-right:solid 3px #fff;
-}
-
-#top-nav h3.feature
-{
-display:none;
-}
-
-#top-nav ul#content-links
-{
-background-color: #2f2f6b;
-float:left;
-width:100%;
-margin:0;
-padding:0;
-}
-
-#top-nav ul#content-links li.selected {
-background-color:#4f4fbb;
-}
-
-#user-info
-{
-margin:0;
-background-color:#ddd;
-padding:0 1em;
-float:right;
-color:#008;
-font-size:0.9em;
-}
-
-#user-info h2
-{
-font-size:1em;
-margin:0;
-font-weight:normal;
-display:inline;
-}
-
-#user-info #user-auth
-{
-display:inline;
-}
-
-#user-info a
-{
-display:inline;
-color:#008;
-}
 
 
 /* SEARCH */
@@ -354,16 +199,6 @@ margin: 1em 0;
 #left-bar .menu-footer
 {
 font-size:0.8em;
-}
-
-
-/* CONTENT */ 
-
-#center
-{
-margin: 0;
-padding: 0 0.6em;
-text-align: left;
 }
 
 
@@ -716,27 +551,6 @@ width:1px;
 margin:-1000em;
 }
 
-/* PCK COMMON STUFF */
-
-.pckbox
-{
-margin:0.5em;
-padding:0;
-border:solid 1px #ccc;
-float:left;
-}
-
-.pckbox h3.feature
-{
-background-color:#e78e0f;
-color:#fff;
-text-align:center;
-}
-
-.pckbox h3.feature a {
-color:#fff;
-}
-
 #left-bar .pckbox h3.feature
 {
 background-color:#2f2f6b;
@@ -794,21 +608,6 @@ float:left;
 background-color:#ccc;
 color:#2f2f6b;
 text-align:center;
-}
-
-#right-bar .pckbox,
-#right-bar .pckbox2,
-#right-bar #gallerie,
-#right-bar #geo-search,
-#right-bar #libri,
-#right-bar #ricorrenze {
-width:220px;
-margin-right:0;
-margin-left:0;
-}
-
-#right-bar ul.items li {
-font-size:0.85em;
 }
 
 #gallerie .banner-gallery,
@@ -1047,3 +846,203 @@ height:30px !important;
 label.required abbr {
 margin-left:2px;
 }
+
+/*
+ * ###########
+ * NEW CSS
+ *
+ */
+
+body {
+  font-family: Arial, Helvetica, sans-serif; 
+  text-decoration: none; 
+  margin:0 1em;
+}
+
+
+/**** STRUCTURE ****/
+
+#main-wrap {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+#main, #main-global {
+  width:100%;
+  clear:both;
+  margin-bottom:1em;
+}
+
+#left-bar {
+  width:20%;
+  float:left;
+}
+
+#right-bar  {
+  width:18%;
+  float:right;
+}
+
+#main #center {
+  margin-left: 19%;
+  width:59%;
+}
+
+#main-global #center {
+  width:70%;
+  max-width: 800px;
+  float:left;
+}
+
+#main-global #right-bar {
+  width: 400px;
+}
+
+#bottom-bar {
+  clear:both;
+}
+
+/**** TOP NAV ****/
+
+#logo {
+  float: left;
+  display: block;
+  text-indent: -9999px;
+  width: 300px;
+  height: 100px;
+  background: url(/css/i/peacelink.svg);
+  background-size: 300px 100px;
+  margin-right:20px;
+}
+
+#top-nav .banner {
+  float: right;
+  margin-left: 1em;
+}
+
+#top-nav li a {
+  float:left;
+  border-left:solid 0.2em #fff;
+  padding: 0.3em 0.5em;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#pck-links a {
+  background-color:#e79100;
+}
+
+#pck-links a:hover {
+  background-color:#f7a100;
+}
+
+#top-nav h3.feature {
+  display:none;
+}
+
+#content-links {
+  background-color: #2f2f6b;
+  border-radius:20px;
+  padding: 0 25px;
+  clear:both;
+  float:left;
+  width: 1180px;
+}
+
+#content-links li a {
+  background-color: #2f2f6b;
+}
+
+#content-links li a:hover,
+#content-links li.selected a {
+  background-color:#4f4fbb;
+}
+
+#user-info {
+  float:right;
+  color:#fff;
+}
+
+#top-nav li #user-info a {
+  font-weight:normal;
+  display:inline;
+}
+
+#user-info #user-auth {
+  display:inline;
+}
+
+/* HOMEPAGE CSS */
+
+#center .pckbox {
+  width:100%;
+}
+
+#fotonotizia {
+  float:right;
+  text-align:center;
+  background-color:#fbdcab; 
+  width:100%;
+}
+
+#fotonotizia h3.feature {
+  display:none;
+}
+
+#fotonotizia .description {
+  font-style:italic;
+  padding:0.2em;
+}
+
+
+/* MAP */
+
+ul.groups {
+  margin:1em 0;
+}
+
+ul.groups ul {
+  margin-left:1em;
+  padding-left:1em;
+}
+
+ul.groups li.group a {
+  border:solid 0px #fff;
+  background-color:#fff;
+  font-size:1.2em;
+}
+
+ul.groups li.level1 {
+  margin-bottom:0.5em;
+}
+
+ul.topics li.topic {
+  margin:0.5em;
+}
+
+ul.groups ul.subtopics {
+  display:none;
+}
+
+
+/* PCK COMMON STUFF */
+
+.pckbox {
+  margin:0.5em 0;
+  border:solid 1px #ccc;
+  float:left;
+}
+
+.pckbox > h3 {
+  background-color:#e78e0f;
+  color:#fff;
+  text-align:center;
+  font-weight: bold;
+  padding: 0.3em;
+}
+
+.pckbox > h3 a {
+  color:#fff;
+}
+

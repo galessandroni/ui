@@ -1123,34 +1123,10 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
 	<link type="text/css" rel="stylesheet" href="{/root/site/@admin}/include/css/preview.css{$css_version}" media="screen"/>
 </xsl:if>
 <link type="text/css" rel="stylesheet" href="{$css_url}/0/common.css{$css_version}" media="screen"/>
-<link type="text/css" rel="stylesheet" href="{$css_url}/0/{$pagetype}.css{$css_version}" media="screen"/>
-<xsl:if test="/root/publish/@global='1' ">
-	<link type="text/css" rel="stylesheet" href="{$css_url}/0/common_global.css{$css_version}" media="screen"/>
-	<xsl:if test="$pagetype='homepage' and /root/publish/@widgets">
-		<link type="text/css" rel="stylesheet" href="/js/jquery/css/ui-lightness/jquery-ui-1.8.5.custom.css" media="screen"/>
-		<link type="text/css" rel="stylesheet" href="{$css_url}/0/widgets.css{$css_version}" media="screen"/>
-	</xsl:if>
-</xsl:if>
 <xsl:if test="not(/root/publish/@global='1') and /root/publish/@style &gt; 0">
 	<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/common.css{$css_version}" media="screen"/>
-	<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/{$pagetype}.css{$css_version}" media="screen"/>
-	<xsl:if test="($pagetype='topic_home' and (/root/topic/@home_type='0' or /root/topic/@home_type='2') ) or ($pagetype='subtopic' and /root/subtopic/@id_type='2')  ">
-		<link type="text/css" rel="stylesheet" href="{$css_url}/0/article.css{$css_version}" media="screen"/>
-		<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/article.css{$css_version}" media="screen"/>
-	</xsl:if>
-	<xsl:if test="$pagetype='topic_home' and /root/topic/@home_type='4' ">
-		<link type="text/css" rel="stylesheet" href="{$css_url}/0/subtopic.css{$css_version}" media="screen"/>
-		<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/subtopic.css{$css_version}" media="screen"/>
-		<xsl:if test="/root/subtopic/@id_type='2'">
-			<link type="text/css" rel="stylesheet" href="{$css_url}/0/article.css{$css_version}" media="screen"/>
-			<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/article.css{$css_version}" media="screen"/>
-		</xsl:if>
-	</xsl:if>
 </xsl:if>
 <link type="text/css" rel="stylesheet" href="{$css_url}/0/print.css{$css_version}" media="print"/>
-<xsl:if test="not(/root/publish/@global='1') and /root/publish/@style &gt; 0">
-	<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/print.css{$css_version}" media="print"/>
-</xsl:if>
 <xsl:call-template name="cssCustom"/>
 </xsl:template>
 
@@ -1963,7 +1939,7 @@ xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" s
 </xsl:call-template>
 </xsl:when>
 <xsl:otherwise>
-yyy<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
+<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" src="{$src}" class="{$class}"/>
 </xsl:otherwise>
 </xsl:choose>
 </xsl:template>
@@ -3259,17 +3235,15 @@ getHttpContent('/js/user.php?a=1','user-info')
 <xsl:param name="u" select="/root/user"/>
 <xsl:choose>
 <xsl:when test="$u/@name!=''">
-<h2>
 <xsl:call-template name="createLink">
 <xsl:with-param name="node" select="/root/site/people"/>
 <xsl:with-param name="name" select="$u/@name"/>
 </xsl:call-template>
-</h2>
 <xsl:if test="$u/@auth='1'">
-<div id="user-auth">(<xsl:call-template name="createLink">
+<div id="user-auth"><xsl:call-template name="createLink">
 <xsl:with-param name="node" select="/root/site/people/logout"/>
 <xsl:with-param name="name" select="'Logout'"/>
-</xsl:call-template>)</div>
+</xsl:call-template></div>
 </xsl:if>
 </xsl:when>
 <xsl:otherwise>
@@ -3278,7 +3252,6 @@ getHttpContent('/js/user.php?a=1','user-info')
 <xsl:with-param name="node" select="/root/site/people/login"/>
 <xsl:with-param name="name" select="/root/site/people/login/@label"/>
 </xsl:call-template>
-<span> - </span>
 <xsl:call-template name="createLink">
 <xsl:with-param name="node" select="/root/site/people/register"/>
 <xsl:with-param name="name" select="/root/site/people/register/@label"/>

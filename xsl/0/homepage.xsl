@@ -16,103 +16,37 @@
      CONTENT
      ############################### -->
 <xsl:template name="content">
-<xsl:call-template name="feedback"/>
-   <xsl:choose>
-   <xsl:when test="$show_widgets">
-		<xsl:call-template name="widgetNoJavascriptWarning" />
-		<div id="widgets-content">
-			<xsl:attribute name="class">
-           	<xsl:choose>
-				<xsl:when test="$subtype!=''"><xsl:value-of select="$subtype"/></xsl:when>
-				<xsl:otherwise>widget_home</xsl:otherwise>
-           	</xsl:choose>
-           </xsl:attribute>
-		
-           <xsl:choose>
-				<xsl:when test="$subtype='widget_library'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetLibrary"/>
-				</xsl:when>
-				<xsl:when test="$subtype='widget_category'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetCategory"/>
-				</xsl:when>
-				<xsl:when test="$subtype='widget_search'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetSearch"/>
-				</xsl:when>
-				<xsl:when test="$subtype='widget_content_search'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetContentSearch"/>
-				</xsl:when>
-				<xsl:when test="$subtype='mywidgets'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="myWidgets"/>
-				</xsl:when>
-				<xsl:when test="$subtype='widget_create'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetCreate"/>
-				</xsl:when>
-				<xsl:when test="$subtype='widget_edit'">
-					<xsl:call-template name="browseWidget" />
-					<xsl:call-template name="widgetEdit"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:call-template name="widgetHomeContent"/>
-					<div id="tab-wrapper">
-						<ul id="tab-navigation">
-						</ul>
-					</div> 
-				</xsl:otherwise>
-           </xsl:choose>
-		</div>
-   </xsl:when>
-   <xsl:otherwise>
-<xsl:call-template name="fotonotizia"/>
-<xsl:call-template name="notiziaGold"/>
-<xsl:call-template name="campagnarai"/>
-<!-- <xsl:call-template name="topicGold"/> -->
-<xsl:call-template name="newsPckOrig"/>
-<xsl:call-template name="newsPckNodi"/>
-<xsl:call-template name="translationsPck"/>
-<xsl:call-template name="newsGuests"/>
-   </xsl:otherwise>
-   </xsl:choose>
+  <xsl:call-template name="feedback"/>
+  <xsl:for-each select="/root/features/feature[@id_function='1']">
+    <xsl:sort select="items/item/@ts" order="descending"/>
+    <div class="pckbox">
+      <h3>
+        <xsl:call-template name="createLink">
+          <xsl:with-param name="node" select="."/>
+        </xsl:call-template>
+      </h3>
+      <ul class="items">
+        <xsl:apply-templates select="items" mode="fulllist"/>
+      </ul>
+    </div>
+  </xsl:for-each>
 </xsl:template>
 
-
-<xsl:template name="campagnarai">
-
-<div id="notizia-gold" class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='183']" />
-</div>
-</xsl:template>
 
 <!-- ###############################
-     FOTONOTIZIA
+     NEWS TOPIC GROUP
      ############################### -->
-<xsl:template name="fotonotizia">
-<xsl:if test="/root/features/feature[@id='91'] or /root/features/feature[@id='10']">
-<div id="fotonotizia" class="pckbox">
-<xsl:choose>
-<xsl:when test="/root/features/feature[@id='91']">
-<!-- VIDEONOTIZIA PEACELINK -->
-<xsl:apply-templates select="/root/features/feature[@id='91']" />
-<h3 class="description"><a href="{/root/features/feature[@id='91']/items/video/@link}"><xsl:value-of select="/root/features/feature[@id='91']/items/video/@title"/></a></h3>
-<div class="description"><xsl:value-of select="/root/features/feature[@id='91']/items/video/description"/></div>
-</xsl:when>
-<xsl:otherwise>
-<!-- FOTONOTIZIA -->
-<xsl:call-template name="galleryImage">
-<xsl:with-param name="i" select="/root/features/feature[@id='10']/items/item"/>
-</xsl:call-template>
-<div class="description"><a href="{/root/features/feature[@id='10']/items/item/@link}">
-<xsl:value-of select="/root/features/feature[@id='10']/items/item/@caption"/></a></div>
-</xsl:otherwise>
-</xsl:choose>
-</div>
-</xsl:if>
+<xsl:template name="newsTopicGroup">
+  <xsl:param name="id_feature" />
+  <div class="pckbox">
+    <xsl:variable name="f" select="/root/features/feature[@id=$id_feature]"/>
+    <h3 class="feature"><xsl:value-of select="$f/info/@group_name"/></h3>
+    <ul class="items">
+      <xsl:apply-templates select="$f/items" mode="fulllist"/>
+    </ul>
+  </div>
 </xsl:template>
+
 
 
 <!-- ###############################

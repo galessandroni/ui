@@ -3,84 +3,112 @@ $_SERVER['DOCUMENT_ROOT'] = realpath("scripts");
 define('SERVER_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
 include_once(SERVER_ROOT."/../classes/phpeace.php");
-$phpeace = new PhPeace();
+include_once(SERVER_ROOT."/../classes/topics.php");
+include_once(SERVER_ROOT."/../classes/topic.php");
+include_once(SERVER_ROOT."/../classes/pagetypes.php");
+include_once(SERVER_ROOT."/../classes/varia.php");
+include_once(SERVER_ROOT."/../classes/queue.php");
 
 // clear queue
-include_once(SERVER_ROOT."/../classes/queue.php");
 $q = new Queue(0);
 $q->JobsDeleteAll();
 
 // reorganise content
-include_once(SERVER_ROOT."/../classes/topics.php");
-include_once(SERVER_ROOT."/../classes/topic.php");
 $tt = new Topics();
 
+function HomepageFeature($name,$id_group) {
+  $pt = new PageTypes();
+  $id_function = 1;
+  $id_type = 0;
+  $limit = 4;
+  $id_feature = $pt->GlobalFeatureStore( 0,$name,"",$id_type,$id_function,0,0,1,0,0);
+  $params = array();
+  $params['limit'] = $limit;
+  $params['id_topic_group'] = $id_group;
+  $params['show_latest'] = 0;
+  $params['with_content'] = 0;
+  $params['sort_by'] = 0;
+  $v = new Varia();
+  $values = $v->Serialize($params);
+  $pt->PageFunctionsParamsStore($id_feature,$values);
+}
+
 // 1 tematiche => pace
-$tt->gh->GroupUpdate(1, "Pace", "Pace", 0, 0, 1);
-$tt->TopicUpdateGroup(41,1); // zanotelli
-$tt->TopicUpdateGroup(19,1); // kosovo
+$id_pace = 1;
+$tt->gh->GroupUpdate($id_pace, "Pace", "Pace", 0, 0, 1);
+$tt->TopicUpdateGroup(41,$id_pace); // zanotelli
+$tt->TopicUpdateGroup(19,$id_pace); // kosovo
 $tt->TopicArchive(19);
-$tt->TopicUpdateGroup(9,1); // tuttigiuperterra
+$tt->TopicUpdateGroup(9,$id_pace); // tuttigiuperterra
 $tt->TopicArchive(9);
-$tt->TopicUpdateGroup(15,1); // boycottalaguerra
+$tt->TopicUpdateGroup(15,$id_pace); // boycottalaguerra
 $tt->TopicArchive(15);
+HomepageFeature("Pace",$id_pace);
 
 // 6 portale => peacelink
-$tt->gh->GroupUpdate(6, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
-$tt->TopicUpdateGroup(1,6); // editoriale
-$tt->TopicUpdateGroup(3,6); // peacelink
-$tt->TopicUpdateGroup(6,6); // links
-$tt->TopicUpdateGroup(47,6); // emergenza
+$id_pck = 6;
+$tt->gh->GroupUpdate($id_pck, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
+$tt->TopicUpdateGroup(1,$id_pck); // editoriale
+$tt->TopicUpdateGroup(3,$id_pck); // peacelink
+$tt->TopicUpdateGroup(6,$id_pck); // links
+$tt->TopicUpdateGroup(47,$id_pck); // emergenza
 $tt->TopicArchive(47);
-$tt->TopicUpdateGroup(5,6); // emergenza2
+$tt->TopicUpdateGroup(5,$id_pck); // emergenza2
 $tt->TopicArchive(5);
+HomepageFeature("PeaceLink",$id_pck);
 
 $t = new Topic(75); $t->Delete(); // peacelink.it
 
 // 10 nodi
-$tt->gh->GroupUpdate(10, "Nodi", "I nodi di PeaceLink", 6, 0, 1);
+$id_nodi = 10;
+$tt->gh->GroupUpdate($id_nodi, "Nodi", "I nodi di PeaceLink", 6, 0, 1);
 
 // 3 campagne => cultura
-$tt->gh->GroupUpdate(3, "Cultura", "Cultura", 0, 0, 1);
-$tt->TopicUpdateGroup(40,3); // voltana
-$tt->TopicUpdateGroup(82,3); // laboratorio di scrittura
-$tt->TopicUpdateGroup(16,3); // cybercultura
-$tt->TopicUpdateGroup(14,3); // no brain
-$tt->TopicUpdateGroup(36,3); // storia della pace
-$tt->TopicUpdateGroup(109,3); // scuola
+$id_cultura = 3;
+$tt->gh->GroupUpdate($id_cultura, "Cultura", "Cultura", 0, 0, 1);
+$tt->TopicUpdateGroup(40,$id_cultura); // voltana
+$tt->TopicUpdateGroup(82,$id_cultura); // laboratorio di scrittura
+$tt->TopicUpdateGroup(16,$id_cultura); // cybercultura
+$tt->TopicUpdateGroup(14,$id_cultura); // no brain
+$tt->TopicUpdateGroup(36,$id_cultura); // storia della pace
+$tt->TopicUpdateGroup(109,$id_cultura); // scuola
+HomepageFeature("Cultura",$id_cultura);
 
 // 11 ecologia
-$tt->gh->GroupInsert("Ecologia", "Ecologia", 0, 1, "");
-$tt->TopicUpdateGroup(31,11); // ecologia
-$tt->TopicUpdateGroup(102,11); // green tour
-$tt->TopicUpdateGroup(106,11); // processo ilva
-$tt->TopicUpdateGroup(13,11); // consumocritico
-$tt->TopicUpdateGroup(104,11); // economia
-$tt->TopicUpdateGroup(42,11); // diritti animali
-$tt->TopicUpdateGroup(99,11); // zeroipa
-$tt->TopicUpdateGroup(105,11); // ecodidattica
+$id_eco = $tt->gh->GroupInsert("Ecologia", "Ecologia", 0, 1, "");
+$tt->TopicUpdateGroup(31,$id_eco); // ecologia
+$tt->TopicUpdateGroup(102,$id_eco); // green tour
+$tt->TopicUpdateGroup(106,$id_eco); // processo ilva
+$tt->TopicUpdateGroup(13,$id_eco); // consumocritico
+$tt->TopicUpdateGroup(104,$id_eco); // economia
+$tt->TopicUpdateGroup(42,$id_eco); // diritti animali
+$tt->TopicUpdateGroup(99,$id_eco); // zeroipa
+$tt->TopicUpdateGroup(105,$id_eco); // ecodidattica
+HomepageFeature("Ecologia",$id_eco);
 
 // 12 solidarieta'
-$tt->gh->GroupInsert("Solidarietà", "Solidarietà", 0, 1, "");
-$tt->TopicUpdateGroup(8,12); // palestina
-$tt->TopicUpdateGroup(24,12); // latina
-$tt->TopicUpdateGroup(11,12); // migranti
-$tt->TopicUpdateGroup(61,12); // kimbau
-$tt->TopicUpdateGroup(101,12); // legami di ferro
+$id_sol = $tt->gh->GroupInsert("Solidarietà", "Solidarietà", 0, 1, "");
+$tt->TopicUpdateGroup(8,$id_sol); // palestina
+$tt->TopicUpdateGroup(24,$id_sol); // latina
+$tt->TopicUpdateGroup(11,$id_sol); // migranti
+$tt->TopicUpdateGroup(61,$id_sol); // kimbau
+$tt->TopicUpdateGroup(101,$id_sol); // legami di ferro
+HomepageFeature("Solidarietà",$id_sol);
 
 // 13 cittadinanza attiva
-$tt->gh->GroupInsert("Cittadinanza attiva", "Cittadinanza attiva", 0, 1, "");
-$tt->TopicUpdateGroup(107,13); // cittadinanza
-$tt->TopicUpdateGroup(103,13); // citizen science
-$tt->TopicUpdateGroup(34,13); // diritto in rete
-$tt->TopicUpdateGroup(10,13); // mediawatch
-$tt->TopicUpdateGroup(30,13); // sociale
-$tt->TopicUpdateGroup(17,13); // genova
+$id_citt = $tt->gh->GroupInsert("Cittadinanza attiva", "Cittadinanza attiva", 0, 1, "");
+$tt->TopicUpdateGroup(107,$id_citt); // cittadinanza
+$tt->TopicUpdateGroup(103,$id_citt); // citizen science
+$tt->TopicUpdateGroup(34,$id_citt); // diritto in rete
+$tt->TopicUpdateGroup(10,$id_citt); // mediawatch
+$tt->TopicUpdateGroup(30,$id_citt); // sociale
+$tt->TopicUpdateGroup(17,$id_citt); // genova
 $tt->TopicArchive(17);
-$tt->TopicUpdateGroup(38,13); // spronacoop
+$tt->TopicUpdateGroup(38,$id_citt); // spronacoop
 $tt->TopicArchive(38);
-$tt->TopicUpdateGroup(49,13); // votantonio
+$tt->TopicUpdateGroup(49,$id_citt); // votantonio
 $tt->TopicArchive(49);
+HomepageFeature("Cittadinanza attiva",$id_citt);
 
 // sort
 $tt->gh->GroupReshuffle();
@@ -110,6 +138,10 @@ $tt->gh->GroupReshuffle();
 $tt->gh->GroupMove(5, 0);
 $tt->gh->GroupReshuffle();
 $tt->gh->GroupMove(5, 0);
+
+// make fotonotizia global
+$pt = new PageTypes();
+$pt->GlobalFeatureUpdate(10,7);
 
 // publish
 ?>

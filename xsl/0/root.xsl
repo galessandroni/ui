@@ -10,74 +10,35 @@
      ROOT
      ############################### -->
 <xsl:template name="root">
-<html>
-<xsl:attribute name="lang">
-<xsl:choose>
-<xsl:when test="/root/topic"><xsl:value-of select="/root/topic/@lang"/></xsl:when>
-<xsl:otherwise><xsl:value-of select="/root/site/@lang"/></xsl:otherwise>
-</xsl:choose>
-</xsl:attribute>
-<head>
-<xsl:call-template name="head"/>
-<xsl:if test="/root/publish/@global=1 and /root/publish/@id_type=0 and $show_widgets=true()">
-<link type="text/css" rel="stylesheet" href="{$css_url}/0/custom_6.css{/root/publish/@css_version}" media="screen"/>
-</xsl:if>
-<xsl:call-template name="googleUniversalAnalytics">
-<xsl:with-param name="ua-id" select="'UA-27168243-1'" />
-</xsl:call-template>
-</head>
-<body class="{/root/publish/@type}" id="id{/root/publish/@id}">
-<xsl:if test="/root/preview"><xsl:call-template name="previewToolbar"/></xsl:if>
-<div id="main-wrap" >
-<div id="top-bar"><xsl:call-template name="topBarPck" /></div>
-<div id="top-nav"><xsl:call-template name="topNavPck"/></div>
-<div>
-<xsl:attribute name="id">
-<xsl:choose>
-<xsl:when test="/root/topic">main</xsl:when>
-<xsl:otherwise>main-global</xsl:otherwise>
-</xsl:choose>
-</xsl:attribute>
-<xsl:choose>
-<xsl:when test="$show_widgets=true()">
-<xsl:attribute name="class">widgets-home</xsl:attribute></xsl:when>
-<xsl:otherwise>
-<div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
-<div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
-</xsl:otherwise>
-</xsl:choose>
-<div id="center"><xsl:call-template name="content" /></div>
-</div>
-<div id="bottom-bar"><xsl:call-template name="bottomBarPck" /></div>
-</div>
-</body>
-</html>
-</xsl:template>
-
-
-<!-- ###############################
-     TOP BAR PCK
-     ############################### -->
-<xsl:template name="topBarPck">
-<div id="logo">
-<a>
-<xsl:attribute name="href">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="/root/site"/>
-</xsl:call-template>
-</xsl:attribute>
-<xsl:call-template name="graphic">
-<xsl:with-param name="id" select="'1'"/>
-<xsl:with-param name="format" select="'gif'"/>
-</xsl:call-template>
-</a>
-</div>
-<xsl:call-template name="bannerGroup">
-<xsl:with-param name="id" select="'8'"/>
-</xsl:call-template>
-<xsl:call-template name="bannerGroup">
-<xsl:with-param name="id" select="'4'"/>
-</xsl:call-template>
+  <html>
+    <xsl:attribute name="lang">
+      <xsl:choose>
+        <xsl:when test="/root/topic"><xsl:value-of select="/root/topic/@lang"/></xsl:when>
+        <xsl:otherwise><xsl:value-of select="/root/site/@lang"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+    <head>
+      <xsl:call-template name="head"/>
+      <xsl:call-template name="googleUniversalAnalytics">
+        <xsl:with-param name="ua-id" select="'UA-27168243-1'" />
+      </xsl:call-template>
+    </head>
+    <body class="{/root/publish/@type}" id="id{/root/publish/@id}">
+      <xsl:if test="/root/preview"><xsl:call-template name="previewToolbar"/></xsl:if>
+      <div id="main-wrap" >
+        <div id="top-nav"><xsl:call-template name="topNavPck"/></div>
+        <div id="main-global">
+          <xsl:if test="/root/topic">
+            <xsl:attribute name="id">main</xsl:attribute>
+            <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
+          </xsl:if>
+          <div id="center"><xsl:call-template name="content" /></div>
+          <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
+        </div>
+        <div id="bottom-bar"><xsl:call-template name="bottomBarPck" /></div>
+      </div>
+    </body>
+  </html>
 </xsl:template>
 
 
@@ -85,91 +46,65 @@
 TOP NAV PCK
 ############################### -->
 <xsl:template name="topNavPck">
-<h2 class="hidden">Associazione PeaceLink</h2>
-<ul id="pck-links">
-<li>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/c_features/feature[@id=34]/items/subtopic"/>
-</xsl:call-template>
-</li>
-<li>
-<li><a href="https://www.peacelink.it/editoriale/a/32934.html">Donazioni</a></li>
-</li>
-<li>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/c_features/feature[@id=71]/items/subtopic"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/c_features/feature[@id=36]/items/subtopic"/>
-</xsl:call-template>
-</li>
-</ul>
+  <a id="logo">
+    <xsl:attribute name="href">
+      <xsl:call-template name="createLinkUrl">
+        <xsl:with-param name="node" select="/root/site"/>
+      </xsl:call-template>
+    </xsl:attribute>
+  </a>
 
-<h2 class="hidden">I contenuti del sito</h2>
-<ul id="content-links">
-<xsl:for-each select="/root/c_features/feature[@id=3]/items/item[@id!=6 and @id!=10]">
-<li>
-<xsl:if test="position()=1 and (/root/topic/@id_group=1 or /root/topics/group/@id=1) and not(/root/topic/@id=6)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:if test="position()=2 and (/root/topic/@id_group=2 or /root/topics/group/@id=2)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="."/>
-</xsl:call-template>
-</li>
-</xsl:for-each>
-<li>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/lists"/>
-<xsl:with-param name="name" select="'Mailing Lists'"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="$pagetype='events' and not(/root/topic)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/events"/>
-<xsl:with-param name="name" select="/root/site/events/@label"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="$pagetype='gallery_group' and not(/root/topic)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/galleries"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="$pagetype='books' and not(/root/topic)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/books"/>
-<xsl:with-param name="name" select="/root/labels/label[@word='books']/@tr"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="/root/topic/@id=6"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/c_features/feature[@id=9]/items/topic_full/topic"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="$pagetype='map' and not(/root/topic) and /root/publish/@id=0"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/map"/>
-<xsl:with-param name="name" select="/root/site/map/@label"/>
-</xsl:call-template>
-</li>
-<li>
-<xsl:if test="$pagetype='feeds'"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/feeds"/>
-<xsl:with-param name="name" select="'RSS'"/>
-</xsl:call-template>
-</li>
-</ul>
-<div id="search-bar">
-<xsl:if test="$pagetype!='error404'">
-<xsl:call-template name="userInfo"/>
-</xsl:if>
-</div>
+  <ul id="pck-links">
+    <li><a href="#">Associazione PeaceLink</a></li>
+    <li><a href="#">Contatti</a></li>
+    <li><a href="#">Donazioni</a></li>
+    <li><a href="#">Collabora</a></li>
+    <xsl:if test="$pagetype!='error404'">
+    </xsl:if>
+  </ul>
+<!--      
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id=34]/items/subtopic"/>
+      </xsl:call-template>
+    </li>
+    <li><a href="https://www.peacelink.it/editoriale/a/32934.html">Donazioni</a></li>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id=71]/items/subtopic"/>
+      </xsl:call-template>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id=36]/items/subtopic"/>
+      </xsl:call-template>
+    </li>
+-->
+  <xsl:call-template name="bannerGroup">
+    <xsl:with-param name="id" select="'35'"/>
+  </xsl:call-template>
+
+  <ul id="content-links">
+    <xsl:for-each select="/root/c_features/feature[@id=3]/items/item[@id!=6]">
+      <li>
+        <xsl:if test="position()=1 and (/root/topic/@id_group=1 or /root/topics/group/@id=1) and not(/root/topic/@id=6)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
+        <xsl:if test="position()=2 and (/root/topic/@id_group=2 or /root/topics/group/@id=2)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
+        <xsl:call-template name="createLink">
+          <xsl:with-param name="node" select="."/>
+        </xsl:call-template>
+      </li>
+    </xsl:for-each>
+    <li>
+      <xsl:if test="$pagetype='events' and not(/root/topic)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/site/events"/>
+        <xsl:with-param name="name" select="/root/site/events/@label"/>
+      </xsl:call-template>
+    </li>
+    <li><a href="#">Cerca</a></li>
+    <li><xsl:call-template name="userInfo"/></li>
+  </ul>
 </xsl:template>
 
 
@@ -357,8 +292,6 @@ TOP NAV PCK
 <div class="pckbox">
 <xsl:apply-templates select="/root/c_features/feature[@id='189']" />
 </div>
-<xsl:call-template name="pckYoutube"/>
-<!-- <xsl:call-template name="pckLive"/> -->
 <xsl:call-template name="articoloinevidenzaPck"/>
 <xsl:call-template name="newsPck"/>
 <xsl:call-template name="supportPck"/>
@@ -383,22 +316,13 @@ TOP NAV PCK
 
 
 <!-- ###############################
-      PEACELINK LIVE
-      ############################### -->
-<xsl:template name="pckLive">
-<div class="pckbox">
-<iframe width="313" height="202" src="https://cdn.livestream.com/embed/peacelinkonair?layout=4&amp;color=0x000000&amp;autoPlay=false&amp;mute=false&amp;iconColorOver=0xe7e7e7&amp;iconColor=0xcccccc&amp;allowchat=true&amp;height=202&amp;width=313" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>
-</div>
-</xsl:template>
-
-
-<!-- ###############################
       PEACELINK YOUTUBE
       ############################### -->
 <xsl:template name="pckYoutube">
-<div class="pckbox">
-<h3 class="feature"><a href="https://www.youtube.com/user/peacelinkvideo" title="Canale YouTube di PeaceLink">Canale YouTube di PeaceLink</a></h3>
-<iframe src="https://www.youtube.com/embed/?listType=user_uploads&amp;list=peacelinkvideo" width="315" height="262"></iframe></div>
+  <div class="pckbox">
+    <h3><a href="https://www.youtube.com/user/peacelinkvideo" title="Canale YouTube di PeaceLink">Canale YouTube di PeaceLink</a></h3>
+    <iframe src="https://www.youtube.com/embed/?listType=user_uploads&amp;list=peacelinkvideo" width="400" height="332"></iframe>
+  </div>
 </xsl:template>
 
 
@@ -431,11 +355,12 @@ TOP NAV PCK
      RIGHT BAR PCK
      ############################### -->
 <xsl:template name="rightBarPck">
-<xsl:call-template name="searchPck"/>
-<xsl:call-template name="facebookLike">
-  <xsl:with-param name="action">recommend</xsl:with-param>
-  <xsl:with-param name="layout">button_count</xsl:with-param>
-</xsl:call-template>
+  <xsl:call-template name="fotonotizia"/>
+  <xsl:call-template name="pckYoutube"/>
+  <xsl:call-template name="facebookLike">
+    <xsl:with-param name="action">recommend</xsl:with-param>
+    <xsl:with-param name="layout">button_count</xsl:with-param>
+  </xsl:call-template>
 <xsl:choose>
   <xsl:when test="$pagetype='events'">
     <xsl:call-template name="rightBarCalendar"/>
@@ -452,48 +377,30 @@ TOP NAV PCK
           <xsl:apply-templates select="/root/c_features/feature[@id=125]" />
         </div>
       </xsl:if>
-      <xsl:call-template name="geoSearchPck"/>
       <xsl:call-template name="tickerPck"/>
-      <xsl:call-template name="editorialeAltroPck"/>
       <xsl:call-template name="nextEventsPck"/>
 
-      <xsl:if test="/root/features/feature[@id='6']">
-        <div id="tematiche" class="pckbox2">
-          <xsl:apply-templates select="/root/features/feature[@id='6']" />
-        </div>
-        <xsl:call-template name="bannerGroup">
-          <xsl:with-param name="id" select="'19'"/>
-        </xsl:call-template>
-      </xsl:if>
-
-      <xsl:if test="not(/root/topic)">
-        <xsl:call-template name="libroTemp"/>
-      </xsl:if>
-      <xsl:call-template name="gallerie"/>
-      <xsl:call-template name="share"/>
-
     </xsl:if>
-    <!--
-    <xsl:call-template name="listsPck"/>
-    <xsl:call-template name="linksPck"/>
-    -->
   </xsl:otherwise>
 </xsl:choose>
 </xsl:template>
 
 
 <!-- ###############################
-     LIBRO TEMP
+     FOTONOTIZIA
      ############################### -->
-<xsl:template name="libroTemp">
-<div class="pckbox2" id="libri">
-<h3 class="feature">LIBRI</h3>
-<xsl:call-template name="bannerGallery">
-<xsl:with-param name="id_image" select="10593"/>
-</xsl:call-template>
-</div>
+<xsl:template name="fotonotizia">
+  <xsl:if test="/root/c_features/feature[@id='10']">
+    <div id="fotonotizia" class="pckbox">
+      <xsl:call-template name="galleryImage">
+        <xsl:with-param name="i" select="/root/c_features/feature[@id='10']/items/item"/>
+      </xsl:call-template>
+      <div class="description">
+        <a href="{/root/c_features/feature[@id='10']/items/item/@link}"><xsl:value-of select="/root/c_features/feature[@id='10']/items/item/@caption"/></a>
+      </div>
+    </div>
+  </xsl:if>
 </xsl:template>
-
 
 
 <!-- ###############################
