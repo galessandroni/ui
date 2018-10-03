@@ -27,12 +27,13 @@ if [ ! -z "$1" ]; then
     # update data
     sudo -u www-data mkdir -p $TESTDIR/scripts/custom
     sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
-    sudo -u www-data cp $CURRENTDIR/pcktest_publish.php $TESTDIR/scripts/custom
     cd $TESTDIR
     sudo -u www-data php $TESTDIR/scripts/custom/pcktest.php
 fi
 
 # publish
+cd $TESTDIR
+sudo -u www-data cp $CURRENTDIR/pcktest_publish.php $TESTDIR/scripts/custom
 sudo -u www-data php $TESTDIR/scripts/custom/pcktest_publish.php
 
 # slack
