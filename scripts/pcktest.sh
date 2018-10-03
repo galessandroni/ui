@@ -18,22 +18,22 @@ sudo cp /data/phpeace/disallow.txt $TESTDIR/pub/robots.txt
 # update logo
 sudo cp $PCKUIDIR/test/custom/peacetest.gif $TESTDIR/uploads/graphics/orig/1.gif
 
-# set perms
-sudo chown -R www-data.www-data $TESTDIR
-
 # sync db
 if [ ! -z "$1" ]; then
     pcksan.sh
     # update data
-    sudo -u www-data mkdir -p $TESTDIR/scripts/custom
-    sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
+    sudo mkdir -p $TESTDIR/scripts/custom
+    sudo cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
     cd $TESTDIR
-    sudo -u www-data php $TESTDIR/scripts/custom/pcktest.php
+    sudo php $TESTDIR/scripts/custom/pcktest.php
 fi
 
 # publish
 cd $TESTDIR
-sudo -u www-data cp $CURRENTDIR/pcktest_publish.php $TESTDIR/scripts/custom
-sudo -u www-data php $TESTDIR/scripts/custom/pcktest_publish.php
+sudo cp $CURRENTDIR/pcktest_publish.php $TESTDIR/scripts/custom
+sudo php $TESTDIR/scripts/custom/pcktest_publish.php
+
+# set perms
+sudo chown -R www-data.www-data $TESTDIR
 
 # slack
