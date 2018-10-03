@@ -1775,7 +1775,7 @@ $(function () {
 <xsl:otherwise></xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
-<img alt="{$alt_text}" src="{/root/site/@assets_domain}/graphics/{$id}.{$format}{$cdn_params}" id="gra-{$id}"/>
+<img alt="{$alt_text}" src="{/root/site/@assets_domain}/images/{$id}.{$format}{$cdn_params}" id="gra-{$id}"/>
 </xsl:when>
 <xsl:otherwise>
 <xsl:call-template name="graphicInternal">

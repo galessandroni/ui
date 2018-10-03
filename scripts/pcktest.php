@@ -142,6 +142,20 @@ $tt->gh->GroupMove(5, 0);
 // make fotonotizia global
 $pt = new PageTypes();
 $pt->GlobalFeatureUpdate(10,7);
+// deactive unused features
+$pt->ft->FeatureActiveSwap(11,true);
+$pt->ft->FeatureActiveSwap(15,true);
+$pt->ft->FeatureActiveSwap(45,true);
+$pt->ft->FeatureActiveSwap(46,true);
+$pt->ft->FeatureActiveSwap(95,true);
+$pt->ft->FeatureActiveSwap(107,true);
+$pt->ft->FeatureActiveSwap(121,true);
+$pt->ft->FeatureActiveSwap(151,true);
+$pt->ft->FeatureActiveSwap(183,true);
+$pt->ft->FeatureActiveSwap(185,true);
+$pt->ft->FeatureActiveSwap(190,true);
 
-// publish
+// TODO publish
+
+
 ?>

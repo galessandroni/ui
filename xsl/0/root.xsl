@@ -55,10 +55,11 @@ TOP NAV PCK
   </a>
 
   <ul id="pck-links">
-    <li><a href="#">Associazione PeaceLink</a></li>
-    <li><a href="#">Contatti</a></li>
-    <li><a href="#">Donazioni</a></li>
-    <li><a href="#">Collabora</a></li>
+    <li><a href="#">Chi siamo</a></li>
+    <li><a href="#">Contattaci</a></li>
+    <li><a href="#">Sostienici</a></li>
+    <li><a href="#">Iscriviti</a></li>
+    <li><a href="#">Partecipa</a></li>
     <xsl:if test="$pagetype!='error404'">
     </xsl:if>
   </ul>
