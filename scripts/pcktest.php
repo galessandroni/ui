@@ -8,6 +8,7 @@ include_once(SERVER_ROOT."/../classes/topic.php");
 include_once(SERVER_ROOT."/../classes/pagetypes.php");
 include_once(SERVER_ROOT."/../classes/varia.php");
 include_once(SERVER_ROOT."/../classes/queue.php");
+include_once(SERVER_ROOT."/../classes/publishmanager.php");
 
 // clear queue
 $q = new Queue(0);
@@ -155,7 +156,11 @@ $pt->ft->FeatureActiveSwap(183,true);
 $pt->ft->FeatureActiveSwap(185,true);
 $pt->ft->FeatureActiveSwap(190,true);
 
-// TODO publish
-
-
+// publish
+$pm = new PublishManager();
+$pm->TopicInit(0);
+$pm->JobExecute(array('id_type'=>'11'),0,FALSE);
+$pm->TopicInit(0);
+$pm->Error404();
+$pm->SiteMap();
 ?>
