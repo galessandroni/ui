@@ -818,24 +818,40 @@ getHttpContent('/js/gallery.php?id=<xsl:value-of select="$id_gallery"/><xsl:text
      BANNER GROUP
      ############################### -->
 <xsl:template name="bannerGroup">
-<xsl:param name="id"/>
-<xsl:if test="$pagetype!='error404'">
-<xsl:variable name="id_div" select="concat('banner-g',$id)"/>
-<xsl:choose>
-<xsl:when test="$async_js=true()">
-<div class="banner" id="{$id_div}"></div>
-<script type="text/javascript">
-getHttpContent('/js/banner.php?id_g=<xsl:value-of select="$id"/><xsl:text disable-output-escaping="yes">&amp;</xsl:text>a=1','<xsl:value-of select="$id_div"/>')
-</script>
-</xsl:when>
-<xsl:otherwise>
-<div class="banner" id="{$id_div}">
-<script type="text/javascript" src="{/root/site/@base}/js/banner.php?id_g={$id}&amp;div={$id_div}">
-</script>
-</div>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:if>
+  <xsl:param name="id"/>
+  <xsl:if test="$pagetype!='error404'">
+    <xsl:variable name="id_div" select="concat('banner-g',$id)"/>
+    <xsl:choose>
+      <xsl:when test="$async_js=true()">
+        <div class="banner" id="{$id_div}"></div>
+        <script type="text/javascript">
+$(function() {
+  $.ajax({
+    url : '/js/banner.php?id_g=<xsl:value-of select="$id"/><xsl:text disable-output-escaping="yes">&amp;</xsl:text>json',
+    type : "GET",
+    cache : false,
+    success : function(data) {
+      if(data.id_banner) {
+        $('#<xsl:value-of select="$id_div"/>').html('<a href="'+data.link+'" title="'+data.alt_text+'"><img width="'+data.width+'" height="'+data.height+'" src="'+data.src+'" alt="'+data.alt_text+'"/></a>');
+      } else {
+        console.log('No banner')
+      }
+    },
+    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+      console.log("Response: " + XMLHttpRequest.responseText + ' - ' + errorThrown);
+    }
+  });
+});
+        </script>
+      </xsl:when>
+      <xsl:otherwise>
+        <div class="banner" id="{$id_div}">
+          <script type="text/javascript" src="{/root/site/@base}/js/banner.php?id_g={$id}&amp;div={$id_div}">
+          </script>
+        </div>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:if>
 </xsl:template>
 
 
