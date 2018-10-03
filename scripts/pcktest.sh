@@ -24,11 +24,14 @@ sudo chown -R www-data.www-data $TESTDIR
 # sync db
 if [ ! -z "$1" ]; then
     pcksan.sh
-    # update script
+    # update data
     sudo -u www-data mkdir -p $TESTDIR/scripts/custom
     sudo -u www-data cp $CURRENTDIR/pcktest.php $TESTDIR/scripts/custom
     cd $TESTDIR
-    php $TESTDIR/scripts/custom/pcktest.php
+    sudo -u www-data php $TESTDIR/scripts/custom/pcktest.php
 fi
+
+# publish
+sudo -u www-data php $TESTDIR/scripts/custom/pcktest_publish.php
 
 # slack

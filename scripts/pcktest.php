@@ -155,12 +155,4 @@ $pt->ft->FeatureActiveSwap(151,true);
 $pt->ft->FeatureActiveSwap(183,true);
 $pt->ft->FeatureActiveSwap(185,true);
 $pt->ft->FeatureActiveSwap(190,true);
-
-// publish
-$pm = new PublishManager();
-$pm->TopicInit(0);
-$pm->JobExecute(array('id_type'=>'11'),0,FALSE);
-$pm->TopicInit(0);
-$pm->Error404();
-$pm->SiteMap();
 ?>
