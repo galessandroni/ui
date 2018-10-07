@@ -72,7 +72,7 @@
         <xsl:apply-templates mode="map" select="topics/topic[@archived='0']"/>
       </ul>
       <xsl:if test="topics/topic[@archived='1']">
-        <h2>Archivio</h2>
+        <h2 class="icon fa-archive">Archivio</h2>
         <ul class="topics">
           <xsl:apply-templates mode="map" select="topics/topic[@archived='1']"/>
         </ul>
@@ -145,7 +145,7 @@
       </xsl:for-each>
     </xsl:if>
     <xsl:if test="subtopics">
-      <h4><a class="icon subtopics-header">Contenuti</a></h4>
+      <h4><a class="icon fa-plus-square subtopics-header">Contenuti</a></h4>
       <ul class="subtopics">
         <xsl:apply-templates mode="map" select="subtopics"/>
       </ul>

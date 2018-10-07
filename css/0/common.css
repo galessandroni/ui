@@ -969,13 +969,13 @@ ul.groups {
   margin:1em 0;
 }
 
-ul.groups ul {
-  margin-left:1em;
-  padding-left:1em;
+ul.groups ul.topics {
+  margin-top:1em;
 }
 
 ul.groups li.group h1.icon {
   padding-right: 0.7em;
+  font-size:2em;
 }
 
 ul.groups li.group h1.group-1:before {
@@ -1003,7 +1003,8 @@ ul.groups li.level1 {
 }
 
 ul.topics li.topic {
-  margin:1em 0;
+  padding:1em 0;
+  border-top: dashed 1px #333;
 }
 
 .icon:before{
@@ -1015,7 +1016,7 @@ ul.topics li.topic {
 }
 
 li.topic h3 a:before {    
-  content: "\f187";
+  content: "\f0e8";
 }
 
 li.topic h4 {
@@ -1023,7 +1024,6 @@ li.topic h4 {
 }
 
 li.topic h4 a:before {
-  content: "\f0e8";
   margin: 0.3em;
 }
 
@@ -1034,6 +1034,8 @@ li.topic h4 a.list:before {
 li.topic ul.subtopics {
   display: none;
   list-style-type: circle;
+  margin-left:1em;
+  padding-left:1em;
 }
 
 li.topic ul.subtopics li {
@@ -1076,7 +1078,7 @@ h4 {
 }
 
 #content {
-color: #333;
+  color: #333;
 }
 
 .description {

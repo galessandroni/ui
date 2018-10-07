@@ -111,6 +111,8 @@ $tt->TopicUpdateGroup(49,$id_citt); // votantonio
 $tt->TopicArchive(49);
 HomepageFeature("Cittadinanza attiva",$id_citt);
 
+$tt->gh->GroupDelete(7);
+
 // sort
 $tt->gh->GroupReshuffle();
 $tt->gh->GroupMove(6, 1);
