@@ -2,7 +2,6 @@
 UPDATE global SET 
     pub_web='http://pck.dev.local',
     admin_web='http://pckadmin.dev.local',
-    assets_domain='http://pck.dev.local:8001',
     install_key='b8f6cc18d38b5de1ab157ff6024eb4b5',
     title='PeaceLink Dev';
 

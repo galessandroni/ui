@@ -65,8 +65,8 @@
 <xsl:template match="group" mode="map">
   <xsl:param name="level"/>
   <li class="group level{$level}">
-    <h1><xsl:value-of select="@name"/></h1>
-    <div><xsl:value-of select="@description"/></div>
+    <h1 class="icon group-{@id}"><xsl:value-of select="@name"/></h1>
+    <div class="description"><xsl:value-of select="@description"/></div>
     <xsl:if test="topics">
       <ul class="topics">
         <xsl:apply-templates mode="map" select="topics/topic[@archived='0']"/>
@@ -126,12 +126,26 @@
     <h3>
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="class" select="'icon'"/>
       </xsl:call-template>
     </h3>
     <xsl:if test="description!=''">
-      <div><xsl:value-of select="description" disable-output-escaping="yes"/></div>
+      <div class="description"><xsl:value-of select="description" disable-output-escaping="yes"/></div>
+    </xsl:if>
+    <xsl:if test="lists/list">
+      <xsl:for-each select="lists/list">
+        <h4>
+          <xsl:call-template name="createLink">
+            <xsl:with-param name="name" select="concat('Mailing List ',@name)"/>
+            <xsl:with-param name="node" select="."/>
+            <xsl:with-param name="class" select="'icon list'"/>
+          </xsl:call-template>
+          (<xsl:value-of select="@email"/>)
+        </h4>
+      </xsl:for-each>
     </xsl:if>
     <xsl:if test="subtopics">
+      <h4><a class="icon subtopics-header">Contenuti</a></h4>
       <ul class="subtopics">
         <xsl:apply-templates mode="map" select="subtopics"/>
       </ul>

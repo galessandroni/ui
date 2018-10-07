@@ -22,6 +22,7 @@
       <xsl:call-template name="googleUniversalAnalytics">
         <xsl:with-param name="ua-id" select="'UA-27168243-1'" />
       </xsl:call-template>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
     </head>
     <body class="{/root/publish/@type}" id="id{/root/publish/@id}">
       <xsl:if test="/root/preview"><xsl:call-template name="previewToolbar"/></xsl:if>
@@ -32,7 +33,7 @@
             <xsl:attribute name="id">main</xsl:attribute>
             <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
           </xsl:if>
-          <div id="center"><xsl:call-template name="content" /></div>
+          <div id="content"><xsl:call-template name="content" /></div>
           <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
         </div>
         <div id="bottom-bar"><xsl:call-template name="bottomBarPck" /></div>
