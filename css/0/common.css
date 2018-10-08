@@ -1105,3 +1105,34 @@ h4 {
   color:#fff;
 }
 
+/* MOBILE */
+@media only screen and (max-width: 1200px) {
+  #main-wrap {
+    max-width: none;
+    margin: 0;
+  }
+  
+  #main-global #content {
+    width: 100%;
+    max-width: none;
+    float:none;
+  }
+
+  #main-global #right-bar {
+    float: none;
+    width: 100%;
+  }
+  
+  #content-links {
+    width: 95%;
+  }
+  
+  #top-nav .banner {
+    display: none;
+  }
+  
+  #top-nav #pck-links {
+    float:right;
+    min-width: 500px;
+  }
+}
