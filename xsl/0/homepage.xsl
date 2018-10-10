@@ -25,9 +25,28 @@
           <xsl:with-param name="node" select="."/>
         </xsl:call-template>
       </h3>
-      <ul class="items">
-        <xsl:apply-templates select="items" mode="fulllist"/>
-      </ul>
+      <xsl:choose>
+        <!-- PCK -->
+        <xsl:when test="params/@id_topic_group='6'">
+          <xsl:call-template name="articleItem">
+            <xsl:with-param name="a" select="/root/c_features/feature[@id='13']/items/item"/>
+            <xsl:with-param name="show_topic" select="true()"/>
+          </xsl:call-template>
+          <ul class="items">
+<!--
+            <xsl:for-each select="items/item[topic/@id!='1']">
+              <xsl:value-of select="topic/@name"/><br/>
+            </xsl:for-each>
+-->
+            <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist"/>
+          </ul>
+        </xsl:when>
+        <xsl:otherwise>
+          <ul class="items">
+            <xsl:apply-templates select="items" mode="fulllist"/>
+          </ul>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
   </xsl:for-each>
 </xsl:template>

@@ -17,11 +17,10 @@ $q->JobsDeleteAll();
 // reorganise content
 $tt = new Topics();
 
-function HomepageFeature($name,$id_group) {
+function HomepageFeature($name,$id_group,$limit=4,$topic_limit=2) {
   $pt = new PageTypes();
   $id_function = 1;
   $id_type = 0;
-  $limit = 4;
   $id_feature = $pt->GlobalFeatureStore( 0,$name,"",$id_type,$id_function,0,0,1,0,0);
   $params = array();
   $params['limit'] = $limit;
@@ -29,6 +28,7 @@ function HomepageFeature($name,$id_group) {
   $params['show_latest'] = 0;
   $params['with_content'] = 0;
   $params['sort_by'] = 0;
+  $params['topic_limit'] = $topic_limit;
   $v = new Varia();
   $values = $v->Serialize($params);
   $pt->PageFunctionsParamsStore($id_feature,$values);
@@ -56,7 +56,7 @@ $tt->TopicUpdateGroup(47,$id_pck); // emergenza
 $tt->TopicArchive(47);
 $tt->TopicUpdateGroup(5,$id_pck); // emergenza2
 $tt->TopicArchive(5);
-HomepageFeature("PeaceLink",$id_pck);
+HomepageFeature("PeaceLink",$id_pck,30,1);
 
 $t = new Topic(75); $t->Delete(); // peacelink.it
 
@@ -145,16 +145,30 @@ $tt->gh->GroupMove(5, 0);
 // make fotonotizia global
 $pt = new PageTypes();
 $pt->GlobalFeatureUpdate(10,7);
+$pt->ft->FeatureActiveSwap(8,false);
+
 // deactive unused features
+$pt->ft->FeatureActiveSwap(9,true);
 $pt->ft->FeatureActiveSwap(11,true);
+$pt->ft->FeatureActiveSwap(14,true);
 $pt->ft->FeatureActiveSwap(15,true);
+$pt->ft->FeatureActiveSwap(16,true);
+$pt->ft->FeatureActiveSwap(17,true);
+$pt->ft->FeatureActiveSwap(18,true);
+$pt->ft->FeatureActiveSwap(19,true);
 $pt->ft->FeatureActiveSwap(45,true);
 $pt->ft->FeatureActiveSwap(46,true);
 $pt->ft->FeatureActiveSwap(95,true);
 $pt->ft->FeatureActiveSwap(107,true);
 $pt->ft->FeatureActiveSwap(121,true);
+$pt->ft->FeatureActiveSwap(128,true);
 $pt->ft->FeatureActiveSwap(151,true);
 $pt->ft->FeatureActiveSwap(183,true);
 $pt->ft->FeatureActiveSwap(185,true);
 $pt->ft->FeatureActiveSwap(190,true);
+
+$pt->FeatureDelete(34,0,0);
+$pt->FeatureDelete(35,0,0);
+$pt->FeatureDelete(36,0,0);
+$pt->FeatureDelete(71,0,0);
 ?>

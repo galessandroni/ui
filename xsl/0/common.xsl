@@ -464,7 +464,7 @@
 <xsl:param name="show_path" select="false()"/>
 <xsl:param name="show_trad_language" select="false()"/>
 <div>
-<xsl:attribute name="class">article-item <xsl:if test="$a/@id_template &gt; 0"> article-template<xsl:value-of select="$a/@id_template"/></xsl:if><xsl:if test="$a/@id_language = 6"> lang-rtl</xsl:if><xsl:if test="$a/@available=0"> protected</xsl:if></xsl:attribute>
+<xsl:attribute name="class">article-item <xsl:if test="$a/@id_template &gt; 0"> article-template<xsl:value-of select="$a/@id_template"/></xsl:if><xsl:if test="$a/@id_language = 6"> lang-rtl</xsl:if><xsl:if test="$a/@available=0"> protected</xsl:if><xsl:if test="$a/@highlight=1"> highlight</xsl:if></xsl:attribute>
 <xsl:if test="$a/image and $show_image=true()">
 <xsl:variable name="i" select="$a/image"/>
 <xsl:variable name="src">
@@ -503,7 +503,7 @@
 </div>
 </xsl:if>
 <xsl:if test="$show_topic=true()">
-<div><xsl:value-of select="$a/topic/@name"/></div>
+<div class="article-topic"><xsl:value-of select="$a/topic/@name"/></div>
 </xsl:if>
 <xsl:if test="$a/halftitle!=''">
 <div class="halftitle"><xsl:value-of select="$a/halftitle" disable-output-escaping="yes"/></div></xsl:if>

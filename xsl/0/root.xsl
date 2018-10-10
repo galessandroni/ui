@@ -56,33 +56,37 @@ TOP NAV PCK
   </a>
 
   <ul id="pck-links">
-    <li><a href="#">Chi siamo</a></li>
-    <li><a href="#">Contattaci</a></li>
-    <li><a href="#">Sostienici</a></li>
-    <li><a href="#">Iscriviti</a></li>
-    <li><a href="#">Partecipa</a></li>
-    <xsl:if test="$pagetype!='error404'">
-    </xsl:if>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/topic"/>
+        <xsl:with-param name="name" select="'Chi siamo'"/>
+      </xsl:call-template>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='911']"/>
+        <xsl:with-param name="name" select="'Contattaci'"/>
+      </xsl:call-template>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='2817']"/>
+        <xsl:with-param name="name" select="'Sostienici'"/>
+      </xsl:call-template>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='3414']"/>
+        <xsl:with-param name="name" select="'Iscriviti'"/>
+      </xsl:call-template>
+    </li>
+    <li>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='1162']"/>
+        <xsl:with-param name="name" select="'Partecipa'"/>
+      </xsl:call-template>
+    </li>
   </ul>
-<!--      
-    <li>
-      <xsl:call-template name="createLink">
-        <xsl:with-param name="node" select="/root/c_features/feature[@id=34]/items/subtopic"/>
-      </xsl:call-template>
-    </li>
-    <li><a href="https://www.peacelink.it/editoriale/a/32934.html">Donazioni</a></li>
-    </li>
-    <li>
-      <xsl:call-template name="createLink">
-        <xsl:with-param name="node" select="/root/c_features/feature[@id=71]/items/subtopic"/>
-      </xsl:call-template>
-    </li>
-    <li>
-      <xsl:call-template name="createLink">
-        <xsl:with-param name="node" select="/root/c_features/feature[@id=36]/items/subtopic"/>
-      </xsl:call-template>
-    </li>
--->
   <xsl:call-template name="bannerGroup">
     <xsl:with-param name="id" select="'35'"/>
   </xsl:call-template>
@@ -148,51 +152,6 @@ TOP NAV PCK
 
 
 <!-- ###############################
-     DOSSIER PCK
-     ############################### -->
-<xsl:template name="dossierPck">
-<div class="pckbox">
-<xsl:apply-templates select="/root/c_features/feature[@id='16']"/>
-</div>
-</xsl:template>
-
-
-<!-- ###############################
-     MEDIA NEWS
-     ############################### -->
-<xsl:template name="giornalismi">
-<div id="giornalismi" class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='123']" />
-</div>
-</xsl:template>
-
-<!-- ###############################
-     MAMMA.AM
-     ############################### -->
-<xsl:template name="mamma">
-<div id="mamma" class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='129']" />
-</div>
-</xsl:template>
-
-<!-- ###############################
-     BOOKS PCK
-     ############################### -->
-<xsl:template name="booksPck">
-<div class="pckbox">
-</div>
-</xsl:template>
-
-<!-- ###############################
-     SUPPORT PCK
-     ############################### -->
-<xsl:template name="supportPck">
-<div class="pckbox" id="support">
-<xsl:apply-templates select="/root/c_features/feature[@id='17']"/>
-</div>
-</xsl:template>
-
-<!-- ###############################
      NEXT EVENTS PCK
      ############################### -->
 <xsl:template name="nextEventsPck">
@@ -223,25 +182,6 @@ TOP NAV PCK
 
 
 <!-- ###############################
-     VIGNETTE
-     ############################### -->
-
-<!-- <xsl:template name="vignette">
-<div class="pckbox2" id="vignette">
-<xsl:apply-templates select="/root/features/feature[@id='127']" />
-</div>
-</xsl:template> -->
-
- <xsl:template name="vignette">
-<div class="pckbox2" id="vignette">
-<h3 class="feature">Vignette</h3>
-<xsl:call-template name="galleryImage">
-<xsl:with-param name="i" select="/root/c_features/feature[@id=19]/items/item"/>
-</xsl:call-template>
-</div>
-</xsl:template>
-
-<!-- ###############################
      FACEBOOK
      ############################### -->
 
@@ -253,18 +193,6 @@ TOP NAV PCK
 
 
 <!-- ###############################
-     PEACELINK GAZA FACEBOOK PAGE
-     ############################### -->
-
-<xsl:template name="pckGaza">
-<div id="pck-gaza">
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeacelinkgaza&amp;width=315&amp;height=495&amp;colorscheme=light&amp;show_faces=false&amp;header=false&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:315px; height:495px;" allowTransparency="true"></iframe>
-</div>
-</xsl:template>
-
-
-
-<!-- ###############################
      LEFT BAR PCK
      ############################### -->
 <xsl:template name="leftBarPck">
@@ -273,23 +201,18 @@ TOP NAV PCK
 <xsl:call-template name="navigationMenu"/>
 <xsl:call-template name="mailingListPck"/>
 <xsl:call-template name="leftBottom"/>
-<xsl:call-template name="supportPck"/>
 </xsl:when>
 <xsl:when test="$pagetype='gallery_group' ">
 <xsl:call-template name="leftBar"/>
 </xsl:when>
 <xsl:when test="$pagetype='user' ">
 <xsl:call-template name="leftBar"/>
-<xsl:call-template name="supportPck"/>
 <xsl:call-template name="newsPck"/>
 <div class="pckbox">
 <xsl:call-template name="randomQuote"/>
 </div>
 </xsl:when>
 <xsl:otherwise>
-<!--
-<xsl:call-template name="pckGaza"/>
--->
 <xsl:call-template name="editorialPck"/>
 <div class="pckbox">
 <xsl:apply-templates select="/root/c_features/feature[@id='189']" />
@@ -457,85 +380,13 @@ in <select name="id_topic">
 	  
 	  
 <!-- ###############################
-     GEO SEARCH PCK
-    ############################### -->
-<xsl:template name="geoSearchPck">
-<script type="text/javascript"><![CDATA[
-var geoimgs = new Array(3); 
-geoimgs[0] = "https://www.peacelink.it/images/235.gif"; 
-geoimgs[1] = "https://www.peacelink.it/images/236.gif"; 
-geoimgs[2] = "https://www.peacelink.it/images/237.gif"; 
-geoimgs[3] = "https://www.peacelink.it/images/238.gif"; 
-geoimgs[4] = "https://www.peacelink.it/images/239.gif"; 
-geoimgs[5] = "https://www.peacelink.it/images/240.gif"; 
-geoimgs[6] = "https://www.peacelink.it/images/241.gif"; 
-
-function preload() {
-   var tmp = null; 
-   for (var j = 0; j < geoimgs.length; j++) { 
-     tmp = geoimgs[j]; 
-     geoimgs[j] = new Image(); 
-     geoimgs[j].src = tmp; 
-   }
-}
-
-void(preload());
-
-function geoImgSwap(swap) {
-	document.getElementById('geomap').src = geoimgs[swap].src; 
-}
-]]></script>
-<div id="geo-search">
-<h3>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/geosearch"/>
-</xsl:call-template>
-</h3>
-<img id="geomap" src="https://www.peacelink.it/images/235.gif" usemap="#worldpeters" style="background: url(https://www.peacelink.it/images/235.gif);" alt="The world according to Peters"/>
-<map name="worldpeters">
-<area shape="poly" alt="Asia / Oceania" href="https://www.peacelink.it/cerca/geo.php?id=550" title="Asia / Oceania" coords="93,0,169,3,140,36,165,88,155,96,126,82,110,31,103,18,93,18" onmouseover="geoImgSwap(2);" onmouseout="geoImgSwap(0);"/>
-<area shape="poly" alt="Medio Oriente" href="https://www.peacelink.it/cerca/geo.php?id=280" title="Medio Oriente" coords="93,18,103,18,111,33,101,43,93,22" onmouseover="geoImgSwap(4);" onmouseout="geoImgSwap(0);" />
-<area shape="poly" alt="Europa" href="https://www.peacelink.it/cerca/geo.php?id=300" title="Europa" coords="76,0,66,7,72,9,74,22,93,22,93,0" onmouseover="geoImgSwap(3);" onmouseout="geoImgSwap(0);" />
-<area shape="poly" alt="Africa" href="https://www.peacelink.it/cerca/geo.php?id=70" title="Africa" coords="68,22,93,22,101,43,106,43,102,86,80,85" onmouseover="geoImgSwap(1);" onmouseout="geoImgSwap(0);" />
-<area shape="rect" alt="America Latina" href="https://www.peacelink.it/cerca/geo.php?id=473" title="America Latina" coords="29,33,64,98" onmouseover="geoImgSwap(6);" onmouseout="geoImgSwap(0);" />
-<area shape="poly" alt="Nord America" href="https://www.peacelink.it/cerca/geo.php?id=3861" title="Nord America" coords="1,0,46,0,60,16,43,33,23,33,1,9" onmouseover="geoImgSwap(5);" onmouseout="geoImgSwap(0);" />
-</map>
-</div>
-
-<xsl:if test="/root/geosearch/geokeyword">
-<script type="text/javascript">
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=550">
-geoImgSwap(2);
-</xsl:if>
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=280">
-geoImgSwap(4);
-</xsl:if>
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=300">
-geoImgSwap(3);
-</xsl:if>
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=70">
-geoImgSwap(1);
-</xsl:if>
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=473">
-geoImgSwap(6);
-</xsl:if>
-<xsl:if test="/root/geosearch/geokeyword/path/geokeyword[position()=2]/@id=3861">
-geoImgSwap(5);
-</xsl:if>
-</script>
-</xsl:if>
-
-</xsl:template>
-	  
-
-<!-- ###############################
      BOTTOM BAR PCK
      ############################### -->
 <xsl:template name="bottomBarPck">
 PeaceLink C.P. 2009 - 74100 Taranto (Italy) - CCP 13403746 -  Sito realizzato con <a href="https://www.phpeace.org">PhPeace <xsl:value-of select="/root/site/@phpeace"/></a>
  - <xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/c_features/feature[@id='18']/items/subtopic"/>
-<xsl:with-param name="name" select="/root/c_features/feature[@id='18']/@name"/>
+<xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='2074']"/>
+<xsl:with-param name="name" select="'Informativa sulla Privacy'"/>
 </xsl:call-template>
 - <a href="https://www.peacelink.it/peacelink/a/41776.html">Informativa sui cookies</a>
 - <a href="https://www.peacelink.it/peacelink/diritto-di-replica">Diritto di replica</a>
@@ -543,30 +394,6 @@ PeaceLink C.P. 2009 - 74100 Taranto (Italy) - CCP 13403746 -  Sito realizzato co
 <xsl:if test="$preview=false()">
 <script type="text/javascript" src="/cookie-bar/cookiebar-latest.min.js?forceLang=it&amp;tracking=1&amp;thirdparty=1&amp;noGeoIp=1&amp;remember=90&amp;scrolling=1&amp;privacyPage=https%3A%2F%2Fwww.peacelink.it%2Fpeacelink%2Fa%2F44843.html"></script>
 </xsl:if>
-</xsl:template>
-
-
-<!-- ###############################
-PAYPAL PCK
-############################### -->
-<xsl:template name="paypalPck">
-<xsl:param name="amount"/>
-<xsl:param name="description" select="'Donazioni per Associazione PeaceLink'"/>
-<div id="donation">
-<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<fieldset>
-<input type="hidden" name="cmd" value="_xclick"/>
-<input type="hidden" name="business" value="donazioni@peacelink.it"/>
-<input type="hidden" name="item_name" value="{$description}"/>
-<input type="hidden" name="currency_code" value="EUR"/>
-<input type="hidden" name="lc" value="IT"/>
-<xsl:if test="$amount!=''">
-<input type="hidden" name="amount" value="{$amount}"/>
-</xsl:if>
-<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-butcc-donate.gif" name="submit" alt="Donazioni con PayPal. un sistema rapido, gratuito e sicuro."/>
-</fieldset>
-</form>
-</div>
 </xsl:template>
 
 
