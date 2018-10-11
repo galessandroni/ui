@@ -583,30 +583,6 @@ padding:0.6em;
 width:200px;
 }
 
-#tematiche ul.topics {
-margin:0;
-padding:0.5em 1em;
-}
-
-#tematiche ul.topics li {
-margin-bottom:0.2em;
-font-family:verdana;
-}
-
-#libri,
-#gallerie {
-margin:1em auto;
-text-align:center;
-}
-
-#vignette {
-text-align:center;
-margin:0.5em;
-}
-
-#vignette img {
-}
-
 #work-in-progress {
 background-color:#d22c0c;
 color:#fff;
@@ -622,26 +598,6 @@ clear:left;
 text-align:center;
 margin:0;
 padding:0;
-}
-
-ul#support-pck {
-margin:0;
-padding:3px 20px;
-list-style-type: disc;
-}
-
-ul#support-pck fieldset {
-margin:0;
-padding:0;
-border-width:0;
-}
-
-ul#support-pck legend {
-display:none;
-}
-
-ul#support-pck li {
-margin-bottom:0.5em;
 }
 
 .itsover {
@@ -843,9 +799,11 @@ body {
   float:left;
 }
 
-#right-bar  {
+#right-bar,
+#fotonotizia {
   width:18%;
   float:right;
+  width: 400px;
 }
 
 #main #content {
@@ -857,10 +815,6 @@ body {
   width:70%;
   max-width: 800px;
   float:left;
-}
-
-#main-global #right-bar {
-  width: 400px;
 }
 
 #bottom-bar {
@@ -875,7 +829,8 @@ body {
   text-indent: -9999px;
   width: 300px;
   height: 104px;
-  background: url(/css/i/peacelink.svg);
+  background-image: url(/css/i/peacelink.svg);
+  background-repeat: no-repeat;
   background-size: 300px 100px;
   margin-right:20px;
 }
@@ -947,10 +902,8 @@ body {
 }
 
 #fotonotizia {
-  float:right;
   text-align:center;
   background-color:#fbdcab; 
-  width:100%;
 }
 
 #fotonotizia h3.feature {
@@ -958,7 +911,6 @@ body {
 }
 
 #fotonotizia .description {
-  font-style:italic;
   padding:0.2em;
 }
 
@@ -1119,27 +1071,51 @@ h4 {
 }
 
 /* MOBILE */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 800px) {
+  body {
+    margin: 0;
+  }
+  
+  #logo {
+  }
+  
   #main-wrap {
     max-width: none;
     margin: 0;
   }
-  
+ 
   #main-global #content {
     width: 100%;
     max-width: none;
     float:none;
   }
 
-  #main-global #right-bar {
+  #main-global #right-bar,
+  #fotonotizia {
     float: none;
     width: 100%;
+    padding: 0;
+  }
+  
+  #fotonotizia img {
+    width: 90%;
   }
   
   #content-links {
-    width: 95%;
+    width: 100%;
+    border: none;
+    padding: 0;
+    border-radius:0;
   }
   
+  #top-nav li a {
+    border-left: solid 1px #fff;
+    padding: 0.2em;
+  }
+  
+  #pck-links,
+  #user-info,
+  #youtube,
   #top-nav .banner {
     display: none;
   }

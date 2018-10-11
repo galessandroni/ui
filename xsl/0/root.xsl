@@ -29,10 +29,15 @@
       <div id="main-wrap" >
         <div id="top-nav"><xsl:call-template name="topNavPck"/></div>
         <div id="main-global">
-          <xsl:if test="/root/topic">
-            <xsl:attribute name="id">main</xsl:attribute>
-            <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
-          </xsl:if>
+          <xsl:choose>
+            <xsl:when test="/root/topic">
+              <xsl:attribute name="id">main</xsl:attribute>
+              <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="fotonotizia"/>
+            </xsl:otherwise>
+          </xsl:choose>
           <div id="content"><xsl:call-template name="content" /></div>
           <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
         </div>
@@ -244,7 +249,7 @@ TOP NAV PCK
       PEACELINK YOUTUBE
       ############################### -->
 <xsl:template name="pckYoutube">
-  <div class="pckbox">
+  <div class="pckbox" id="youtube">
     <h3><a href="https://www.youtube.com/user/peacelinkvideo" title="Canale YouTube di PeaceLink">Canale YouTube di PeaceLink</a></h3>
     <iframe src="https://www.youtube.com/embed/?listType=user_uploads&amp;list=peacelinkvideo" width="400" height="332"></iframe>
   </div>
@@ -280,7 +285,6 @@ TOP NAV PCK
      RIGHT BAR PCK
      ############################### -->
 <xsl:template name="rightBarPck">
-  <xsl:call-template name="fotonotizia"/>
   <xsl:call-template name="pckYoutube"/>
   <xsl:call-template name="facebookLike">
     <xsl:with-param name="action">recommend</xsl:with-param>
@@ -317,11 +321,35 @@ TOP NAV PCK
 <xsl:template name="fotonotizia">
   <xsl:if test="/root/c_features/feature[@id='10']">
     <div id="fotonotizia" class="pckbox">
-      <xsl:call-template name="galleryImage">
-        <xsl:with-param name="i" select="/root/c_features/feature[@id='10']/items/item"/>
-      </xsl:call-template>
+      <xsl:variable name="i" select="/root/c_features/feature[@id='10']/items/item"/>
+      <xsl:variable name="src">
+        <xsl:call-template name="createLinkUrl">
+          <xsl:with-param name="node" select="$i/src"/>
+          <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="src2">
+        <xsl:call-template name="stringReplace">
+          <xsl:with-param name="string" select="$src"/>
+          <xsl:with-param name="find" select="concat('w=',$i/@width)"/>
+          <xsl:with-param name="replace" select="'w=800'"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="link">
+        <xsl:choose>
+          <xsl:when test="$i/@link!=''"><xsl:value-of select="$i/@link"/></xsl:when>
+          <xsl:otherwise><xsl:value-of select="/root/site/@url"/></xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <a href="{$link}">
+        <picture>
+          <source media="(max-width: 799px)" srcset="{$src2}"/>
+          <source media="(min-width: 800px)" srcset="{$src}"/>
+          <img alt="{$i/@caption}" src="{$src}"/>
+        </picture>
+      </a>
       <div class="description">
-        <a href="{/root/c_features/feature[@id='10']/items/item/@link}"><xsl:value-of select="/root/c_features/feature[@id='10']/items/item/@caption"/></a>
+        <a href="{$link}"><xsl:value-of select="$i/@caption"/></a>
       </div>
     </div>
   </xsl:if>

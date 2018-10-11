@@ -1830,6 +1830,7 @@ $(function () {
      HEAD
      ############################### -->
 <xsl:template name="head">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <xsl:call-template name="metaRobots"/>
 <xsl:call-template name="keywordsMeta"/>
 <xsl:call-template name="generator"/>
