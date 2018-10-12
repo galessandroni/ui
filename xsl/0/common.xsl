@@ -457,73 +457,74 @@
      ARTICLE ITEM
      ############################### -->
 <xsl:template name="articleItem">
-<xsl:param name="a"/>
-<xsl:param name="show_topic" select="false()"/>
-<xsl:param name="show_image" select="true()"/>
-<xsl:param name="show_halftitle" select="true()"/>
-<xsl:param name="show_path" select="false()"/>
-<xsl:param name="show_trad_language" select="false()"/>
-<div>
-<xsl:attribute name="class">article-item <xsl:if test="$a/@id_template &gt; 0"> article-template<xsl:value-of select="$a/@id_template"/></xsl:if><xsl:if test="$a/@id_language = 6"> lang-rtl</xsl:if><xsl:if test="$a/@available=0"> protected</xsl:if><xsl:if test="$a/@highlight=1"> highlight</xsl:if></xsl:attribute>
-<xsl:if test="$a/image and $show_image=true()">
-<xsl:variable name="i" select="$a/image"/>
-<xsl:variable name="src">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="$i"/>
-<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
-</xsl:call-template>
-</xsl:variable>
-<a title="{$a/headline}">
-<xsl:attribute name="href">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="$a"/>
-</xsl:call-template>
-</xsl:attribute>
-<img width="{$i/@width}" height="{$i/@height}" alt="{$a/headline}" src="{$src}">
-<xsl:attribute name="class">
-<xsl:choose>
-<xsl:when test="$i/@align='0'">right</xsl:when>
-<xsl:when test="$i/@align='1'">left</xsl:when>
-<xsl:when test="$i/@align='2'">standalone</xsl:when>
-</xsl:choose>
-</xsl:attribute>
-</img>
-</a>
-</xsl:if>
-<xsl:if test="$show_path=true()">
-<div class="breadcrumb">In<xsl:text> </xsl:text>
-<xsl:if test="topic and not(/root/topic/@id &gt; 0)">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="topic"/>
-<xsl:with-param name="name" select="topic/@name"/>
-</xsl:call-template>
-<xsl:text> / </xsl:text>
-</xsl:if>
-<xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
-</div>
-</xsl:if>
-<xsl:if test="$show_topic=true()">
-<div class="article-topic"><xsl:value-of select="$a/topic/@name"/></div>
-</xsl:if>
-<xsl:if test="$a/halftitle!=''">
-<div class="halftitle"><xsl:value-of select="$a/halftitle" disable-output-escaping="yes"/></div></xsl:if>
-<h3>
-<xsl:if test="$show_trad_language=true()"><xsl:value-of select="concat('[',$a/@tr_language,'] ')"/></xsl:if>
-<xsl:call-template name="createLink">
-<xsl:with-param name="name"><xsl:value-of select="$a/headline" disable-output-escaping="yes"/></xsl:with-param>
-<xsl:with-param name="node" select="$a"/>
-</xsl:call-template>
-</h3>
-<div class="subhead"><xsl:value-of select="$a/subhead" disable-output-escaping="yes"/></div>
-<div class="notes">
-<xsl:if test="$a/@show_date='1' and $a/@display_date"><xsl:value-of select="$a/@display_date"/></xsl:if>
-<xsl:if test="$a/@show_author='1' and $a/author/@name!=''">
-<xsl:if test="$a/@show_date='1' and $a/@display_date"> - </xsl:if>
-<xsl:value-of select="$a/author/@name"/>
-<xsl:if test="$a/author/@notes!=''"> (<xsl:value-of select="$a/author/@notes"/>)</xsl:if>
-</xsl:if>
-</div>
-</div>
+  <xsl:param name="a"/>
+  <xsl:param name="show_topic" select="false()"/>
+  <xsl:param name="show_image" select="true()"/>
+  <xsl:param name="show_halftitle" select="true()"/>
+  <xsl:param name="show_path" select="false()"/>
+  <xsl:param name="show_trad_language" select="false()"/>
+  <div>
+    <xsl:attribute name="class">article-item <xsl:if test="$a/@id_template &gt; 0"> article-template<xsl:value-of select="$a/@id_template"/></xsl:if><xsl:if test="$a/@id_language = 6"> lang-rtl</xsl:if><xsl:if test="$a/@available=0"> protected</xsl:if><xsl:if test="$a/@highlight=1"> highlight</xsl:if></xsl:attribute>
+    <xsl:if test="$a/image and $show_image=true()">
+      <xsl:variable name="i" select="$a/image"/>
+      <xsl:variable name="src">
+        <xsl:call-template name="createLinkUrl">
+          <xsl:with-param name="node" select="$i"/>
+          <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <a title="{$a/headline}">
+        <xsl:attribute name="href">
+          <xsl:call-template name="createLinkUrl">
+            <xsl:with-param name="node" select="$a"/>
+          </xsl:call-template>
+        </xsl:attribute>
+        <img width="{$i/@width}" height="{$i/@height}" alt="{$a/headline}" src="{$src}">
+          <xsl:attribute name="class">
+            <xsl:choose>
+              <xsl:when test="$i/@align='0'">right</xsl:when>
+              <xsl:when test="$i/@align='1'">left</xsl:when>
+              <xsl:when test="$i/@align='2'">standalone</xsl:when>
+            </xsl:choose>
+          </xsl:attribute>
+        </img>
+      </a>
+    </xsl:if>
+    <xsl:if test="$show_path=true()">
+      <div class="breadcrumb icon">
+        <xsl:if test="topic and not(/root/topic/@id &gt; 0)">
+          <xsl:call-template name="createLink">
+            <xsl:with-param name="node" select="topic"/>
+            <xsl:with-param name="name" select="topic/@name"/>
+          </xsl:call-template>
+          <xsl:value-of select="$breadcrumb_separator"/>
+        </xsl:if>
+        <xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
+      </div>
+    </xsl:if>
+    <xsl:if test="$show_topic=true()">
+      <div class="article-topic"><xsl:value-of select="$a/topic/@name"/></div>
+    </xsl:if>
+    <xsl:if test="$a/halftitle!=''">
+      <div class="halftitle"><xsl:value-of select="$a/halftitle" disable-output-escaping="yes"/></div>
+    </xsl:if>
+    <h3>
+      <xsl:if test="$show_trad_language=true()"><xsl:value-of select="concat('[',$a/@tr_language,'] ')"/></xsl:if>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="name"><xsl:value-of select="$a/headline" disable-output-escaping="yes"/></xsl:with-param>
+        <xsl:with-param name="node" select="$a"/>
+      </xsl:call-template>
+    </h3>
+    <div class="subhead"><xsl:value-of select="$a/subhead" disable-output-escaping="yes"/></div>
+    <div class="notes">
+      <xsl:if test="$a/@show_date='1' and $a/@display_date"><xsl:value-of select="$a/@display_date"/></xsl:if>
+      <xsl:if test="$a/@show_author='1' and $a/author/@name!=''">
+        <xsl:if test="$a/@show_date='1' and $a/@display_date"> - </xsl:if>
+        <xsl:value-of select="$a/author/@name"/>
+        <xsl:if test="$a/author/@notes!=''"> (<xsl:value-of select="$a/author/@notes"/>)</xsl:if>
+      </xsl:if>
+    </div>
+  </div>
 </xsl:template>
 
 
@@ -2115,31 +2116,45 @@ xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" s
      ITEM
      ############################### -->
 <xsl:template mode="fulllist" match="item">
-<li>
-<xsl:if test="position()=last()-1"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
-<div class="item-breadcrumb">
-<xsl:if test="topic and not(/root/topic/@id &gt; 0)">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="topic"/>
-<xsl:with-param name="name" select="topic/@name"/>
-</xsl:call-template>
-<xsl:text> > </xsl:text>
-</xsl:if>
-<xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
-</div>
-<xsl:choose>
-<xsl:when test="@type='article'">
-<xsl:call-template name="articleItem">
-<xsl:with-param name="a" select="."/>
-</xsl:call-template>
-</xsl:when>
-<xsl:when test="@type='event'">
-<xsl:call-template name="eventItem">
-<xsl:with-param name="e" select="."/>
-</xsl:call-template>
-</xsl:when>
-</xsl:choose>
-</li>
+  <li>
+    <xsl:if test="position()=last()-1"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
+    <div class="item-breadcrumb">
+      <xsl:if test="topic and not(/root/topic/@id &gt; 0)">
+        <xsl:call-template name="createLink">
+          <xsl:with-param name="node" select="topic"/>
+          <xsl:with-param name="name" select="topic/@name"/>
+        </xsl:call-template>
+        <xsl:text> > </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
+    </div>
+    <xsl:choose>
+      <xsl:when test="@type='article'">
+        <xsl:call-template name="articleItem">
+          <xsl:with-param name="a" select="."/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="@type='event'">
+        <xsl:call-template name="eventItem">
+          <xsl:with-param name="e" select="."/>
+        </xsl:call-template>
+      </xsl:when>
+    </xsl:choose>
+  </li>
+</xsl:template>
+
+
+<!-- ###############################
+     ITEM
+     ############################### -->
+<xsl:template mode="fulllist2" match="item">
+  <li>
+    <xsl:if test="position()=last()-1"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
+    <xsl:call-template name="articleItem">
+      <xsl:with-param name="a" select="."/>
+      <xsl:with-param name="show_path" select="true()"/>
+    </xsl:call-template>
+  </li>
 </xsl:template>
 
 
@@ -2147,21 +2162,21 @@ xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" s
      ITEM
      ############################### -->
 <xsl:template mode="seclist" match="item">
-<li>
-<xsl:choose>
-<xsl:when test="@type='article' and @with_content='0'">
-<xsl:call-template name="articleItem">
-<xsl:with-param name="a" select="."/>
-<xsl:with-param name="show_topic" select="true()"/>
-</xsl:call-template>
-</xsl:when>
-<xsl:when test="@type='article' and @with_content='1'">
-<xsl:call-template name="articleContent">
-<xsl:with-param name="a" select="."/>
-</xsl:call-template>
-</xsl:when>
-</xsl:choose>
-</li>
+  <li>
+    <xsl:choose>
+      <xsl:when test="@type='article' and @with_content='0'">
+        <xsl:call-template name="articleItem">
+          <xsl:with-param name="a" select="."/>
+          <xsl:with-param name="show_topic" select="true()"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="@type='article' and @with_content='1'">
+        <xsl:call-template name="articleContent">
+          <xsl:with-param name="a" select="."/>
+        </xsl:call-template>
+      </xsl:when>
+    </xsl:choose>
+  </li>
 </xsl:template>
 
 

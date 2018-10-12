@@ -22,7 +22,8 @@
     <div class="pckbox" id="box-group-{params/@id_topic_group}">
       <h3>
         <xsl:call-template name="createLink">
-          <xsl:with-param name="node" select="."/>
+          <xsl:with-param name="node" select="info"/>
+          <xsl:with-param name="name" select="@name"/>
         </xsl:call-template>
       </h3>
       <xsl:choose>
@@ -33,12 +34,12 @@
             <xsl:with-param name="show_topic" select="true()"/>
           </xsl:call-template>
           <ul class="items">
-            <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist"/>
+            <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist2"/>
           </ul>
         </xsl:when>
         <xsl:otherwise>
           <ul class="items">
-            <xsl:apply-templates select="items" mode="fulllist"/>
+            <xsl:apply-templates select="items" mode="fulllist2"/>
           </ul>
         </xsl:otherwise>
       </xsl:choose>

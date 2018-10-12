@@ -38,9 +38,10 @@ table {
 /**** STRUCTURE ****/
 
 body {
-  font-family: Arial, Helvetica, sans-serif; 
+  font-family: Georgia, serif;
   text-decoration: none; 
   margin:0 1em;
+  line-height: 1.2;
 }
 
 #main-wrap {
@@ -310,8 +311,9 @@ ul.items li.last {
   margin-bottom:0;
 }
 
-ul.items .item-date {
-  font-size:0.9em;
+ul.items .item-date,
+ul.items .notes {
+  font-size:0.95em;
   margin-top:0.3em;
 }
 
@@ -320,6 +322,20 @@ ul.items .item-length {
   font-style:italic;
   font-size:0.9em;
 }
+
+ul.items .article-item .breadcrumb:before {
+  font-style:normal;
+  content: "\f138";
+}
+ul.items .article-item .breadcrumb {
+  font-style:italic;
+  color:#444;
+  margin-bottom:0.2em;
+}
+ul.items .article-item .breadcrumb a {
+  color:#444;
+}
+
 
 /* COLOURS */
 
@@ -348,74 +364,115 @@ a:hover {
   background-color:#777;
 }
 .pckbox > h3 {
-  background-color:#777;
+  background-color:#eee;
+  border-bottom-color:#ddd;
 }
-
 
 /* PACE - ROSSO */
 #content-links li#topic-group-1 a {
-  border-top: solid 3px #881A25;
+  border-top-color: #881A25;
+}
+.pckbox#box-group-1 > h3 {
+  border-bottom-color: #881A25;
+}
+#sitemap li.group .group-1,
+.pckbox#box-group-1 h3 a {
+  color: #881A25;
 }
 #content-links li#topic-group-1 a:hover,
-#content-links li#topic-group-1.selected a,
-.pckbox#box-group-1 > h3 {
+#content-links li#topic-group-1.selected a {
   background-color:#881A25;
 }
 
 /* CULTURA - VIOLA */
 #content-links li#topic-group-3 a {
-  border-top: solid 3px #7D1A88;
+  border-top-color: #7D1A88;
+}
+.pckbox#box-group-3 > h3 {
+  border-bottom-color: #7D1A88;
+}
+#sitemap li.group .group-3,
+.pckbox#box-group-3 h3 a {
+  color: #7D1A88;
 }
 #content-links li#topic-group-3 a:hover,
-#content-links li#topic-group-3.selected a,
-.pckbox#box-group-3 > h3 {
+#content-links li#topic-group-3.selected a {
   background-color:#7D1A88;
 }
 
 /* ECOLOGIA - BLU */
 #content-links li#topic-group-11 a {
-  border-top: solid 3px #391A88;
+  border-top-color: #391A88;
+}
+.pckbox#box-group-11 > h3 {
+  border-bottom-color: #391A88;
+}
+#sitemap li.group .group-11,
+.pckbox#box-group-11 h3 a {
+  color: #391A88;
 }
 #content-links li#topic-group-11 a:hover,
-#content-links li#topic-group-11.selected a,
-.pckbox#box-group-11 > h3 {
+#content-links li#topic-group-11.selected a {
   background-color:#391A88;
 }
 
 /* SOLIDARIETA - AZZURRO */
 #content-links li#topic-group-12 a {
-  border-top: solid 3px #1A6588;
+  border-top-color: #1A6588;
+}
+.pckbox#box-group-12 > h3 {
+  border-bottom-color: #1A6588;
+}
+#sitemap li.group .group-12,
+.pckbox#box-group-12 h3 a {
+  color: #1A6588;
 }
 #content-links li#topic-group-12 a:hover,
-#content-links li#topic-group-12.selected a,
-.pckbox#box-group-12 > h3 {
+#content-links li#topic-group-12.selected a {
   background-color:#1A6588;
 }
 
 /* CITTATTIVA - VERDE */
 #content-links li#topic-group-13 a {
-  border-top: solid 3px #117738;
+  border-top-color: #117738;
+}
+.pckbox#box-group-13 > h3 {
+  border-bottom-color: #117738;
+}
+#sitemap li.group .group-13,
+.pckbox#box-group-13 h3 a {
+  color: #117738;
 }
 #content-links li#topic-group-13 a:hover,
-#content-links li#topic-group-13.selected a,
-.pckbox#box-group-13 > h3 {
+#content-links li#topic-group-13.selected a {
   background-color:#117738;
 }
 
 /* OSPITI - GIALLO */
 #content-links li#topic-group-2 a {
-  border-top: solid 3px #A7AA1C;
+  border-top-color: #A7AA1C;
+}
+.pckbox#box-group-2 > h3 {
+  border-bottom-color: #A7AA1C;
+}
+#sitemap li.group .group-2,
+.pckbox#box-group-2 h3 a {
+  color: #A7AA1C;
 }
 #content-links li#topic-group-2 a:hover,
-#content-links li#topic-group-2.selected a,
-.pckbox#box-group-2 > h3 {
+#content-links li#topic-group-2.selected a {
   background-color:#A7AA1C;
 }
 
 /* PCK */
-#pck-links a,
-.pckbox#box-group-6 > h3 {
+#pck-links a {
   background-color:#B66B1A;
+}
+.pckbox#box-group-6 > h3 {
+  border-bottom-color: #B66B1A;
+}
+.pckbox#box-group-6 h3 a {
+  color:#B66B1A;
 }
 #pck-links a:hover {
   background-color:#e79100;
@@ -430,19 +487,22 @@ a:hover {
 
 .pckbox {
   margin:0.5em 0;
-  border:solid 1px #ccc;
   float:left;
 }
 
 .pckbox > h3 {
-  color:#fff;
-  text-align:center;
+  color: #444;
   font-weight: bold;
-  padding: 0.3em;
+  padding: 0.2em 0.3em;
+  border-bottom: solid 1px #444;
 }
 
 .pckbox > h3 a {
-  color:#fff;
+  color:#444;
+}
+
+.pckbox h3 {
+  font-size:1.3em;
 }
 
 .pckbox .article-item.highlight h3 {
@@ -457,6 +517,24 @@ a:hover {
   text-transform: uppercase;
   font-weight: bold;
 }
+
+#bottom-bar {
+  font-family: Arial, sans-serif;
+  margin:1rem 0 2rem 0;
+  text-align:center;
+  padding:0.3em;
+  border-top:dashed 1px #888;
+  font-size:0.8rem;
+  color:#888;
+  float:left;
+  width:100%;
+}
+
+#bottom-bar a {
+  color:#888;
+}
+
+
 
 /* MOBILE */
 @media only screen and (max-width: 800px) {
