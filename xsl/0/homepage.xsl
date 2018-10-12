@@ -19,7 +19,7 @@
   <xsl:call-template name="feedback"/>
   <xsl:for-each select="/root/features/feature[@id_function='1']">
     <xsl:sort select="items/item/@ts" order="descending"/>
-    <div class="pckbox">
+    <div class="pckbox" id="box-group-{params/@id_topic_group}">
       <h3>
         <xsl:call-template name="createLink">
           <xsl:with-param name="node" select="."/>
@@ -33,11 +33,6 @@
             <xsl:with-param name="show_topic" select="true()"/>
           </xsl:call-template>
           <ul class="items">
-<!--
-            <xsl:for-each select="items/item[topic/@id!='1']">
-              <xsl:value-of select="topic/@name"/><br/>
-            </xsl:for-each>
--->
             <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist"/>
           </ul>
         </xsl:when>

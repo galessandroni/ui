@@ -98,7 +98,7 @@ TOP NAV PCK
 
   <ul id="content-links">
     <xsl:for-each select="/root/c_features/feature[@id=3]/items/item[@id!=6]">
-      <li>
+      <li id="topic-group-{@id}">
         <xsl:if test="position()=1 and (/root/topic/@id_group=1 or /root/topics/group/@id=1) and not(/root/topic/@id=6)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
         <xsl:if test="position()=2 and (/root/topic/@id_group=2 or /root/topics/group/@id=2)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
         <xsl:call-template name="createLink">
