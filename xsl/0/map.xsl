@@ -144,12 +144,22 @@
         </h4>
       </xsl:for-each>
     </xsl:if>
-    <xsl:if test="subtopics">
-      <h4><a class="icon fa-plus-square subtopics-header">Contenuti</a></h4>
-      <ul class="subtopics">
-        <xsl:apply-templates mode="map" select="subtopics"/>
-      </ul>
-    </xsl:if>
+    <h4><a class="icon fa-plus-square subtopics-header">Contenuti</a></h4>
+    <ul class="subtopics">
+      <xsl:apply-templates mode="map" select="subtopics"/>
+    </ul>
+    <h4><a class="icon fa-plus-square latest-header">Ultimi articoli</a></h4>
+    <ul class="items">
+      <xsl:for-each select="latest/item">
+        <xsl:if test="position() &lt;= 4">
+          <li>
+            <xsl:call-template name="articleItem">
+              <xsl:with-param name="a" select="."/>
+            </xsl:call-template>
+          </li>
+        </xsl:if>
+      </xsl:for-each>
+    </ul>
   </li>
 </xsl:template>
 

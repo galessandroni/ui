@@ -199,6 +199,9 @@ ul.groups li.level1 {
 ul.topics li.topic {
   padding:1em 0;
   border-top: dashed 1px #333;
+  float:left;
+  clear:left;
+  width:100%;
 }
 
 .icon:before{
@@ -209,16 +212,17 @@ ul.topics li.topic {
   font-weight: 900;
 }
 
-li.topic h3 a:before {    
+li.topic > h3 a:before {    
   content: "\f0e8";
 }
 
 li.topic h4 {
   cursor: pointer;
+  margin-right: 1em;
 }
 
 li.topic h4 a:before {
-  margin: 0.3em;
+  margin: 0.1em;
 }
 
 li.topic h4 a.list:before {
@@ -231,7 +235,11 @@ li.topic ul.subtopics {
   margin-left:1em;
   padding-left:1em;
 }
-
+li.topic ul.items {
+  display: none;
+  margin-left:1em;
+  padding-left:1em;
+}
 li.topic ul.subtopics li {
   margin: 0.3em;
 }
