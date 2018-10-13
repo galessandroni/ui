@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<!--
-<xsl:variable name="show_widgets" select="/root/publish/@widgets and /root/user/group/@id=3"/>
--->
 <xsl:variable name="show_widgets" select="false()"/>
 
 <!-- ###############################
@@ -98,7 +95,13 @@ TOP NAV PCK
 
   <ul id="content-links">
     <xsl:for-each select="/root/c_features/feature[@id=3]/items/item[@id!=6]">
-      <li id="topic-group-{@id}">
+      <li>
+        <xsl:attribute name="id">
+          <xsl:call-template name="mapGroups">
+            <xsl:with-param name="string" select="'topic-group'"/>
+            <xsl:with-param name="id" select="@id"/>
+          </xsl:call-template>
+        </xsl:attribute>
         <xsl:if test="position()=1 and (/root/topic/@id_group=1 or /root/topics/group/@id=1) and not(/root/topic/@id=6)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
         <xsl:if test="position()=2 and (/root/topic/@id_group=2 or /root/topics/group/@id=2)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
         <xsl:call-template name="createLink">
@@ -128,6 +131,7 @@ TOP NAV PCK
 </div>
 </xsl:template>
 
+
 <!-- ###############################
      EDITORIALE ALTRO PCK
      ############################### -->
@@ -145,6 +149,7 @@ TOP NAV PCK
 <xsl:apply-templates select="/root/features/feature[@id='185']" />
 </div>
 </xsl:template>
+
 
 <!-- ###############################
      NEWS PCK
@@ -353,6 +358,27 @@ TOP NAV PCK
       </div>
     </div>
   </xsl:if>
+</xsl:template>
+
+
+<!-- ###############################
+     mapGroups
+     ############################### -->
+<xsl:template name="mapGroups">
+  <xsl:param name="string"/>
+  <xsl:param name="id"/>
+  <xsl:param name="group">
+    <xsl:choose>
+      <xsl:when test="$id='1'">pace</xsl:when>
+      <xsl:when test="$id='3'">cult</xsl:when>
+      <xsl:when test="$id='11'">eco</xsl:when>
+      <xsl:when test="$id='12'">sol</xsl:when>
+      <xsl:when test="$id='13'">citt</xsl:when>
+      <xsl:when test="$id='6'">pck</xsl:when>
+      <xsl:when test="$id='2'">osp</xsl:when>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:value-of select="concat($string,'-',$group)"/>
 </xsl:template>
 
 

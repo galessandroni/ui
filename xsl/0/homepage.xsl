@@ -19,11 +19,18 @@
   <xsl:call-template name="feedback"/>
   <xsl:for-each select="/root/features/feature[@id_function='1']">
     <xsl:sort select="items/item/@ts" order="descending"/>
-    <div class="pckbox" id="box-group-{params/@id_topic_group}">
+    <div class="pckbox">
+      <xsl:attribute name="id">
+        <xsl:call-template name="mapGroups">
+          <xsl:with-param name="string" select="'box-group'"/>
+          <xsl:with-param name="id" select="params/@id_topic_group"/>
+        </xsl:call-template>
+      </xsl:attribute>
       <h3>
         <xsl:call-template name="createLink">
           <xsl:with-param name="node" select="info"/>
           <xsl:with-param name="name" select="@name"/>
+          <xsl:with-param name="class" select="'icon'"/>
         </xsl:call-template>
       </h3>
       <xsl:choose>
@@ -63,38 +70,6 @@
 </xsl:template>
 
 
-
-<!-- ###############################
-     NOTIZIA GOLD
-     ############################### -->
-<xsl:template name="notiziaGold">
-<xsl:if test="/root/features/feature[@id='46']/params/@id_article &gt; 0">
-<div id="notizia-gold" class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='46']"/>
-</div>
-</xsl:if>
-</xsl:template>
-
-
-<!-- ###############################
-     TEMATICA IN PRIMO PIANO
-     ############################### -->
-<xsl:template name="topicGold">
-<div id="speciale" class="pckbox">
-<h3 class="feature">Palestina</h3>
-<div id="topic-desc">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/features/feature[@id='121']/items/topic_full/topic"/>
-<xsl:with-param name="name">L'AltraPalestina. Speciale news e approfondimenti.</xsl:with-param>
-</xsl:call-template>
-</div>
-<ul class="items">
-<xsl:apply-templates select="/root/features/feature[@id='75']/items" mode="mainlist"/>
-</ul>
-</div>
-</xsl:template>
-
-
 <!-- ###############################
      TRADUZIONI
      ############################### -->
@@ -109,6 +84,7 @@
 </div>
 </xsl:if>
 </xsl:template>
+
 
 <!-- ###############################
      NEWS
@@ -147,20 +123,6 @@
 <h3 class="feature"><xsl:value-of select="$f/@name"/></h3>
 <ul class="items">
 <xsl:apply-templates select="$f/items/xml/feature_group/items" mode="fulllist"/>
-</ul>
-</div>
-</xsl:template>
-
-
-<!-- ###############################
-     NEWS OSPITI
-     ############################### -->
-<xsl:template name="newsGuests">
-<div class="pckbox">
-<xsl:variable name="f" select="/root/features/feature[@id='15']"/>
-<h3 class="feature"><xsl:value-of select="$f/@name"/></h3>
-<ul class="items">
-<xsl:apply-templates select="$f/items" mode="fulllist"/>
 </ul>
 </div>
 </xsl:template>

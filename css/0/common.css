@@ -172,24 +172,29 @@ ul.groups li.group h1.icon {
   font-size:2em;
 }
 
-ul.groups li.group h1.group-1:before {
+ul.groups li.group h1.group-pace:before,
+.pckbox#box-group-pace > h3 a:before {
   content: "\f67c";
 }
 
-ul.groups li.group h1.group-3:before {
+ul.groups li.group h1.group-cult:before,
+.pckbox#box-group-cult > h3 a:before {
   content: "\f5da";
 }
 
-ul.groups li.group h1.group-11:before {
-  content: "\f06c";
-}
-
-ul.groups li.group h1.group-12:before {
+ul.groups li.group h1.group-sol:before,
+.pckbox#box-group-sol > h3 a:before {
   content: "\f4c4";
 }
 
-ul.groups li.group h1.group-13:before {
+ul.groups li.group h1.group-citt:before,
+.pckbox#box-group-citt > h3 a:before {
   content: "\f0c0";
+}
+
+ul.groups li.group h1.group-eco:before,
+.pckbox#box-group-eco > h3 a:before {
+  content: "\f06c";
 }
 
 ul.groups li.level1 {
@@ -377,98 +382,98 @@ a:hover {
 }
 
 /* PACE - ROSSO */
-#content-links li#topic-group-1 a {
+#content-links li#topic-group-pace a {
   border-top-color: #881A25;
 }
-.pckbox#box-group-1 > h3 {
+.pckbox#box-group-pace > h3 {
   border-bottom-color: #881A25;
 }
-#sitemap li.group .group-1,
-.pckbox#box-group-1 h3 a {
+#sitemap li.group .group-pace,
+.pckbox#box-group-pace h3 a {
   color: #881A25;
 }
-#content-links li#topic-group-1 a:hover,
-#content-links li#topic-group-1.selected a {
+#content-links li#topic-group-pace a:hover,
+#content-links li#topic-group-pace.selected a {
   background-color:#881A25;
 }
 
 /* CULTURA - VIOLA */
-#content-links li#topic-group-3 a {
+#content-links li#topic-group-cult a {
   border-top-color: #7D1A88;
 }
-.pckbox#box-group-3 > h3 {
+.pckbox#box-group-cult > h3 {
   border-bottom-color: #7D1A88;
 }
-#sitemap li.group .group-3,
-.pckbox#box-group-3 h3 a {
+#sitemap li.group .group-cult,
+.pckbox#box-group-cult h3 a {
   color: #7D1A88;
 }
-#content-links li#topic-group-3 a:hover,
-#content-links li#topic-group-3.selected a {
+#content-links li#topic-group-cult a:hover,
+#content-links li#topic-group-cult.selected a {
   background-color:#7D1A88;
 }
 
-/* ECOLOGIA - BLU */
-#content-links li#topic-group-11 a {
+/* SOLIDARIETA - BLU */
+#content-links li#topic-group-sol a {
   border-top-color: #391A88;
 }
-.pckbox#box-group-11 > h3 {
+.pckbox#box-group-sol > h3 {
   border-bottom-color: #391A88;
 }
-#sitemap li.group .group-11,
-.pckbox#box-group-11 h3 a {
+#sitemap li.group .group-sol,
+.pckbox#box-group-sol h3 a {
   color: #391A88;
 }
-#content-links li#topic-group-11 a:hover,
-#content-links li#topic-group-11.selected a {
+#content-links li#topic-group-sol a:hover,
+#content-links li#topic-group-sol.selected a {
   background-color:#391A88;
 }
 
-/* SOLIDARIETA - AZZURRO */
-#content-links li#topic-group-12 a {
+/* CITTATTIVA - AZZURRO */
+#content-links li#topic-group-citt a {
   border-top-color: #1A6588;
 }
-.pckbox#box-group-12 > h3 {
+.pckbox#box-group-citt > h3 {
   border-bottom-color: #1A6588;
 }
-#sitemap li.group .group-12,
-.pckbox#box-group-12 h3 a {
+#sitemap li.group .group-citt,
+.pckbox#box-group-citt h3 a {
   color: #1A6588;
 }
-#content-links li#topic-group-12 a:hover,
-#content-links li#topic-group-12.selected a {
+#content-links li#topic-group-citt a:hover,
+#content-links li#topic-group-citt.selected a {
   background-color:#1A6588;
 }
 
-/* CITTATTIVA - VERDE */
-#content-links li#topic-group-13 a {
+/* ECOLOGIA - VERDE */
+#content-links li#topic-group-eco a {
   border-top-color: #117738;
 }
-.pckbox#box-group-13 > h3 {
+.pckbox#box-group-eco > h3 {
   border-bottom-color: #117738;
 }
-#sitemap li.group .group-13,
-.pckbox#box-group-13 h3 a {
+#sitemap li.group .group-eco,
+.pckbox#box-group-eco h3 a {
   color: #117738;
 }
-#content-links li#topic-group-13 a:hover,
-#content-links li#topic-group-13.selected a {
+#content-links li#topic-group-eco a:hover,
+#content-links li#topic-group-eco.selected a {
   background-color:#117738;
 }
 
 /* OSPITI - GIALLO */
-#content-links li#topic-group-2 a {
+#content-links li#topic-group-osp a {
   border-top-color: #A7AA1C;
 }
-.pckbox#box-group-2 > h3 {
+.pckbox#box-group-osp > h3 {
   border-bottom-color: #A7AA1C;
 }
-#sitemap li.group .group-2,
-.pckbox#box-group-2 h3 a {
+#sitemap li.group .group-osp,
+.pckbox#box-group-osp h3 a {
   color: #A7AA1C;
 }
-#content-links li#topic-group-2 a:hover,
-#content-links li#topic-group-2.selected a {
+#content-links li#topic-group-osp a:hover,
+#content-links li#topic-group-osp.selected a {
   background-color:#A7AA1C;
 }
 
@@ -476,10 +481,10 @@ a:hover {
 #pck-links a {
   background-color:#B66B1A;
 }
-.pckbox#box-group-6 > h3 {
+.pckbox#box-group-pck > h3 {
   border-bottom-color: #B66B1A;
 }
-.pckbox#box-group-6 h3 a {
+.pckbox#box-group-pck h3 a {
   color:#B66B1A;
 }
 #pck-links a:hover {
@@ -498,19 +503,20 @@ a:hover {
   float:left;
 }
 
+.pckbox h3 {
+  font-size:1.3em;
+}
+
 .pckbox > h3 {
   color: #444;
   font-weight: bold;
-  padding: 0.2em 0.3em;
+  padding: 0.1em 0.3em;
   border-bottom: solid 1px #444;
+  font-size:1.5em;
 }
 
 .pckbox > h3 a {
   color:#444;
-}
-
-.pckbox h3 {
-  font-size:1.3em;
 }
 
 .pckbox .article-item.highlight h3 {

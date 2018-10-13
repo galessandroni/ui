@@ -46,7 +46,6 @@
 </xsl:template>
 
 
-
 <!-- ###############################
      GALLERY
      ############################### -->
@@ -65,7 +64,15 @@
 <xsl:template match="group" mode="map">
   <xsl:param name="level"/>
   <li class="group level{$level}">
-    <h1 class="icon group-{@id}"><xsl:value-of select="@name"/></h1>
+    <h1>
+      <xsl:attribute name="class">
+        <xsl:call-template name="mapGroups">
+          <xsl:with-param name="string" select="'icon group'"/>
+          <xsl:with-param name="id" select="@id"/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:value-of select="@name"/>
+    </h1>
     <div class="description"><xsl:value-of select="@description"/></div>
     <xsl:if test="topics">
       <ul class="topics">

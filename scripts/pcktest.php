@@ -141,6 +141,11 @@ $tt->gh->GroupReshuffle();
 $tt->gh->GroupMove(5, 0);
 $tt->gh->GroupReshuffle();
 $tt->gh->GroupMove(5, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(11, 0);
+$tt->gh->GroupReshuffle();
+$tt->gh->GroupMove(11, 0);
+$tt->gh->GroupReshuffle();
 
 // make fotonotizia global
 $pt = new PageTypes();
