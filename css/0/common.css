@@ -103,9 +103,22 @@ body {
   width: 300px;
 }
 
-#top-nav li a {
+#top-nav li {
   float:left;
   border-left:solid 0.2em #fff;
+}
+
+#top-nav li.user {
+  float:none;
+}
+
+#content-links li.user a,
+#content-links li.search a{
+  border-top-color: #444;
+}
+
+#top-nav li a {
+  float:left;
   padding: 0.3em 0.5em;
   color: #ffffff;
   font-weight: bold;

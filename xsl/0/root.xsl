@@ -116,8 +116,8 @@ TOP NAV PCK
         <xsl:with-param name="name" select="/root/site/events/@label"/>
       </xsl:call-template>
     </li>
-    <li><a href="#">Cerca</a></li>
-    <li><xsl:call-template name="userInfo"/></li>
+    <li class="search"><a href="#">Cerca</a></li>
+    <li class="user"><xsl:call-template name="userInfo"/></li>
   </ul>
 </xsl:template>
 
