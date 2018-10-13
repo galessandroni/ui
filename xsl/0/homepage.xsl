@@ -40,12 +40,15 @@
             <xsl:with-param name="a" select="/root/c_features/feature[@id='13']/items/item"/>
             <xsl:with-param name="show_topic" select="true()"/>
           </xsl:call-template>
-          <ul class="items">
+          <ul class="items cols-3">
             <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist2"/>
           </ul>
         </xsl:when>
         <xsl:otherwise>
           <ul class="items">
+            <xsl:if test="not(items/item/image)">
+              <xsl:attribute name="class">items cols-2</xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates select="items" mode="fulllist2"/>
           </ul>
         </xsl:otherwise>
