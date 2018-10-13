@@ -45,12 +45,26 @@
           </ul>
         </xsl:when>
         <xsl:otherwise>
-          <ul class="items">
-            <xsl:if test="not(items/item/image)">
-              <xsl:attribute name="class">items cols-2</xsl:attribute>
-            </xsl:if>
-            <xsl:apply-templates select="items" mode="fulllist2"/>
-          </ul>
+          <xsl:choose>
+            <xsl:when test="items/item[@highlight='1' and image]">
+              <xsl:variable name="highlight_id"><xsl:value-of select="items/item[@highlight='1' and image]/@id"/></xsl:variable>
+              <xsl:call-template name="articleItem">
+                <xsl:with-param name="a" select="items/item[@id=$highlight_id]"/>
+                <xsl:with-param name="show_topic" select="true()"/>
+              </xsl:call-template>
+              <ul class="items cols-3">
+                <xsl:apply-templates select="items/item[@id!=$highlight_id]" mode="fulllist2"/>
+              </ul>
+            </xsl:when>
+            <xsl:otherwise>
+              <ul class="items">
+                <xsl:if test="not(items/item/image)">
+                  <xsl:attribute name="class">items cols-2</xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="items" mode="fulllist2"/>
+              </ul>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </div>

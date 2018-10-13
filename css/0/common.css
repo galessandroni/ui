@@ -439,7 +439,8 @@ a:hover {
 #content-links li#topic-group-pace a {
   border-top-color: #881A25;
 }
-.pckbox#box-group-pace > h3 {
+.pckbox#box-group-pace > h3,
+.pckbox#box-group-pace .article-item.highlight {
   border-bottom-color: #881A25;
 }
 #sitemap li.group .group-pace,
@@ -447,7 +448,8 @@ a:hover {
   color: #881A25;
 }
 #content-links li#topic-group-pace a:hover,
-#content-links li#topic-group-pace.selected a {
+#content-links li#topic-group-pace.selected a,
+.pckbox#box-group-pace .article-item.highlight .article-topic {
   background-color:#881A25;
 }
 
@@ -455,7 +457,8 @@ a:hover {
 #content-links li#topic-group-cult a {
   border-top-color: #7D1A88;
 }
-.pckbox#box-group-cult > h3 {
+.pckbox#box-group-cult > h3,
+.pckbox#box-group-cult .article-item.highlight {
   border-bottom-color: #7D1A88;
 }
 #sitemap li.group .group-cult,
@@ -463,7 +466,8 @@ a:hover {
   color: #7D1A88;
 }
 #content-links li#topic-group-cult a:hover,
-#content-links li#topic-group-cult.selected a {
+#content-links li#topic-group-cult.selected a,
+.pckbox#box-group-cult .article-item.highlight .article-topic {
   background-color:#7D1A88;
 }
 
@@ -471,7 +475,8 @@ a:hover {
 #content-links li#topic-group-sol a {
   border-top-color: #391A88;
 }
-.pckbox#box-group-sol > h3 {
+.pckbox#box-group-sol > h3,
+.pckbox#box-group-sol .article-item.highlight {
   border-bottom-color: #391A88;
 }
 #sitemap li.group .group-sol,
@@ -479,7 +484,8 @@ a:hover {
   color: #391A88;
 }
 #content-links li#topic-group-sol a:hover,
-#content-links li#topic-group-sol.selected a {
+#content-links li#topic-group-sol.selected a,
+.pckbox#box-group-sol .article-item.highlight .article-topic {
   background-color:#391A88;
 }
 
@@ -487,7 +493,8 @@ a:hover {
 #content-links li#topic-group-citt a {
   border-top-color: #1A6588;
 }
-.pckbox#box-group-citt > h3 {
+.pckbox#box-group-citt > h3,
+.pckbox#box-group-citt .article-item.highlight {
   border-bottom-color: #1A6588;
 }
 #sitemap li.group .group-citt,
@@ -495,7 +502,8 @@ a:hover {
   color: #1A6588;
 }
 #content-links li#topic-group-citt a:hover,
-#content-links li#topic-group-citt.selected a {
+#content-links li#topic-group-citt.selected a,
+.pckbox#box-group-citt .article-item.highlight .article-topic {
   background-color:#1A6588;
 }
 
@@ -503,7 +511,8 @@ a:hover {
 #content-links li#topic-group-eco a {
   border-top-color: #117738;
 }
-.pckbox#box-group-eco > h3 {
+.pckbox#box-group-eco > h3,
+.pckbox#box-group-eco .article-item.highlight {
   border-bottom-color: #117738;
 }
 #sitemap li.group .group-eco,
@@ -511,7 +520,8 @@ a:hover {
   color: #117738;
 }
 #content-links li#topic-group-eco a:hover,
-#content-links li#topic-group-eco.selected a {
+#content-links li#topic-group-eco.selected a,
+.pckbox#box-group-eco .article-item.highlight .article-topic {
   background-color:#117738;
 }
 
@@ -519,7 +529,8 @@ a:hover {
 #content-links li#topic-group-osp a {
   border-top-color: #A7AA1C;
 }
-.pckbox#box-group-osp > h3 {
+.pckbox#box-group-osp > h3,
+.pckbox#box-group-osp .article-item.highlight {
   border-bottom-color: #A7AA1C;
 }
 #sitemap li.group .group-osp,
@@ -527,16 +538,18 @@ a:hover {
   color: #A7AA1C;
 }
 #content-links li#topic-group-osp a:hover,
-#content-links li#topic-group-osp.selected a {
+#content-links li#topic-group-osp.selected a,
+.pckbox#box-group-osp .article-item.highlight .article-topic {
   background-color:#A7AA1C;
 }
 
 /* PCK */
 #pck-links a,
-.pckbox#box-group-pck .article-item.highlight .article-topic{
+.pckbox#box-group-pck .article-item.highlight .article-topic {
   background-color:#B66B1A;
 }
-.pckbox#box-group-pck > h3 {
+.pckbox#box-group-pck > h3,
+.pckbox#box-group-pck .article-item.highlight {
   border-bottom-color: #B66B1A;
 }
 .pckbox#box-group-pck h3 a {
@@ -582,6 +595,9 @@ a:hover {
 .pckbox .article-item.highlight h3 {
   font-size: 1.3em;
 }
+.pckbox .cols-3 .article-item.highlight {
+  border-bottom:none;
+}
 
 .pckbox .article-item.highlight .article-topic {
   background-color:#333;
@@ -607,7 +623,6 @@ a:hover {
 #bottom-bar a {
   color:#888;
 }
-
 
 
 /* MOBILE */
