@@ -214,4 +214,27 @@ ARTICLE CONTENT
 </xsl:template>
 
 
+<!-- ###############################
+     NEWS PCK TOPIC
+     ############################### -->
+<xsl:template name="newsPckTopicHome">
+<xsl:choose>
+<xsl:when test="/root/topic/@id_group='10'">
+<xsl:if test="/root/features/feature[@id='112']/items">
+<div class="pckbox">
+<xsl:apply-templates select="/root/features/feature[@id='112']"/>
+</div>
+</xsl:if>
+</xsl:when>
+<xsl:otherwise>
+<xsl:if test="/root/features/feature[@id='14']/items">
+<div class="pckbox">
+<xsl:apply-templates select="/root/features/feature[@id='14']"/>
+</div>
+</xsl:if>
+</xsl:otherwise>
+</xsl:choose>
+</xsl:template>
+
+
 </xsl:stylesheet>

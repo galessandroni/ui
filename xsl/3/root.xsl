@@ -5,9 +5,9 @@
      LEFT BOTTOM
      ############################### -->
 <xsl:template name="leftBottom">
-<xsl:if test="/root/topic/@id_group=1">
-<xsl:call-template name="bannerGroup"><xsl:with-param name="id" select="'3'"/></xsl:call-template>
-</xsl:if>
+  <xsl:if test="/root/topic/@id_group=1">
+    <xsl:call-template name="bannerGroup"><xsl:with-param name="id" select="'3'"/></xsl:call-template>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

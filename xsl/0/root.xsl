@@ -25,19 +25,23 @@
       <xsl:if test="/root/preview"><xsl:call-template name="previewToolbar"/></xsl:if>
       <div id="main-wrap" >
         <div id="top-nav"><xsl:call-template name="topNavPck"/></div>
-        <div id="main-global">
-          <xsl:choose>
-            <xsl:when test="/root/topic">
-              <xsl:attribute name="id">main</xsl:attribute>
+        <xsl:choose>
+          <xsl:when test="/root/topic">
+            <div id="main">
               <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
-            </xsl:when>
-            <xsl:otherwise>
+              <div id="content"><xsl:call-template name="content" /></div>
               <xsl:call-template name="fotonotizia"/>
-            </xsl:otherwise>
-          </xsl:choose>
-          <div id="content"><xsl:call-template name="content" /></div>
-          <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
-        </div>
+              <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
+            </div>
+          </xsl:when>
+          <xsl:otherwise>
+            <div id="main-global">
+              <xsl:call-template name="fotonotizia"/>
+              <div id="content"><xsl:call-template name="content" /></div>
+              <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
+            </div>
+          </xsl:otherwise>
+        </xsl:choose>
         <div id="bottom-bar"><xsl:call-template name="bottomBarPck" /></div>
       </div>
     </body>
@@ -206,40 +210,40 @@ TOP NAV PCK
      LEFT BAR PCK
      ############################### -->
 <xsl:template name="leftBarPck">
-<xsl:choose>
-<xsl:when test="/root/topic">
-<xsl:call-template name="navigationMenu"/>
-<xsl:call-template name="mailingListPck"/>
-<xsl:call-template name="leftBottom"/>
-</xsl:when>
-<xsl:when test="$pagetype='gallery_group' ">
-<xsl:call-template name="leftBar"/>
-</xsl:when>
-<xsl:when test="$pagetype='user' ">
-<xsl:call-template name="leftBar"/>
-<xsl:call-template name="newsPck"/>
-<div class="pckbox">
-<xsl:call-template name="randomQuote"/>
-</div>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="editorialPck"/>
-<div class="pckbox">
-<xsl:apply-templates select="/root/c_features/feature[@id='189']" />
-</div>
-<xsl:call-template name="articoloinevidenzaPck"/>
-<xsl:call-template name="newsPck"/>
-<xsl:call-template name="supportPck"/>
-<xsl:call-template name="vignette"/>
-<xsl:call-template name="dossierPck"/>
-<!--
-<xsl:call-template name="booksPck"/>
--->
-<div class="pckbox">
-<xsl:call-template name="randomQuote"/>
-</div>
-</xsl:otherwise>
-</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="/root/topic">
+      <xsl:call-template name="navigationMenu"/>
+      <xsl:call-template name="mailingListPck"/>
+      <xsl:call-template name="leftBottom"/>
+    </xsl:when>
+    <xsl:when test="$pagetype='gallery_group' ">
+      <xsl:call-template name="leftBar"/>
+    </xsl:when>
+    <xsl:when test="$pagetype='user' ">
+      <xsl:call-template name="leftBar"/>
+      <xsl:call-template name="newsPck"/>
+        <div class="pckbox">
+          <xsl:call-template name="randomQuote"/>
+        </div>
+    </xsl:when>
+    <xsl:otherwise>
+    <xsl:call-template name="editorialPck"/>
+    <div class="pckbox">
+    <xsl:apply-templates select="/root/c_features/feature[@id='189']" />
+    </div>
+    <xsl:call-template name="articoloinevidenzaPck"/>
+    <xsl:call-template name="newsPck"/>
+    <xsl:call-template name="supportPck"/>
+    <xsl:call-template name="vignette"/>
+    <xsl:call-template name="dossierPck"/>
+    <!--
+    <xsl:call-template name="booksPck"/>
+    -->
+    <div class="pckbox">
+    <xsl:call-template name="randomQuote"/>
+    </div>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 

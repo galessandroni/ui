@@ -67,8 +67,14 @@ body {
   width: 400px;
 }
 
+#main #right-bar,
+#main #fotonotizia {
+  width:18%;
+  float:right;
+}
+
 #main #content {
-  margin-left: 19%;
+  margin-left: 21%;
   width:59%;
 }
 
@@ -398,16 +404,16 @@ ul.items .item-length {
   font-size:0.9em;
 }
 
-ul.items .article-item .breadcrumb:before {
+ul.items .breadcrumb:before {
   font-style:normal;
   content: "\f138";
 }
-ul.items .article-item .breadcrumb {
+ul.items .breadcrumb {
   font-style:italic;
   color:#444;
   margin-bottom:0.2em;
 }
-ul.items .article-item .breadcrumb a {
+ul.items .breadcrumb a {
   color:#444;
 }
 
@@ -457,6 +463,13 @@ ul.items .article-item h3 {
   margin-bottom: 0.4em;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+/* TOPIC */
+
+#left-bar h2 {
+  font-size:1.4rem;
+  margin: 0.5em 0;
 }
 
 /* COLOURS */

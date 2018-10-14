@@ -3,22 +3,9 @@
 
 <xsl:import href="../0/topic_home.xsl" />
 
-<xsl:output method="html" encoding="UTF-8" indent="no" doctype-system="http://www.w3.org/TR/html4/strict.dtd"  doctype-public="-//W3C//DTD HTML 4.01//EN" />
+<xsl:output method="html" encoding="UTF-8" indent="no" />
 
 <xsl:include href="common.xsl" />
-
-
-<!-- ###############################
-CONTENT
-############################### -->
-<xsl:template name="content">
-<div class="header"><xsl:apply-templates select="/root/home_header"/></div>
-<xsl:call-template name="topicHomeAddons"/>
-<xsl:call-template name="topicHome"/>
-<xsl:call-template name="topicEvents"/>
-<div><xsl:call-template name="lastUpdate"/></div>
-<div class="footer"><xsl:apply-templates select="/root/home_footer"/></div>
-</xsl:template>
 
 
 <!-- ###############################
@@ -43,39 +30,6 @@ select="'8'"/>
 </xsl:choose>
 </div>
 </xsl:if>
-</xsl:template>
-
-
-<!-- ###############################
-     RIGHT BAR PCK
-     ############################### -->
-<xsl:template name="rightBarPck2">
-<xsl:call-template name="searchPck"/>
-<xsl:call-template name="tickerPck"/>
-<xsl:call-template name="newsPckTopicHome"/>
-</xsl:template>
-
-
-<!-- ###############################
-     NEWS PCK TOPIC
-     ############################### -->
-<xsl:template name="newsPckTopicHome">
-<xsl:choose>
-<xsl:when test="/root/topic/@id_group='10'">
-<xsl:if test="/root/features/feature[@id='112']/items">
-<div class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='112']"/>
-</div>
-</xsl:if>
-</xsl:when>
-<xsl:otherwise>
-<xsl:if test="/root/features/feature[@id='14']/items">
-<div class="pckbox">
-<xsl:apply-templates select="/root/features/feature[@id='14']"/>
-</div>
-</xsl:if>
-</xsl:otherwise>
-</xsl:choose>
 </xsl:template>
 
 

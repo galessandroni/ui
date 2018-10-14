@@ -2144,13 +2144,13 @@ xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" s
 <xsl:template mode="fulllist" match="item">
   <li>
     <xsl:if test="position()=last()-1"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
-    <div class="item-breadcrumb">
+    <div class="breadcrumb icon">
       <xsl:if test="topic and not(/root/topic/@id &gt; 0)">
         <xsl:call-template name="createLink">
           <xsl:with-param name="node" select="topic"/>
           <xsl:with-param name="name" select="topic/@name"/>
         </xsl:call-template>
-        <xsl:text> > </xsl:text>
+        <xsl:value-of select="$breadcrumb_separator"/>
       </xsl:if>
       <xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
     </div>
@@ -2569,22 +2569,17 @@ $().ready(function() {
      NAVIGATION MENU
      ############################### -->
 <xsl:template name="navigationMenu">
-<xsl:if test="/root/topic">
-<h2>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/topic"/>
-</xsl:call-template>
-</h2>
-<xsl:apply-templates select="/root/menu/subtopics"/>
-<div class="menu-footer">
-<xsl:apply-templates select="/root/menu/menu_footer"/>
-</div>
-<xsl:if test="/root/topic/rss">
-<xsl:call-template name="rssLogo">
-<xsl:with-param name="node" select="/root/topic/rss"/>
-</xsl:call-template>
-</xsl:if>
-</xsl:if>
+  <xsl:if test="/root/topic">
+    <h2>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/topic"/>
+      </xsl:call-template>
+    </h2>
+    <xsl:apply-templates select="/root/menu/subtopics"/>
+    <div class="menu-footer">
+      <xsl:apply-templates select="/root/menu/menu_footer"/>
+    </div>
+  </xsl:if>
 </xsl:template>
 
 
