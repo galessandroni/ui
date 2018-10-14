@@ -473,21 +473,47 @@
           <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
         </xsl:call-template>
       </xsl:variable>
+      <xsl:variable name="src2">
+        <xsl:call-template name="stringReplace">
+          <xsl:with-param name="string" select="$src"/>
+          <xsl:with-param name="find" select="concat('w=',$i/@width,'&amp;resize=aspectfit')"/>
+          <xsl:with-param name="replace" select="'w=100&amp;h=100&amp;resize=entropy'"/>
+        </xsl:call-template>
+      </xsl:variable>
       <a title="{$a/headline}">
         <xsl:attribute name="href">
           <xsl:call-template name="createLinkUrl">
             <xsl:with-param name="node" select="$a"/>
           </xsl:call-template>
         </xsl:attribute>
-        <img width="{$i/@width}" height="{$i/@height}" alt="{$a/headline}" src="{$src}">
-          <xsl:attribute name="class">
-            <xsl:choose>
-              <xsl:when test="$i/@align='0'">right</xsl:when>
-              <xsl:when test="$i/@align='1'">left</xsl:when>
-              <xsl:when test="$i/@align='2'">standalone</xsl:when>
-            </xsl:choose>
-          </xsl:attribute>
-        </img>
+        <xsl:choose>
+          <xsl:when test="$a/@highlight=1">
+            <img width="{$i/@width}" height="{$i/@height}" alt="{$a/headline}" src="{$src}">
+            <xsl:attribute name="class">
+              <xsl:choose>
+                <xsl:when test="$i/@align='0'">right</xsl:when>
+                <xsl:when test="$i/@align='1'">left</xsl:when>
+                <xsl:when test="$i/@align='2'">standalone</xsl:when>
+              </xsl:choose>
+            </xsl:attribute>
+            </img>
+          </xsl:when>
+          <xsl:otherwise>
+            <picture>
+              <source media="(max-width: 799px)" srcset="{$src2}"/>
+              <source media="(min-width: 800px)" srcset="{$src}"/>
+              <img alt="{$a/@headline}" src="{$src}">
+                <xsl:attribute name="class">
+                  <xsl:choose>
+                    <xsl:when test="$i/@align='0'">right</xsl:when>
+                    <xsl:when test="$i/@align='1'">left</xsl:when>
+                    <xsl:when test="$i/@align='2'">standalone</xsl:when>
+                  </xsl:choose>
+                </xsl:attribute>
+              </img>
+            </picture>
+          </xsl:otherwise>
+        </xsl:choose>
       </a>
     </xsl:if>
     <xsl:if test="$show_path=true()">

@@ -36,10 +36,14 @@
       <xsl:choose>
         <!-- PCK -->
         <xsl:when test="params/@id_topic_group='6'">
-          <xsl:call-template name="articleItem">
-            <xsl:with-param name="a" select="/root/c_features/feature[@id='13']/items/item"/>
-            <xsl:with-param name="show_topic" select="true()"/>
-          </xsl:call-template>
+          <ul class="items highlight">
+            <li>
+              <xsl:call-template name="articleItem">
+                <xsl:with-param name="a" select="/root/c_features/feature[@id='13']/items/item"/>
+                <xsl:with-param name="show_topic" select="true()"/>
+              </xsl:call-template>
+            </li>
+          </ul>
           <ul class="items cols-3">
             <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist2"/>
           </ul>
@@ -48,10 +52,14 @@
           <xsl:choose>
             <xsl:when test="items/item[@highlight='1' and image]">
               <xsl:variable name="highlight_id"><xsl:value-of select="items/item[@highlight='1' and image]/@id"/></xsl:variable>
-              <xsl:call-template name="articleItem">
-                <xsl:with-param name="a" select="items/item[@id=$highlight_id]"/>
-                <xsl:with-param name="show_topic" select="true()"/>
-              </xsl:call-template>
+              <ul class="items highlight">
+                <li>
+                  <xsl:call-template name="articleItem">
+                    <xsl:with-param name="a" select="items/item[@id=$highlight_id]"/>
+                    <xsl:with-param name="show_topic" select="true()"/>
+                  </xsl:call-template>
+                </li>
+              </ul>
               <ul class="items cols-3">
                 <xsl:apply-templates select="items/item[@id!=$highlight_id]" mode="fulllist2"/>
               </ul>
