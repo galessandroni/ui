@@ -497,6 +497,7 @@ a:hover {
 #content-links li a:hover,
 #content-links li.selected a {
   background-color:#777;
+  border-top-color:#777;
 }
 .pckbox > h3 {
   background-color:#eee;
