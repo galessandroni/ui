@@ -2144,20 +2144,11 @@ xxx<img width="{$node/@width}" height="{$node/@height}" alt="{$node/@caption}" s
 <xsl:template mode="fulllist" match="item">
   <li>
     <xsl:if test="position()=last()-1"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
-    <div class="breadcrumb icon">
-      <xsl:if test="topic and not(/root/topic/@id &gt; 0)">
-        <xsl:call-template name="createLink">
-          <xsl:with-param name="node" select="topic"/>
-          <xsl:with-param name="name" select="topic/@name"/>
-        </xsl:call-template>
-        <xsl:value-of select="$breadcrumb_separator"/>
-      </xsl:if>
-      <xsl:apply-templates select="breadcrumb" mode="breadcrumb"/>
-    </div>
     <xsl:choose>
       <xsl:when test="@type='article'">
         <xsl:call-template name="articleItem">
           <xsl:with-param name="a" select="."/>
+          <xsl:with-param name="show_path" select="true()"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:when test="@type='event'">
