@@ -30,7 +30,7 @@
             <div id="main">
               <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
               <div id="content"><xsl:call-template name="content" /></div>
-              <xsl:call-template name="fotonotizia"/>
+              <xsl:call-template name="fotonotiziaTopic"/>
               <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
             </div>
           </xsl:when>
@@ -337,13 +337,6 @@ TOP NAV PCK
           <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
         </xsl:call-template>
       </xsl:variable>
-      <xsl:variable name="src2">
-        <xsl:call-template name="stringReplace">
-          <xsl:with-param name="string" select="$src"/>
-          <xsl:with-param name="find" select="concat('w=',$i/@width)"/>
-          <xsl:with-param name="replace" select="'w=800'"/>
-        </xsl:call-template>
-      </xsl:variable>
       <xsl:variable name="link">
         <xsl:choose>
           <xsl:when test="$i/@link!=''"><xsl:value-of select="$i/@link"/></xsl:when>
@@ -351,17 +344,27 @@ TOP NAV PCK
         </xsl:choose>
       </xsl:variable>
       <a href="{$link}">
-        <picture>
-          <source media="(max-width: 799px)" srcset="{$src2}"/>
-          <source media="(min-width: 800px)" srcset="{$src}"/>
-          <img alt="{$i/@caption}" src="{$src}"/>
-        </picture>
+        <img alt="{$i/@caption}" src="{$src}" />
       </a>
       <div class="description">
         <a href="{$link}"><xsl:value-of select="$i/@caption"/></a>
       </div>
     </div>
   </xsl:if>
+</xsl:template>
+
+
+<!-- ###############################
+     FOTONOTIZIA TOPIC
+     ############################### -->
+<xsl:template name="fotonotiziaTopic">
+  <div id="fotonotizia" class="pckbox">
+    <script type="text/javascript">
+  $(function() {
+    htmlLoad('fotonotizia','/js/feature.php?id=10&amp;transform')
+  });
+    </script>
+  </div>
 </xsl:template>
 
 

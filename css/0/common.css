@@ -62,9 +62,13 @@ body {
 
 #right-bar,
 #fotonotizia {
-  width:18%;
+  width:33%;
   float:right;
-  width: 400px;
+  max-width: 400px;
+}
+
+#fotonotizia img {
+width:100%;
 }
 
 #main #right-bar,
@@ -79,7 +83,7 @@ body {
 }
 
 #main-global #content {
-  width:70%;
+  width:66%;
   max-width: 800px;
   float:left;
 }
@@ -175,6 +179,10 @@ body {
   padding:0.2em;
 }
 
+#main #fotonotizia img {
+  width:200px;
+  height: auto;
+}
 
 /* MAP */
 
@@ -687,11 +695,14 @@ a:hover {
     float: left;
     width: 100%;
     padding: 0;
+    clear:both;
+    max-width:800px;
   }
   
   #fotonotizia img {
-    width: 95%;
     height:auto;
+    float:left;
+    max-width:50%;
   }
   
   #content-links {
@@ -762,5 +773,13 @@ a:hover {
   #top-nav #pck-links {
     float:right;
     min-width: 500px;
+  }
+}
+
+/* MOBILE */
+@media only screen and (max-width: 500px) {
+  #fotonotizia img {
+    max-width:100%;
+    float:none;
   }
 }

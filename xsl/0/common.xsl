@@ -3243,42 +3243,21 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
      USER INFO
      ############################### -->
 <xsl:template name="userInfo">
-<xsl:if test="/root/site/@profiling='1' ">
-<div id="user-info">
-<xsl:choose>
-<xsl:when test="/root/publish/@live='1' ">
-<xsl:call-template name="userItem"/>
-</xsl:when>
-<xsl:otherwise>
-<script type="text/javascript">
-<xsl:choose>
-<xsl:when test="/root/topic/@profiling='1' ">
-<xsl:choose>
-<xsl:when test="$async_js=true()">
-getHttpContent('/js/user.php?id_topic=<xsl:value-of select="/root/topic/@id"/><xsl:text disable-output-escaping="yes">&amp;</xsl:text>a=1','user-info')
-</xsl:when>
-<xsl:otherwise>
-<xsl:attribute name="src"><xsl:value-of select="/root/site/@base"/>/js/user.php?id_topic=<xsl:value-of select="/root/topic/@id"/>
-</xsl:attribute>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:when>
-<xsl:otherwise>
-<xsl:choose>
-<xsl:when test="$async_js=true()">
-getHttpContent('/js/user.php?a=1','user-info')
-</xsl:when>
-<xsl:otherwise>
-<xsl:attribute name="src"><xsl:value-of select="/root/site/@base"/>/js/user.php</xsl:attribute>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:otherwise>
-</xsl:choose>
-</script>
-</xsl:otherwise>
-</xsl:choose>
-</div>
-</xsl:if>
+  <div id="user-info">
+    <xsl:choose>
+      <xsl:when test="/root/publish/@live='1' ">
+        <xsl:call-template name="userItem"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="url">/js/user.php?a=1<xsl:if test="/root/topic/@profiling='1'">&amp;id_topic=<xsl:value-of select="/root/topic/@id"/></xsl:if></xsl:variable>
+        <script type="text/javascript">
+  $(function() {
+    htmlLoad('user-info','<xsl:value-of select="$url"/>')
+  });
+        </script>
+      </xsl:otherwise>
+    </xsl:choose>
+  </div>
 </xsl:template>
 
 

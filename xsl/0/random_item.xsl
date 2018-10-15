@@ -25,6 +25,9 @@
 <xsl:with-param name="b" select="/root/book"/>
 </xsl:call-template>
 </xsl:when>
+<xsl:when test="/root/@type='feature'">
+<xsl:apply-templates select="/root/feature"/>
+</xsl:when>
 <xsl:when test="/root/@type='quote'">
 <xsl:call-template name="quoteItem">
 <xsl:with-param name="i" select="/root/quote"/>

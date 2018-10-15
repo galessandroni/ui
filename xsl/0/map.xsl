@@ -83,7 +83,9 @@
       <xsl:if test="topics/topic[@archived='1']">
         <h2 class="icon fa-archive">Archivio</h2>
         <ul class="topics">
-          <xsl:apply-templates mode="map" select="topics/topic[@archived='1']"/>
+          <xsl:apply-templates mode="map" select="topics/topic[@archived='1']">
+            <xsl:sort select="latest/item/@ts" order="descending"/>
+          </xsl:apply-templates>
         </ul>
       </xsl:if>
     </xsl:if>
