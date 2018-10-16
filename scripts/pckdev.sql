@@ -29,6 +29,7 @@ UPDATE people SET
     WHERE email NOT LIKE '%@peacelink%';
 
 UPDATE topics SET domain='',newsletter=0;
+UPDATE topics SET domain='http://taranto.dev.local' WHERE id_topic=50;
 
 TRUNCATE users_log;
 TRUNCATE publish_log;

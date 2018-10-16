@@ -30,13 +30,17 @@
             <div id="main">
               <div id="left-bar"><xsl:call-template name="leftBarPck" /></div>
               <div id="content"><xsl:call-template name="content" /></div>
-              <xsl:call-template name="fotonotiziaTopic"/>
+              <div id="fotonotizia" class="pckbox">
+                <xsl:call-template name="fotonotiziaTopic"/>
+              </div>
               <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
             </div>
           </xsl:when>
           <xsl:otherwise>
             <div id="main-global">
-              <xsl:call-template name="fotonotizia"/>
+              <div id="fotonotizia" class="pckbox">
+                <xsl:call-template name="fotonotizia"/>
+              </div>
               <div id="content"><xsl:call-template name="content" /></div>
               <div id="right-bar"><xsl:call-template name="rightBarPck" /></div>
             </div>
@@ -106,8 +110,7 @@ TOP NAV PCK
             <xsl:with-param name="id" select="@id"/>
           </xsl:call-template>
         </xsl:attribute>
-        <xsl:if test="position()=1 and (/root/topic/@id_group=1 or /root/topics/group/@id=1) and not(/root/topic/@id=6)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
-        <xsl:if test="position()=2 and (/root/topic/@id_group=2 or /root/topics/group/@id=2)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
+        <xsl:if test="(/root/topic/@id_group=@id or /root/topics/group/@id=@id)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
         <xsl:call-template name="createLink">
           <xsl:with-param name="node" select="."/>
         </xsl:call-template>
@@ -123,6 +126,14 @@ TOP NAV PCK
     <li class="search"><a href="#">Cerca</a></li>
     <li class="user"><xsl:call-template name="userInfo"/></li>
   </ul>
+</xsl:template>
+
+
+<!-- ###############################
+     TWITTER
+     ############################### -->
+<xsl:template name="pckTwitter">
+<div id="pck-twitter"><a class="twitter-timeline" data-lang="it" data-height="400" data-theme="light" href="https://twitter.com/peacelink?ref_src=twsrc%5Etfw">Tweets by PeaceLink</a> <script async="true" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 </xsl:template>
 
 
@@ -215,6 +226,7 @@ TOP NAV PCK
       <xsl:call-template name="navigationMenu"/>
       <xsl:call-template name="mailingListPck"/>
       <xsl:call-template name="leftBottom"/>
+      <xsl:call-template name="supportPck"/>
     </xsl:when>
     <xsl:when test="$pagetype='gallery_group' ">
       <xsl:call-template name="leftBar"/>
@@ -227,21 +239,18 @@ TOP NAV PCK
         </div>
     </xsl:when>
     <xsl:otherwise>
-    <xsl:call-template name="editorialPck"/>
-    <div class="pckbox">
-    <xsl:apply-templates select="/root/c_features/feature[@id='189']" />
-    </div>
-    <xsl:call-template name="articoloinevidenzaPck"/>
-    <xsl:call-template name="newsPck"/>
-    <xsl:call-template name="supportPck"/>
-    <xsl:call-template name="vignette"/>
-    <xsl:call-template name="dossierPck"/>
-    <!--
-    <xsl:call-template name="booksPck"/>
-    -->
-    <div class="pckbox">
-    <xsl:call-template name="randomQuote"/>
-    </div>
+      <xsl:call-template name="editorialPck"/>
+      <div class="pckbox">
+      <xsl:apply-templates select="/root/c_features/feature[@id='189']" />
+      </div>
+      <xsl:call-template name="articoloinevidenzaPck"/>
+      <xsl:call-template name="newsPck"/>
+      <xsl:call-template name="supportPck"/>
+      <xsl:call-template name="vignette"/>
+      <xsl:call-template name="dossierPck"/>
+      <div class="pckbox">
+        <xsl:call-template name="randomQuote"/>
+      </div>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -294,33 +303,34 @@ TOP NAV PCK
      RIGHT BAR PCK
      ############################### -->
 <xsl:template name="rightBarPck">
+  <xsl:call-template name="pckTwitter"/>
+<!--
   <xsl:call-template name="pckYoutube"/>
   <xsl:call-template name="facebookLike">
     <xsl:with-param name="action">recommend</xsl:with-param>
     <xsl:with-param name="layout">button_count</xsl:with-param>
   </xsl:call-template>
-<xsl:choose>
-  <xsl:when test="$pagetype='events'">
-    <xsl:call-template name="rightBarCalendar"/>
-  </xsl:when>
-  <xsl:otherwise>
-    <!-- RIGHT BAR generica -->
-    <xsl:if test="$pagetype!='error404'">
-
-      <xsl:if test="not(/root/topic) and /root/c_features/feature[@id=125]/items/item">
-        <div id="ricorrenze" class="pckbox">
-          <h3 class="feature">
-            <xsl:value-of select="/root/site/events/@today"/>
-          </h3>
-          <xsl:apply-templates select="/root/c_features/feature[@id=125]" />
-        </div>
-      </xsl:if>
+-->
+  <xsl:choose>
+    <xsl:when test="$pagetype='events'">
+      <xsl:call-template name="rightBarCalendar"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <!-- RIGHT BAR generica -->
       <xsl:call-template name="tickerPck"/>
-      <xsl:call-template name="nextEventsPck"/>
-
-    </xsl:if>
-  </xsl:otherwise>
-</xsl:choose>
+      <xsl:if test="$pagetype!='error404'">
+        <xsl:if test="not(/root/topic) and /root/c_features/feature[@id=125]/items/item">
+          <div id="ricorrenze" class="pckbox">
+            <h3 class="feature">
+              <xsl:value-of select="/root/site/events/@today"/>
+            </h3>
+            <xsl:apply-templates select="/root/c_features/feature[@id=125]" />
+          </div>
+        </xsl:if>
+        <xsl:call-template name="nextEventsPck"/>
+      </xsl:if>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -328,29 +338,25 @@ TOP NAV PCK
      FOTONOTIZIA
      ############################### -->
 <xsl:template name="fotonotizia">
-  <xsl:if test="/root/c_features/feature[@id='10']">
-    <div id="fotonotizia" class="pckbox">
-      <xsl:variable name="i" select="/root/c_features/feature[@id='10']/items/item"/>
-      <xsl:variable name="src">
-        <xsl:call-template name="createLinkUrl">
-          <xsl:with-param name="node" select="$i/src"/>
-          <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:variable name="link">
-        <xsl:choose>
-          <xsl:when test="$i/@link!=''"><xsl:value-of select="$i/@link"/></xsl:when>
-          <xsl:otherwise><xsl:value-of select="/root/site/@url"/></xsl:otherwise>
-        </xsl:choose>
-      </xsl:variable>
-      <a href="{$link}">
-        <img alt="{$i/@caption}" src="{$src}" />
-      </a>
-      <div class="description">
-        <a href="{$link}"><xsl:value-of select="$i/@caption"/></a>
-      </div>
-    </div>
-  </xsl:if>
+  <xsl:param name="i" select="/root/c_features/feature[@id='10']/items/item"/>
+  <xsl:variable name="src">
+    <xsl:call-template name="createLinkUrl">
+      <xsl:with-param name="node" select="$i/src"/>
+      <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="link">
+    <xsl:choose>
+      <xsl:when test="$i/@link!=''"><xsl:value-of select="$i/@link"/></xsl:when>
+      <xsl:otherwise><xsl:value-of select="/root/site/@url"/></xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <a href="{$link}">
+    <img alt="{$i/@caption}" src="{$src}" />
+  </a>
+  <div class="description">
+    <a href="{$link}"><xsl:value-of select="$i/@caption"/></a>
+  </div>
 </xsl:template>
 
 
@@ -410,9 +416,17 @@ TOP NAV PCK
 </xsl:otherwise>
 </xsl:choose>
 </xsl:template>
-	  
-	  
-	  
+
+
+<!-- ###############################
+     SUPPORT PCK
+     ############################### -->
+<xsl:template name="supportPck">
+<div class="pckbox" id="support">
+<xsl:apply-templates select="/root/c_features/feature[@id='17']"/>
+</div>
+</xsl:template>
+
 
 <!-- ###############################
      SEARCH PCK
@@ -462,8 +476,6 @@ PeaceLink C.P. 2009 - 74100 Taranto (Italy) - CCP 13403746 -  Sito realizzato co
      CSS CUSTOM
      ############################### -->
 <xsl:template name="cssCustom">
-<xsl:comment><![CDATA[[if lt IE 8]><link rel="stylesheet" type="text/css" media="screen" href="]]><xsl:value-of select="$css_url"/><![CDATA[/0/custom_4.css" /><![endif]]]></xsl:comment>
-<xsl:comment><![CDATA[[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="]]><xsl:value-of select="$css_url"/><![CDATA[/0/custom_1.css" /><![endif]]]></xsl:comment>
 </xsl:template>
 
 

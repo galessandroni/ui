@@ -9,6 +9,7 @@ include_once(SERVER_ROOT."/../classes/pagetypes.php");
 include_once(SERVER_ROOT."/../classes/varia.php");
 include_once(SERVER_ROOT."/../classes/queue.php");
 include_once(SERVER_ROOT."/../classes/publishmanager.php");
+include_once(SERVER_ROOT."/../classes/db.php");
 
 // clear queue
 $q = new Queue(0);
@@ -56,13 +57,12 @@ $tt->TopicUpdateGroup(47,$id_pck); // emergenza
 $tt->TopicArchive(47);
 $tt->TopicUpdateGroup(5,$id_pck); // emergenza2
 $tt->TopicArchive(5);
-HomepageFeature("PeaceLink",$id_pck,30,1);
-
-$t = new Topic(75); $t->Delete(); // peacelink.it
-
-// 10 nodi
-$id_nodi = 10;
-$tt->gh->GroupUpdate($id_nodi, "Nodi", "I nodi di PeaceLink", 6, 0, 1);
+$tt->TopicUpdateGroup(60,$id_pck);
+$tt->TopicUpdateGroup(83,$id_pck);
+$tt->TopicUpdateGroup(50,$id_pck);
+$tt->TopicUpdateGroup(86,$id_pck);
+$tt->TopicUpdateGroup(100,$id_pck);
+HomepageFeature("PeaceLink",$id_pck,4,1);
 
 // 3 campagne => cultura
 $id_cultura = 3;
@@ -112,6 +112,46 @@ $tt->TopicArchive(49);
 HomepageFeature("Cittadinanza attiva",$id_citt);
 
 $tt->gh->GroupDelete(7);
+$tt->gh->GroupDelete(10);
+
+// ospiti
+$tt->TopicUpdateGroup(7,2); // africanews
+$tt->TopicUpdateGroup(48,2); // ostinati
+$tt->TopicUpdateGroup(44,2); // superiori
+$tt->gh->GroupDelete(9);
+// pax christi
+$tt->TopicUpdateGroup(22,2);
+$tt->TopicUpdateGroup(20,2);
+$tt->TopicUpdateGroup(25,2);
+$tt->TopicUpdateGroup(90,2);
+$tt->TopicUpdateGroup(91,2);
+$tt->TopicUpdateGroup(92,2);
+$tt->gh->GroupDelete(4);
+// rete disarmo
+$tt->TopicUpdateGroup(64,2);
+$tt->TopicUpdateGroup(37,2);
+$tt->TopicUpdateGroup(63,2);
+$tt->TopicUpdateGroup(79,2);
+$tt->TopicUpdateGroup(93,2);
+$tt->TopicUpdateGroup(97,2);
+$tt->TopicUpdateGroup(98,2);
+$tt->gh->GroupDelete(8);
+$tt->TopicArchive(7);
+$tt->TopicArchive(48);
+$tt->TopicArchive(44);
+$tt->TopicArchive(54);
+$tt->TopicArchive(46);
+$tt->TopicArchive(26);
+$tt->TopicArchive(32);
+$tt->TopicArchive(59);
+$tt->TopicArchive(58);
+$tt->TopicArchive(29);
+$tt->TopicArchive(77);
+$tt->TopicArchive(70);
+$tt->TopicArchive(81);
+$tt->TopicArchive(84);
+$tt->TopicArchive(85);
+$tt->TopicArchive(95);
 
 // sort
 $tt->gh->GroupReshuffle();
@@ -176,4 +216,11 @@ $pt->FeatureDelete(34,0,0);
 $pt->FeatureDelete(35,0,0);
 $pt->FeatureDelete(36,0,0);
 $pt->FeatureDelete(71,0,0);
+
+$db =& Db::globaldb();
+$db->begin();
+$db->lock( "features" );
+$sqlstr = "UPDATE features SET public='1' WHERE id_feature='10' ";
+$res[] = $db->query( $sqlstr );
+Db::finish( $res, $db);
 ?>

@@ -8,12 +8,7 @@
 <!-- ###############################
      RIGHT BAR PCK
      ############################### -->
-<xsl:template name="rightBarPck">
-<xsl:call-template name="searchPck"/>
-<xsl:call-template name="facebookLike">
-  <xsl:with-param name="action">recommend</xsl:with-param>
-  <xsl:with-param name="layout">button_count</xsl:with-param>
-</xsl:call-template>
+<xsl:template name="rightBarPckOld">
 <xsl:call-template name="tickerPck"/>
 <xsl:choose>
 <xsl:when test="$pagetype='topic_home'">

@@ -1007,7 +1007,7 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
      BREADCRUMB
      ############################### -->
 <xsl:template name="breadcrumb">
-<div class="breadcrumb">
+<div class="breadcrumb icon">
 <xsl:choose>
 <xsl:when test="$pagetype='subtopic'">
 <xsl:apply-templates select="/root/subtopic/breadcrumb" mode="breadcrumb"/>
@@ -1169,8 +1169,6 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
 <xsl:if test="not(/root/publish/@global='1') and /root/publish/@style &gt; 0">
 	<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/common.css{$css_version}" media="screen"/>
 </xsl:if>
-<link type="text/css" rel="stylesheet" href="{$css_url}/0/print.css{$css_version}" media="print"/>
-<xsl:call-template name="cssCustom"/>
 </xsl:template>
 
 
@@ -1239,128 +1237,137 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
      FEATURE
      ############################### -->
 <xsl:template match="feature">
-<xsl:if test="@name !=''">
-<h3 class="feature"><xsl:value-of select="@name"/></h3>
-</xsl:if>
-<xsl:choose>
-<xsl:when test="@id_function='1' or @id_function='2' or @id_function='27'">
-<ul class="items">
-<xsl:choose>
-<xsl:when test="params/@with_content='1'">
-<xsl:for-each select="items/item">
-<li class="{@type}-item">
-<xsl:call-template name="articleContent">
-<xsl:with-param name="a" select="."/>
-</xsl:call-template>
-</li>
-</xsl:for-each>
-</xsl:when>
-<xsl:otherwise>
-<xsl:apply-templates select="items" mode="mainlist"/>
-</xsl:otherwise>
-</xsl:choose>
-</ul>
-</xsl:when>
-<xsl:when test="@id_function='3'">
-<ul class="topics">
-<xsl:apply-templates mode="mainlist" select="items"/>
-</ul>
-</xsl:when>
-<xsl:when test="@id_function='6'">
-<xsl:choose>
-<xsl:when test="params/@with_content='1'">
-<xsl:call-template name="articleContent">
-<xsl:with-param name="a" select="items/item"/>
-</xsl:call-template>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="articleItem">
-<xsl:with-param name="a" select="items/item"/>
-</xsl:call-template>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:when>
-<xsl:when test="@id_function='7'">
-<xsl:call-template name="subtopicItem">
-<xsl:with-param name="s" select="items/subtopic"/>
-<xsl:with-param name="with_children" select="params/@with_children='1'"/>
-<xsl:with-param name="with_tags" select="true()"/>
-</xsl:call-template>
-</xsl:when>
-<xsl:when test="@id_function='8'">
-<ul class="items">
-<xsl:apply-templates mode="mainlist" select="items"/>
-</ul>
-</xsl:when>
-<xsl:when test="@id_function='11'">
-<xsl:call-template name="rssParse">
-<xsl:with-param name="node" select="items/rss/rss"/>
-</xsl:call-template>
-</xsl:when>
-<xsl:when test="@id_function='12'">
-<div id="gtext-{items/item/@id}" class="generic-text">
-<xsl:value-of select="items/item/content" disable-output-escaping="yes"/>
-</div>
-</xsl:when>
-<xsl:when test="@id_function='13' or @id_function='14'">
-<ul class="groups">
-<xsl:apply-templates select="items" mode="mainlist"/>
-</ul>
-</xsl:when>
-<xsl:when test="@id_function='15'">
-<h4><xsl:call-template name="createLink">
-<xsl:with-param name="node" select="items/topic_full/topic"/>
-</xsl:call-template></h4>
-<xsl:if test="params/@with_menu='1'">
-<xsl:apply-templates select="items/topic_full/menu/subtopics"/>
-</xsl:if>
-</xsl:when>
-<xsl:when test="@id_function='22'">
-<xsl:call-template name="videoNode">
-<xsl:with-param name="node" select="items/video"/>
-</xsl:call-template>
-</xsl:when>
-<xsl:when test="@id_function='23'">
-<xsl:call-template name="slideshow">
-<xsl:with-param name="id" select="items/item/@id"/>
-<xsl:with-param name="width" select="items/item/@width"/>
-<xsl:with-param name="height" select="items/item/@height"/>
-<xsl:with-param name="images" select="items/item/@xml"/>
-<xsl:with-param name="watermark"><xsl:if test="items/item/@watermark"><xsl:value-of select="items/item/@watermark"/></xsl:if></xsl:with-param>
-<xsl:with-param name="audio"><xsl:if test="items/item/@audio!=''"><xsl:value-of select="items/item/@audio"/></xsl:if></xsl:with-param>
-<xsl:with-param name="shuffle" select="items/item/@shuffle"/>
-<xsl:with-param name="bgcolor" select="'0x000000'"/>
-<xsl:with-param name="jscaptions" select="items/item/@show_captions='1'"/>
-</xsl:call-template>
-<xsl:if test="items/item/@show_captions='1'">
-<div id="slide-caption-{items/item/@id}" class="gallery-image slide-caption"></div>
-</xsl:if>
-</xsl:when>
-<xsl:when test="@id_function='25'">
-<xsl:choose>
-<xsl:when test="items/xml/feature_group">
-<ul class="items">
-<xsl:apply-templates select="items/xml/feature_group/items" mode="mainlist"/>
-</ul>
-</xsl:when>
-<xsl:when test="items/xml/rss">
-<xsl:call-template name="rssParse">
-<xsl:with-param name="node" select="items/xml/rss"/>
-</xsl:call-template>
-</xsl:when>
-</xsl:choose>
-</xsl:when>
-<xsl:when test="@id_function='30'">
-<xsl:call-template name="tagCloud">
-<xsl:with-param name="node" select="."/>
-</xsl:call-template>
-</xsl:when>
-<xsl:otherwise>
-<ul class="items">
-<xsl:apply-templates select="items" mode="mainlist"/>
-</ul>
-</xsl:otherwise>
-</xsl:choose>
+  <xsl:if test="@name !=''">
+  <h3 class="feature"><xsl:value-of select="@name"/></h3>
+  </xsl:if>
+  <xsl:choose>
+  <xsl:when test="@id_function='1' or @id_function='2' or @id_function='27'">
+  <ul class="items">
+  <xsl:choose>
+  <xsl:when test="params/@with_content='1'">
+  <xsl:for-each select="items/item">
+  <li class="{@type}-item">
+  <xsl:call-template name="articleContent">
+  <xsl:with-param name="a" select="."/>
+  </xsl:call-template>
+  </li>
+  </xsl:for-each>
+  </xsl:when>
+  <xsl:otherwise>
+  <xsl:apply-templates select="items" mode="mainlist"/>
+  </xsl:otherwise>
+  </xsl:choose>
+  </ul>
+  </xsl:when>
+  <xsl:when test="@id_function='3'">
+  <ul class="topics">
+  <xsl:apply-templates mode="mainlist" select="items"/>
+  </ul>
+  </xsl:when>
+  <xsl:when test="@id_function='6'">
+  <xsl:choose>
+  <xsl:when test="params/@with_content='1'">
+  <xsl:call-template name="articleContent">
+  <xsl:with-param name="a" select="items/item"/>
+  </xsl:call-template>
+  </xsl:when>
+  <xsl:otherwise>
+  <xsl:call-template name="articleItem">
+  <xsl:with-param name="a" select="items/item"/>
+  </xsl:call-template>
+  </xsl:otherwise>
+  </xsl:choose>
+  </xsl:when>
+  <xsl:when test="@id_function='7'">
+  <xsl:call-template name="subtopicItem">
+  <xsl:with-param name="s" select="items/subtopic"/>
+  <xsl:with-param name="with_children" select="params/@with_children='1'"/>
+  <xsl:with-param name="with_tags" select="true()"/>
+  </xsl:call-template>
+  </xsl:when>
+  <xsl:when test="@id_function='8'">
+    <xsl:choose>
+      <xsl:when test="@id='10'">
+        <xsl:call-template name="fotonotizia">
+          <xsl:with-param name="i" select="items/item"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <ul class="items">
+          <xsl:apply-templates mode="mainlist" select="items"/>
+        </ul>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:when>
+  <xsl:when test="@id_function='11'">
+  <xsl:call-template name="rssParse">
+  <xsl:with-param name="node" select="items/rss/rss"/>
+  </xsl:call-template>
+  </xsl:when>
+  <xsl:when test="@id_function='12'">
+  <div id="gtext-{items/item/@id}" class="generic-text">
+  <xsl:value-of select="items/item/content" disable-output-escaping="yes"/>
+  </div>
+  </xsl:when>
+  <xsl:when test="@id_function='13' or @id_function='14'">
+  <ul class="groups">
+  <xsl:apply-templates select="items" mode="mainlist"/>
+  </ul>
+  </xsl:when>
+  <xsl:when test="@id_function='15'">
+  <h4><xsl:call-template name="createLink">
+  <xsl:with-param name="node" select="items/topic_full/topic"/>
+  </xsl:call-template></h4>
+  <xsl:if test="params/@with_menu='1'">
+  <xsl:apply-templates select="items/topic_full/menu/subtopics"/>
+  </xsl:if>
+  </xsl:when>
+  <xsl:when test="@id_function='22'">
+  <xsl:call-template name="videoNode">
+  <xsl:with-param name="node" select="items/video"/>
+  </xsl:call-template>
+  </xsl:when>
+  <xsl:when test="@id_function='23'">
+  <xsl:call-template name="slideshow">
+  <xsl:with-param name="id" select="items/item/@id"/>
+  <xsl:with-param name="width" select="items/item/@width"/>
+  <xsl:with-param name="height" select="items/item/@height"/>
+  <xsl:with-param name="images" select="items/item/@xml"/>
+  <xsl:with-param name="watermark"><xsl:if test="items/item/@watermark"><xsl:value-of select="items/item/@watermark"/></xsl:if></xsl:with-param>
+  <xsl:with-param name="audio"><xsl:if test="items/item/@audio!=''"><xsl:value-of select="items/item/@audio"/></xsl:if></xsl:with-param>
+  <xsl:with-param name="shuffle" select="items/item/@shuffle"/>
+  <xsl:with-param name="bgcolor" select="'0x000000'"/>
+  <xsl:with-param name="jscaptions" select="items/item/@show_captions='1'"/>
+  </xsl:call-template>
+  <xsl:if test="items/item/@show_captions='1'">
+  <div id="slide-caption-{items/item/@id}" class="gallery-image slide-caption"></div>
+  </xsl:if>
+  </xsl:when>
+  <xsl:when test="@id_function='25'">
+  <xsl:choose>
+  <xsl:when test="items/xml/feature_group">
+  <ul class="items">
+  <xsl:apply-templates select="items/xml/feature_group/items" mode="mainlist"/>
+  </ul>
+  </xsl:when>
+  <xsl:when test="items/xml/rss">
+  <xsl:call-template name="rssParse">
+  <xsl:with-param name="node" select="items/xml/rss"/>
+  </xsl:call-template>
+  </xsl:when>
+  </xsl:choose>
+  </xsl:when>
+  <xsl:when test="@id_function='30'">
+  <xsl:call-template name="tagCloud">
+  <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+  </xsl:when>
+  <xsl:otherwise>
+  <ul class="items">
+  <xsl:apply-templates select="items" mode="mainlist"/>
+  </ul>
+  </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -2984,7 +2991,7 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
 </xsl:call-template>
 </xsl:when>
 <xsl:when test="$id_type='4'">
-<ul>
+<ul class="subtopics-map">
 <xsl:choose>
 <xsl:when test="/root/subtopic/@id_item &gt; 0">
 <xsl:apply-templates select="/root/menu/subtopics//subtopic[@id=/root/subtopic/@id_item]" mode="map"/>
@@ -3163,12 +3170,6 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
      TOOL BAR
      ############################### -->
 <xsl:template name="toolBar">
-<xsl:if test="/root/topic/@show_print='1'">
-<ul id="tool-bar">
-<xsl:call-template name="print"/>
-<xsl:call-template name="sendFriend"/>
-</ul>
-</xsl:if>
 </xsl:template>
 
 
