@@ -2284,11 +2284,7 @@ $().ready(function() {
      JAVASCRIPT HEAD
      ############################### -->
 <xsl:template name="javascriptHead">
-<xsl:if test="$pagetype!='error404'">
-<script type="text/javascript" src="{/root/site/@base}/js/tools.js{$js_version}"></script>
-<script type="text/javascript" src="{/root/site/@base}/jsc/custom_{/root/publish/@id_language}.js"></script>
-</xsl:if>
-<script type="text/javascript" src="{/root/site/@assets_domain}/js/0/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="{/root/site/@assets_domain}/js/0/js/lib.js"></script>
 <script type="text/javascript" src="{/root/site/@assets_domain}/js/1/js/main.js"></script>
 <xsl:if test="$pagetype='homepage' and /root/publish/@widgets">
 <script type="text/javascript" src="{/root/site/@base}/js/widgets/lib.js"></script>
