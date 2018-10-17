@@ -16,7 +16,6 @@
   <div class="header"><xsl:apply-templates select="/root/home_header"/></div>
   <xsl:call-template name="topicHome"/>
   <xsl:call-template name="topicEvents"/>
-  <div><xsl:call-template name="lastUpdate"/></div>
   <div class="footer"><xsl:apply-templates select="/root/home_footer"/></div>
 </xsl:template>
 

@@ -27,11 +27,11 @@ $(function() {
   
 });
 
-function htmlLoad(divId,htmlUrl) {
+function htmlLoad(divId,htmlUrl,cache) {
   $.ajax({
     url : htmlUrl,
     type : "GET",
-    cache : false,
+    cache : cache,
     dataType: "html",
     success : function(data) {
       if(data) {
@@ -45,3 +45,12 @@ function htmlLoad(divId,htmlUrl) {
     }
   });
 }
+
+// FACEBOOK  WIDGET
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v3.1&appId=1752631701494360&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

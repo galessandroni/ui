@@ -41,11 +41,12 @@
               <xsl:call-template name="articleItem">
                 <xsl:with-param name="a" select="/root/c_features/feature[@id='13']/items/item"/>
                 <xsl:with-param name="show_topic" select="true()"/>
+                <xsl:with-param name="highlight" select="true()"/>
               </xsl:call-template>
             </li>
           </ul>
           <ul class="items cols-3">
-            <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist2"/>
+            <xsl:apply-templates select="items/item[topic/@id!='1']" mode="fulllist"/>
           </ul>
         </xsl:when>
         <xsl:otherwise>
@@ -61,7 +62,7 @@
                 </li>
               </ul>
               <ul class="items cols-3">
-                <xsl:apply-templates select="items/item[@id!=$highlight_id]" mode="fulllist2"/>
+                <xsl:apply-templates select="items/item[@id!=$highlight_id]" mode="fulllist"/>
               </ul>
             </xsl:when>
             <xsl:otherwise>
@@ -69,7 +70,7 @@
                 <xsl:if test="not(items/item/image)">
                   <xsl:attribute name="class">items cols-2</xsl:attribute>
                 </xsl:if>
-                <xsl:apply-templates select="items" mode="fulllist2"/>
+                <xsl:apply-templates select="items/item" mode="fulllist"/>
               </ul>
             </xsl:otherwise>
           </xsl:choose>

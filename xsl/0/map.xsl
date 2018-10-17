@@ -107,8 +107,8 @@
      PAGE TITLE
      ############################### -->
 <xsl:template name="pageTitle">
-<xsl:if test="$preview=true()">[<xsl:value-of select="/root/labels/label[@word='preview']/@tr"/>]  - </xsl:if>
-<xsl:value-of select="/root/site/@title"/><xsl:text> </xsl:text><xsl:value-of select="/root/labels/label[@word='map']/@tr"/>
+  <xsl:if test="$preview=true()">[<xsl:value-of select="/root/labels/label[@word='preview']/@tr"/>]  - </xsl:if>
+  <xsl:value-of select="/root/site/@title"/><xsl:text> </xsl:text><xsl:value-of select="/root/labels/label[@word='map']/@tr"/>
 </xsl:template>
 
 
@@ -164,6 +164,7 @@
       <xsl:for-each select="latest/item">
         <xsl:if test="position() &lt;= 4">
           <li>
+            <xsl:if test="position()=4"><xsl:attribute name="class">last</xsl:attribute></xsl:if>
             <xsl:call-template name="articleItem">
               <xsl:with-param name="a" select="."/>
             </xsl:call-template>

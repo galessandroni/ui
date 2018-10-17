@@ -222,5 +222,7 @@ $db->begin();
 $db->lock( "features" );
 $sqlstr = "UPDATE features SET public='1' WHERE id_feature='10' ";
 $res[] = $db->query( $sqlstr );
+$sqlstr = "UPDATE features SET active=1,public='1' WHERE id_feature='32' ";
+$res[] = $db->query( $sqlstr );
 Db::finish( $res, $db);
 ?>
