@@ -487,4 +487,8 @@ background: #fff;
 }
 
 
+/* REVERT UPSTREAM WIDTH FIXES */
+#main-wrap {
+  width: 990px;
+}
 
