@@ -16,6 +16,45 @@
     </xsl:attribute>
     <head>
       <xsl:call-template name="head"/>
+      <meta name="format-detection" content="telephone=no"/>
+      <meta name="geo.placename" content="Taranto, IT"/>
+      <meta name="geo.country" content="it"/>
+      <meta name="dc.language" content="it"/>
+      <meta name="application-name" content="PeaceLink"/>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@peacelink" />
+      <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Taranto, Italy",
+          "postalCode": "74100",
+          "streetAddress": "CP 2009"
+        },
+        "name": "PeaceLink",
+        "url": "https://www.peacelink.it",
+        "logo": "<xsl:value-of select="/root/site/@cdn"/>/graphics/peacelink.png",
+        "email": "mailto:info@peacelink.it",
+        "image": "<xsl:value-of select="/root/site/@cdn"/>/css/i/peacelink.svg",
+        "description": "Telematica per la Pace, associazione di volontariato dell'informazione che dal 1992 offre una alternativa ai grandi gruppi editoriali e televisivi.",
+        "sameAs" : [
+            "https://www.facebook.com/retepeacelink",
+            "https://twitter.com/peacelink",
+            "https://www.youtube.com/channel/UC3WwkfbNXH-TxnVFpwSAtSQ"
+        ]
+      }
+      </script>
+      <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"/>
+      <link rel="manifest" href="/icon/site.webmanifest"/>
+      <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5"/>
+      <link rel="shortcut icon" href="/icon/favicon.ico"/>
+      <meta name="msapplication-TileColor" content="#da532c"/>
+      <meta name="msapplication-config" content="/icon/browserconfig.xml"/>
+      <meta name="theme-color" content="#ffffff"/>
       <xsl:call-template name="googleUniversalAnalytics">
         <xsl:with-param name="ua-id" select="'UA-27168243-1'" />
       </xsl:call-template>
