@@ -64,45 +64,45 @@
      CONTENT
      ############################### -->
 <xsl:template name="content">
-<xsl:variable name="u" select="/root/admin_user"/>
-<div class="breadcrumb">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="$u"/>
-<xsl:with-param name="condition" select="$subtype!='user'"/>
-</xsl:call-template>
-</div>
-<xsl:call-template name="feedback"/>
-<xsl:choose>
-<xsl:when test="$subtype='user'">
-<xsl:if test="$u/@email_visible='1'">
-<p id="user-email">email: <a href="mailto:{$u/@email}"><xsl:value-of select="$u/@email"/></a></p>
-</xsl:if>
-<div id="articles-{$subtype}">
-<xsl:call-template name="items">
-<xsl:with-param name="root" select="/root/admin_user/articles/items"/>
-<xsl:with-param name="node" select="/root/admin_user"/>
-</xsl:call-template>
-</div>
-</xsl:when>
-<xsl:when test="$subtype='translator'">
-<h2><xsl:value-of select="/root/labels/label[@word='translations']/@tr"/></h2>
-<div id="articles-{$subtype}">
-<xsl:call-template name="items">
-<xsl:with-param name="root" select="/root/admin_user/articles/items"/>
-<xsl:with-param name="node" select="/root/admin_user"/>
-</xsl:call-template>
-</div>
-</xsl:when>
-<xsl:when test="$subtype='bio'">
-<p id="user-bio"><xsl:value-of select="$u/bio" disable-output-escaping="yes"/></p>
-</xsl:when>
-<xsl:when test="$subtype='contact'">
-<xsl:if test="$u/@email">
-<p id="user-email">email: <a href="mailto:{$u/@email}"><xsl:value-of select="$u/@email"/></a></p>
-</xsl:if>
-<xsl:call-template name="userContact"/>
-</xsl:when>
-</xsl:choose>
+  <xsl:variable name="u" select="/root/admin_user"/>
+  <div class="breadcrumb icon">
+    <xsl:call-template name="createLink">
+      <xsl:with-param name="node" select="$u"/>
+      <xsl:with-param name="condition" select="$subtype!='user'"/>
+    </xsl:call-template>
+  </div>
+  <xsl:call-template name="feedback"/>
+  <xsl:choose>
+    <xsl:when test="$subtype='user'">
+      <xsl:if test="$u/@email_visible='1'">
+        <p id="user-email">email: <a href="mailto:{$u/@email}"><xsl:value-of select="$u/@email"/></a></p>
+      </xsl:if>
+      <div id="articles-{$subtype}">
+        <xsl:call-template name="items">
+          <xsl:with-param name="root" select="/root/admin_user/articles/items"/>
+          <xsl:with-param name="node" select="/root/admin_user"/>
+        </xsl:call-template>
+      </div>
+    </xsl:when>
+    <xsl:when test="$subtype='translator'">
+      <h2><xsl:value-of select="/root/labels/label[@word='translations']/@tr"/></h2>
+      <div id="articles-{$subtype}">
+        <xsl:call-template name="items">
+          <xsl:with-param name="root" select="/root/admin_user/articles/items"/>
+          <xsl:with-param name="node" select="/root/admin_user"/>
+        </xsl:call-template>
+      </div>
+    </xsl:when>
+    <xsl:when test="$subtype='bio'">
+      <p id="user-bio"><xsl:value-of select="$u/bio" disable-output-escaping="yes"/></p>
+    </xsl:when>
+    <xsl:when test="$subtype='contact'">
+      <xsl:if test="$u/@email">
+        <p id="user-email">email: <a href="mailto:{$u/@email}"><xsl:value-of select="$u/@email"/></a></p>
+      </xsl:if>
+    <xsl:call-template name="userContact"/>
+    </xsl:when>
+  </xsl:choose>
 
 </xsl:template>
 

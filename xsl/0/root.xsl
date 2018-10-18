@@ -112,39 +112,39 @@
   </a>
 
   <ul id="pck-links">
-    <li>
+    <li id="pck-about" class="first">
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/topic"/>
         <xsl:with-param name="name" select="'Chi siamo'"/>
       </xsl:call-template>
     </li>
-    <li>
+    <li id="pck-contact">
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='911']"/>
         <xsl:with-param name="name" select="'Contattaci'"/>
       </xsl:call-template>
     </li>
-    <li>
-      <xsl:call-template name="createLink">
-        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='2817']"/>
-        <xsl:with-param name="name" select="'Sostienici'"/>
-      </xsl:call-template>
-    </li>
-    <li>
+    <li id="pck-join">
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='3414']"/>
         <xsl:with-param name="name" select="'Iscriviti'"/>
       </xsl:call-template>
     </li>
-    <li>
+    <li id="pck-help">
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='1162']"/>
         <xsl:with-param name="name" select="'Partecipa'"/>
       </xsl:call-template>
     </li>
+    <li id="pck-support" class="last">
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/c_features/feature[@id='8']/items/topic_full/menu/subtopics//subtopic[@id='2817']"/>
+        <xsl:with-param name="name" select="'Sostienici'"/>
+      </xsl:call-template>
+    </li>
   </ul>
   <xsl:call-template name="bannerGroup">
-    <xsl:with-param name="id" select="'35'"/>
+    <xsl:with-param name="id" select="'8'"/>
   </xsl:call-template>
   <ul id="content-links">
     <xsl:for-each select="/root/c_features/feature[@id=3]/items/item[@id!=6]">
@@ -161,15 +161,19 @@
         </xsl:call-template>
       </li>
     </xsl:for-each>
-    <li>
+    <li id="pck-events">
       <xsl:if test="$pagetype='events' and not(/root/topic)"><xsl:attribute name="class">selected</xsl:attribute></xsl:if>
       <xsl:call-template name="createLink">
         <xsl:with-param name="node" select="/root/site/events"/>
         <xsl:with-param name="name" select="/root/site/events/@label"/>
       </xsl:call-template>
     </li>
-    <li class="search"><a href="#">Cerca</a></li>
-    <li class="user"><xsl:call-template name="userInfo"/></li>
+    <li class="search">
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="/root/site/search"/>
+      </xsl:call-template>
+    </li>
+    <xsl:call-template name="userInfo"/>
   </ul>
 </xsl:template>
 
@@ -257,7 +261,7 @@
      ############################### -->
 <xsl:template name="pckFacebook">
   <div id="pck-facebook" class="pckbox">
-    <div class="fb-page" data-href="https://www.facebook.com/retepeacelink/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="true"  data-show-facepile="true">
+    <div class="fb-page" data-href="https://www.facebook.com/retepeacelink/" data-tabs="timeline" data-adapt-container-width="true" data-height="500" data-small-header="true"  data-show-facepile="true">
       <blockquote cite="https://www.facebook.com/retepeacelink/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/retepeacelink/">Pagina Facebook di PeaceLink in caricamento...</a></blockquote>
     </div>
   </div>

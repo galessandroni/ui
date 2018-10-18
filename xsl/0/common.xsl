@@ -1263,7 +1263,7 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:apply-templates select="items" mode="mainlist"/>
+            <xsl:apply-templates select="items/item" mode="mainlist"/>
           </xsl:otherwise>
         </xsl:choose>
       </ul>
@@ -3202,21 +3202,19 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
      USER INFO
      ############################### -->
 <xsl:template name="userInfo">
-  <div id="user-info">
-    <xsl:choose>
-      <xsl:when test="/root/publish/@live='1' ">
-        <xsl:call-template name="userItem"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="url">/js/user.php?a=1<xsl:if test="/root/topic/@profiling='1'">&amp;id_topic=<xsl:value-of select="/root/topic/@id"/></xsl:if></xsl:variable>
-        <script type="text/javascript">
-  $(function() {
-    htmlLoad('user-info','<xsl:value-of select="$url"/>',true)
-  });
-        </script>
-      </xsl:otherwise>
-    </xsl:choose>
-  </div>
+  <xsl:choose>
+    <xsl:when test="/root/publish/@live='1' ">
+      <xsl:call-template name="userItem"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="url">/js/user.php?a=1<xsl:if test="/root/topic/@profiling='1'">&amp;id_topic=<xsl:value-of select="/root/topic/@id"/></xsl:if></xsl:variable>
+      <script type="text/javascript">
+$(function() {
+  htmlLoad('content-links','<xsl:value-of select="$url"/>',true,true)
+});
+      </script>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -3224,33 +3222,52 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
      USER ITEM
      ############################### -->
 <xsl:template name="userItem">
-<xsl:param name="u" select="/root/user"/>
-<xsl:choose>
-<xsl:when test="$u/@name!=''">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/people"/>
-<xsl:with-param name="name" select="$u/@name"/>
-</xsl:call-template>
-<xsl:if test="$u/@auth='1'">
-<div id="user-auth"><xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/people/logout"/>
-<xsl:with-param name="name" select="'Logout'"/>
-</xsl:call-template></div>
-</xsl:if>
-</xsl:when>
-<xsl:otherwise>
-<div id="user-links">
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/people/login"/>
-<xsl:with-param name="name" select="/root/site/people/login/@label"/>
-</xsl:call-template>
-<xsl:call-template name="createLink">
-<xsl:with-param name="node" select="/root/site/people/register"/>
-<xsl:with-param name="name" select="/root/site/people/register/@label"/>
-</xsl:call-template>
-</div>
-</xsl:otherwise>
-</xsl:choose>
+  <xsl:param name="u" select="/root/user"/>
+  <xsl:choose>
+    <xsl:when test="$u/@name!=''">
+      <xsl:if test="$u/@auth='1'">
+        <li class="user">
+          <a class="icon logout" title="Logout">
+            <xsl:attribute name="href">
+              <xsl:call-template name="createLinkUrl">
+                <xsl:with-param name="node" select="/root/site/people/logout"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <span>Logout</span>
+          </a>
+        </li>
+      </xsl:if>
+      <li class="user">
+        <a class="icon username" title="{$u/@name}">
+          <xsl:attribute name="href">
+            <xsl:call-template name="createLinkUrl">
+              <xsl:with-param name="node" select="/root/site/people"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <span><xsl:value-of select="$u/@name1"/></span>
+        </a>
+      </li>
+    </xsl:when>
+    <xsl:otherwise>
+      <li class="user">
+        <xsl:call-template name="createLink">
+          <xsl:with-param name="node" select="/root/site/people/register"/>
+          <xsl:with-param name="name" select="/root/site/people/register/@label"/>
+          <xsl:with-param name="class" select="'register'"/>
+        </xsl:call-template>
+      </li>
+      <li class="user">
+        <a class="icon login" title="Login">
+          <xsl:attribute name="href">
+            <xsl:call-template name="createLinkUrl">
+              <xsl:with-param name="node" select="/root/site/people/login"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <span><xsl:value-of select="/root/site/people/login/@label"/></span>
+        </a>
+      </li>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 

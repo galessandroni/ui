@@ -27,7 +27,7 @@ $(function() {
   
 });
 
-function htmlLoad(divId,htmlUrl,cache) {
+function htmlLoad(divId,htmlUrl,cache,append=false) {
   $.ajax({
     url : htmlUrl,
     type : "GET",
@@ -35,7 +35,11 @@ function htmlLoad(divId,htmlUrl,cache) {
     dataType: "html",
     success : function(data) {
       if(data) {
-        $('#'+divId).html(data);
+        if(append) {
+          $('#'+divId).append(data);
+        } else {
+          $('#'+divId).html(data);
+        }
       } else {
         console.log('No data from ' + htmlUrl)
       }

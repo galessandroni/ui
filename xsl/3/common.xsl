@@ -5,16 +5,26 @@
 <xsl:include href="tools.xsl" />
 
 
-
 <!-- ###############################
      TOPIC LATEST
      ############################### -->
 <xsl:template name="topicLatest">
-  <xsl:if test="/root/c_features/feature[@id='32']/items">
-    <div id="topic-latest" class="pckbox">
-      <xsl:apply-templates select="/root/c_features/feature[@id='32']"/>
-    </div>
-  </xsl:if>
+  <div id="topic-latest" class="pckbox">
+    <xsl:choose>
+      <xsl:when test="/root/publish/@live='1'">
+        <xsl:if test="/root/c_features/feature[@id='32']/items">
+          <xsl:apply-templates select="/root/c_features/feature[@id='32']"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>aja
+        <script type="text/javascript">
+  $(function() {
+    htmlLoad('topic-latest','/js/feature.php?id=32&amp;transform',true)
+  });
+        </script>
+      </xsl:otherwise>
+    </xsl:choose>
+  </div>
 </xsl:template>
 
 

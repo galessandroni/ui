@@ -92,7 +92,7 @@
      PEOPLE BREADCRUMB
      ############################### -->
 <xsl:template name="peopleBreadcrumb">
-<div class="breadcrumb">
+<div class="breadcrumb icon">
 <xsl:call-template name="createLink">
 <xsl:with-param name="name" select="$title1"/>
 <xsl:with-param name="node" select="/root/site/people"/>

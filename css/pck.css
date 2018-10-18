@@ -39,8 +39,10 @@ table {
 /* MOBILE FIRST */
 
 /* HIDE */
-#pck-links,
-#user-info,
+#pck-contact,
+#pck-join,
+#pck-support,
+#pck-help,
 .map #fotonotizia,
 #youtube,
 #main-global #content .items .item-breadcrumb,
@@ -48,6 +50,10 @@ table {
 #main-global #content .halftitle,
 #main-global #content .notes,
 #left-bar,
+.user a.username span,
+.user a.register,
+.user a.login span,
+.user a.logout span,
 #preview-toolbar,
 #tool-bar,
 #top-nav .banner {
@@ -212,6 +218,7 @@ ul.items li.last {
 
 #bottom-bar {
   width:95%;
+  clear:both;
 }
 
 
@@ -221,28 +228,57 @@ ul.items li.last {
   float: left;
   display: block;
   text-indent: -9999px;
-  width: 300px;
-  height: 104px;
   background-image: url(/css/i/peacelink.svg);
   background-repeat: no-repeat;
-  background-size: 300px 100px;
   margin: 0;
+  width: 259px;
+  height: 70px;
+  background-size: 248px 67px;
+}
+
+#pck-links {
+  float:right;
+  min-width:100px;
+  margin-left:10px;
+  display:inline-block;
+}
+#top-nav #pck-links li a {
+  color:#B66B1A;
+  text-decoration:none;
+  border-bottom:solid 1px #B66B1A;
+  border-right:solid 1px #B66B1A;
+}
+#top-nav #pck-links li.first a {
+  border-left:solid 1px #B66B1A;
+  border-bottom-left-radius: 10px;
 }
 
 #content-links {
   float:left;
   width: 100%;
 }
-
+#content-links li#topic-group-osp {
+  display:none;
+}
 #content-links li.user a,
 #content-links li.search a{
   border-top-color: #444;
 }
 
-#user-info {
+#top-nav li.user {
   float:right;
-  color:#fff;
 }
+#top-nav li.user a {
+  font-weight:normal;
+}
+.user a.username:before,
+.user a.login:before{    
+  content: "\f007";
+}
+.user a.logout:before {    
+  content: "\f2f5";
+}
+
 #top-nav li a {
   border-right: solid 1px #fff;
   border-bottom: solid 1px #fff;
@@ -250,15 +286,6 @@ ul.items li.last {
   font-weight:bold;
   float:left;
   color: #ffffff;
-}
-
-#top-nav li #user-info a {
-  font-weight:normal;
-  display:inline;
-}
-
-#user-info #user-auth {
-  display:inline;
 }
 
 #bottom-bar {
@@ -326,6 +353,7 @@ ul.items li.last {
 #pck-facebook {
   border: solid 1px #aaa;
   margin: 0.5em 0;
+  width:100%;
 }
 #pck-facebook blockquote {
   padding:0.5em;
@@ -427,7 +455,7 @@ li.topic ul.subtopics {
   display: none;
   list-style-type: circle;
   margin-left:1em;
-  padding-left:1em;
+  padding: 1px 0 1px 1em;
 }
 li.topic ul.items {
   display: none;
@@ -680,6 +708,7 @@ a:hover {
   border-bottom-color: #881A25;
 }
 #sitemap li.group .group-pace,
+#main.group-pace #left-bar h2 a,
 .pckbox#box-group-pace h3 a,
 .group-pace .article-item h3 a,
 .group-pace #content h1 {
@@ -696,6 +725,7 @@ a:hover {
   border-bottom-color: #7D1A88;
 }
 #sitemap li.group .group-cult,
+#main.group-cult #left-bar h2 a,
 .pckbox#box-group-cult h3 a,
 .group-cult .article-item h3 a,
 .group-cult #content h1 {
@@ -712,6 +742,7 @@ a:hover {
   border-bottom-color: #391A88;
 }
 #sitemap li.group .group-sol,
+#main.group-sol #left-bar h2 a,
 .pckbox#box-group-sol h3 a,
 .group-sol .article-item h3 a,
 .group-sol #content h1 {
@@ -728,6 +759,7 @@ a:hover {
   border-bottom-color: #1A6588;
 }
 #sitemap li.group .group-citt,
+#main.group-citt #left-bar h2 a,
 .pckbox#box-group-citt h3 a,
 .group-citt .article-item h3 a,
 .group-citt #content h1 {
@@ -744,6 +776,7 @@ a:hover {
   border-bottom-color: #117738;
 }
 #sitemap li.group .group-eco,
+#main.group-eco #left-bar h2 a,
 .pckbox#box-group-eco h3 a,
 .group-eco .article-item h3 a,
 .group-eco #content h1 {
@@ -760,6 +793,7 @@ a:hover {
   border-bottom-color: #A7AA1C;
 }
 #sitemap li.group .group-osp,
+#main.group-osp #left-bar h2 a,
 .pckbox#box-group-osp h3 a,
 .group-osp .article-item h3 a,
 .group-osp #content h1 {
@@ -779,6 +813,7 @@ a:hover {
   border-bottom-color: #B66B1A;
 }
 #sitemap li.group .group-pck,
+#main.group-pck #left-bar h2 a,
 .pckbox#box-group-pck h3 a,
 .group-pck .article-item h3 a,
 .group-pck #content h1 {
@@ -790,16 +825,29 @@ a:hover {
 @media (max-width:599px)  { 
 }
 
-/* PORTRAIT TABLETS / LANDSCAPE PHONES */
+/* ###################################
+ * 
+ * PORTRAIT TABLETS / LANDSCAPE PHONES 
+ */
 @media (min-width:600px)  { 
 
   /* UNHIDE */
+  #pck-join,
+  #pck-support,
   #main-global #content .items .item-breadcrumb,
   #main-global #content .items .breadcrumb,
   #main-global #content .halftitle {
     display: block;
   }
 
+  #logo {
+    width: 307px;
+    height: 83px;
+    background-size: 296px 80px;
+  }
+  #pck-links {
+    min-width:250px;
+  }
   #top-nav li a {
     border-bottom: none;
   }
@@ -826,27 +874,38 @@ a:hover {
 
 }
 
-/* TABLETS */
+/* ###################################
+ * 
+ * TABLETS
+ */
 @media (min-width:801px)  {
   
   /* UNHIDE */
-  #pck-links,
-  #user-info,
   #left-bar,
+  #pck-contact,
+  #pck-join,
+  #pck-help,
+  #content-links li#topic-group-osp,
   #main-global #content .notes {
     display: block;
   }
+  .user a.username span,
+  .user a.login span {
+    display:inline;
+  }
 
   /* PCK */
+  #top-nav {
+    text-align:center;
+  }
   #pck-links {
-    min-width: 500px;
+    min-width:420px;
+    margin-left:10px;
+    display:inline-block;
   }
-
-  #pck-links a {
+  #top-nav #pck-links li a:hover {
     background-color:#B66B1A;
-  }
-  #pck-links a:hover {
-    background-color:#e79100;
+    color:#fff;
   }
 
   #left-bar {
@@ -888,9 +947,18 @@ a:hover {
     break-inside: avoid;
   }
 
+  #pck-twitter, 
+  #pck-facebook {
+    margin:1%;
+    width:46%;
+    float:left;
+  }
 }
 
-/* DESKTOP */
+/* ###################################
+ * 
+ * DESKTOP
+ */
 @media (min-width:1025px) {
 
   body {
@@ -903,6 +971,9 @@ a:hover {
   #preview-toolbar,
   #top-nav .banner {
     display: block;
+  }
+  .user a.register {
+    display:inline;
   }
 
   /*** ITEMS LIST ***/
@@ -944,14 +1015,22 @@ a:hover {
     float:right;
   }
 
+  #pck-twitter, 
+  #pck-facebook {
+    margin:0.5em 0;
+    width:100%;
+    float:none;
+  }
   #main #content {
     width:58%;
+    min-height:800px;
   }
 
   #main-global #content {
     width:66%;
     max-width: 800px;
     float:left;
+    min-height:800px;
   }
 
   #bottom-bar {
@@ -963,45 +1042,39 @@ a:hover {
   }
   
   /* NAV */
-  
+  #pck-links {
+    float:none;
+    display:inline-block;
+    margin:0;
+  }
+  #top-nav #pck-links li.last a {
+    border-bottom-right-radius: 10px;
+  }
   #top-nav .banner {
     float: right;
-    margin-left: 1em;
-    height: 100px;
-    width: 300px;
-  }
-
-  #top-nav li {
-    float:left;
-    border-left:solid 0.2em #fff;
+    margin: 10px 0 10px 10px;
+    height: 60px;
+    width: 234px;
   }
   #top-nav li a {
     border-right: none;
   }
-  #top-nav li.user {
-    float:none;
-  }
-
-  #top-nav li a {
-    float:left;
-    padding: 0.3em 0.5em;
-    text-decoration: none;
-  }
-
-  #top-nav h3.feature {
-    display:none;
-  }
-
-  #logo {
-    margin-right:20px;
-  }
-
   #content-links {
-    border-radius:20px;
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
+    width: 95%;
     padding: 0 25px;
     clear:both;
     float:left;
-    width: 1180px;
+  }
+  #content-links li {
+    float:left;
+    border-left:solid 0.2em #fff;
+  }
+  #content-links li a {
+    float:left;
+    padding: 0.2em 0.4em;
+    text-decoration: none;
   }
 
   /* COLUMNS */
@@ -1031,7 +1104,7 @@ a:hover {
   /* COLOURS */
 
   #content-links li a {
-    border-top: solid 3px #777;
+    border-top: solid 4px #777;
   }
   #content-links li a:hover,
   #content-links li.selected a {
@@ -1087,5 +1160,25 @@ a:hover {
     background-color:#A7AA1C;
   }
 
-  
+}
+
+
+/* ###################################
+ * 
+ * LARGE DESKTOP
+ */
+@media (min-width:1125px) {
+  #content-links {
+    max-width:1170px;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    width:96%;
+  }
+  #pck-links {
+    min-width:450px;
+  }
+  #pck-links li a {
+    padding: 0.3em 0.5em;
+  }
+
 }
