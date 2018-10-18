@@ -50,11 +50,11 @@
       <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png"/>
       <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png"/>
       <link rel="manifest" href="/icon/site.webmanifest"/>
-      <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5"/>
+      <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#ff8210"/>
       <link rel="shortcut icon" href="/icon/favicon.ico"/>
-      <meta name="msapplication-TileColor" content="#da532c"/>
+      <meta name="msapplication-TileColor" content="#ff8210"/>
       <meta name="msapplication-config" content="/icon/browserconfig.xml"/>
-      <meta name="theme-color" content="#ffffff"/>
+      <meta name="theme-color" content="#ff8210"/>
       <xsl:call-template name="googleUniversalAnalytics">
         <xsl:with-param name="ua-id" select="'UA-27168243-1'" />
       </xsl:call-template>
