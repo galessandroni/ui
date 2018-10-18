@@ -374,6 +374,16 @@ ul.groups li.group h1.group-eco:before,
   content: "\f06c";
 }
 
+ul.groups li.group h1.group-pck:before,
+.pckbox#box-group-pck > h3 a:before {
+  content:''; 
+  height:1em; 
+  width:1em; 
+  background-image:url('/css/i/colomba.svg'); 
+  background-size:contain; 
+  background-repeat:no-repeat;
+}
+
 ul.groups li.level1 {
   margin-bottom:0.5em;
 }
@@ -389,7 +399,7 @@ ul.topics li.topic {
 .icon:before{
   font-family: "Font Awesome 5 Free";
   display: inline-block;
-  padding-right: 0.3em;
+  padding-right: 0.2em;
 /*  vertical-align: middle; */
   font-weight: 900;
 }
@@ -767,6 +777,7 @@ a:hover {
 .pckbox#box-group-pck ul.items.highlight li {
   border-bottom-color: #B66B1A;
 }
+#sitemap li.group .group-pck,
 .pckbox#box-group-pck h3 a,
 .group-pck .article-item h3 a,
 .group-pck #content h1 {
