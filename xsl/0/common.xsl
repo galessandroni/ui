@@ -2284,12 +2284,8 @@ $().ready(function() {
      JAVASCRIPT HEAD
      ############################### -->
 <xsl:template name="javascriptHead">
-<script type="text/javascript" src="{/root/site/@assets_domain}/js/0/js/lib.js"></script>
-<script type="text/javascript" src="{/root/site/@assets_domain}/js/1/js/main.js"></script>
-<xsl:if test="$pagetype='homepage' and /root/publish/@widgets">
-<script type="text/javascript" src="{/root/site/@base}/js/widgets/lib.js"></script>
-<script type="text/javascript" src="{/root/site/@base}/js/widgets/main.js"></script>
-</xsl:if>
+<script type="text/javascript" src="{/root/site/@assets_domain}/js/0/js/lib.js{$css_version}"></script>
+<script type="text/javascript" src="{/root/site/@assets_domain}/js/1/js/main.js{$css_version}"></script>
 <xsl:call-template name="javascriptCustom"/>
 </xsl:template>
 

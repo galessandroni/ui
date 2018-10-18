@@ -261,7 +261,7 @@
      ############################### -->
 <xsl:template name="pckFacebook">
   <div id="pck-facebook" class="pckbox">
-    <div class="fb-page" data-href="https://www.facebook.com/retepeacelink/" data-tabs="timeline" data-adapt-container-width="true" data-height="500" data-small-header="true"  data-show-facepile="true">
+    <div class="fb-page" data-href="https://www.facebook.com/retepeacelink/" data-tabs="timeline" data-adapt-container-width="true" data-height="500" data-width="500" data-small-header="true"  data-show-facepile="true">
       <blockquote cite="https://www.facebook.com/retepeacelink/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/retepeacelink/">Pagina Facebook di PeaceLink in caricamento...</a></blockquote>
     </div>
   </div>
@@ -363,9 +363,12 @@
     </form>
     <xsl:if test="$url!=''">
       <h4><a href="{$archive}">Archivio pubblico</a></h4>
-      <xsl:call-template name="rssTicker">
-        <xsl:with-param name="url" select="$url"/>
-      </xsl:call-template>
+      <div id="rss-list"></div>
+      <script type="text/javascript">
+$(function() {
+  rssListLoad('rss-list','<xsl:value-of select="$url"/>','<xsl:value-of select="/root/site/@base"/>')
+});
+      </script>
     </xsl:if>
   </div>
 </xsl:template>

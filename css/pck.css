@@ -603,11 +603,14 @@ margin-right:1em;
   width: 65%;
 }
 
-
-#mailing-list .ticker {
+#rss-list {
   font-size:0.9em;
   margin:0.3em;
-  height:100px;
+}
+#rss-list div {
+  font-style:italic;
+  font-size:0.9em;
+  font-family:sans-serif;
 }
 
 /* CALENDAR */
