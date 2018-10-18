@@ -16,7 +16,7 @@
           <xsl:apply-templates select="/root/c_features/feature[@id='32']"/>
         </xsl:if>
       </xsl:when>
-      <xsl:otherwise>aja
+      <xsl:otherwise>
         <script type="text/javascript">
   $(function() {
     htmlLoad('topic-latest','/js/feature.php?id=32&amp;transform',true)

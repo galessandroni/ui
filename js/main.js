@@ -53,6 +53,8 @@ function rssListLoad(divId,rssUrl,host) {
         visible: 1,
         mousePause: 1
       })  
+    } else {
+      $('#'+divId).html('Non ci sono messaggi')
     }
   });
 }
@@ -90,6 +92,16 @@ function htmlLoad(divId,htmlUrl,cache,append=false) {
 }(document, 'script', 'facebook-jssdk'));
 
 
+// Highslide
+hs.graphicsDir = 'https://www.peacelink.it/js/highslide/graphics/';
+hs.showCredits = false;
+hs.outlineType = 'rounded-white';
+hs.wrapperClassName = 'highslide-white';
+hs.fullExpandTitle = 'Espandi alle dimensioni reali';
+hs.loadingText = 'Caricamento...';
+hs.loadingTitle = 'Clicca per interrompere';
+hs.restoreTitle = 'Clicca per chiudere l\'immagine o per trascinarla';
+
 
 // OLD STUFF
 
@@ -97,7 +109,6 @@ var phpeace = {
   pub_web : 'www.peacelink.it'
 };
 
-// hs.graphicsDir = 'https://www.peacelink.it/js/highslide/graphics/';
 
 // ARTICLES BOXES POPUP 
 

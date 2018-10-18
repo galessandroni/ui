@@ -681,6 +681,56 @@ ul.subtopics-map ul {
 #article-content p {
   margin: 1em 0;
 }
+.text-justify {
+  text-align: justify;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+
+/* IMAGE ZOOM */
+
+.highslide-caption {
+  display:none;
+  text-align:left;
+  font-style:italic;
+  font-size:0.95em;
+  padding:0.4em;
+  background-color:#fff;
+}
+
+.highslide-caption .image-caption {
+  margin-bottom:0.5em;
+} 
+
+.highslide-caption .image-author, 
+.highslide-caption .image-source {
+  font-size:0.95em;
+  margin-bottom:0.2em;
+} 
+
+.highslide-caption .image-close {
+  margin-top:0.5em;
+  padding:2px;;
+  background-color:#eee;
+  text-align:center;
+  text-transform:uppercase;
+} 
+
+.highslide-caption .image-close:hover {
+  background-color:#eef;
+}
+
+.highslide-caption .image-close a {
+  text-decoration:none;
+}
 
 /* COLOURS */
 
