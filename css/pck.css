@@ -151,6 +151,17 @@ ul.items li.last {
   color: #555;
 }
 
+#content > .breadcrumb {
+  padding-bottom:0.3em;
+  border-bottom:dotted 1px #eee;
+  margin-bottom:0.6em;
+}
+
+#main #content ul.items li {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
 /* ITEM */
 
 .breadcrumb:before {
