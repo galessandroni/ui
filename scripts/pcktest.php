@@ -49,7 +49,7 @@ HomepageFeature("Pace",$id_pace);
 
 // 6 portale => peacelink
 $id_pck = 6;
-$tt->gh->GroupUpdate($id_pck, "PeaceLink", "Spazio web relativo all'Associazione PeaceLink e alle sue campagne.", 0, 0, 1);
+$tt->gh->GroupUpdate($id_pck, "PeaceLink", "Spazio web relativo all\'Associazione PeaceLink e alle sue campagne.", 0, 0, 1);
 $tt->TopicUpdateGroup(1,$id_pck); // editoriale
 $tt->TopicUpdateGroup(3,$id_pck); // peacelink
 $tt->TopicUpdateGroup(6,$id_pck); // links
@@ -78,7 +78,7 @@ $tt->TopicUpdateGroup(109,$id_cultura); // scuola
 HomepageFeature("Cultura",$id_cultura);
 
 // 11 ecologia
-$id_eco = $tt->gh->GroupInsert("Ecologia", "Tematiche e mailing list relative all'ecologia, all'educazione ambientale, allo sviluppo sostenibile e alla green economy", 0, 1, "");
+$id_eco = $tt->gh->GroupInsert("Ecologia", "Tematiche e mailing list relative all\'ecologia, all\'educazione ambientale, allo sviluppo sostenibile e alla green economy", 0, 1, "");
 $tt->TopicUpdateGroup(31,$id_eco); // ecologia
 $tt->TopicUpdateGroup(102,$id_eco); // green tour
 $tt->TopicUpdateGroup(106,$id_eco); // processo ilva
