@@ -228,6 +228,9 @@
         </xsl:when>
         <xsl:otherwise>
           <!-- RIGHT BAR generica -->
+          <xsl:if test="$pagetype='map' and /root/topics/group/@id=6">
+            <xsl:call-template name="pckYoutube"/>
+          </xsl:if>
           <xsl:call-template name="pckTwitter"/>
           <xsl:call-template name="pckFacebook"/>
           <xsl:if test="$pagetype!='error404'">
