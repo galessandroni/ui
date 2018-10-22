@@ -1173,7 +1173,7 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
 <xsl:if test="/root/preview">
 	<link type="text/css" rel="stylesheet" href="{/root/site/@admin}/include/css/preview.css{$css_version}" media="screen"/>
 </xsl:if>
-<link type="text/css" rel="stylesheet" href="{$css_url}/pck.css{$css_version}" media="screen"/>
+<link type="text/css" rel="stylesheet" href="{$css_url}/pck.css{$css_version}"/>
 <xsl:if test="not(/root/publish/@global='1') and /root/publish/@style &gt; 0">
 	<link type="text/css" rel="stylesheet" href="{$css_url}/{/root/publish/@style}/common.css{$css_version}" media="screen"/>
 </xsl:if>

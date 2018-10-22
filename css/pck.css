@@ -1246,3 +1246,43 @@ a:hover {
   }
 
 }
+
+
+/* ###################################
+ * 
+ * PRINT
+ */
+@media print {
+  * {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+  
+  body {
+    background-color: #fff !important;
+    color: #000 !important;
+    padding: 1em;
+  }
+
+  #main #content {
+    width: 100%;
+    margin:1%;
+    color: #000 !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    min-height:none;
+  }
+
+  #top-nav,
+  #left-bar,
+  #right-bar,
+  #pck-links,
+  #content-links,
+  #fotonotizia,
+  .banner {
+    visibility: hidden;
+    display: none;
+  }
+}
