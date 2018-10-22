@@ -188,9 +188,9 @@ $().ready(function() {
      SUBTOPICS
      ############################### -->
 <xsl:template name="subtopics">
-<ul class="subtopics">
-<xsl:apply-templates select="/root/subtopic/subtopics" mode="details"/>
-</ul>
+  <ul class="subtopics">
+    <xsl:apply-templates select="/root/subtopic/subtopics" mode="details"/>
+  </ul>
 </xsl:template>
 
 
@@ -198,17 +198,11 @@ $().ready(function() {
      SUBTOPIC
      ############################### -->
 <xsl:template match="subtopic" mode="details">
-<li>
-<xsl:attribute name="class">
-<xsl:choose>
-<xsl:when test="(position() mod 4) = 2">col1</xsl:when>
-<xsl:otherwise>col2</xsl:otherwise>
-</xsl:choose>
-</xsl:attribute>
-<xsl:call-template name="subtopicItem">
-<xsl:with-param name="s" select="."/>
-</xsl:call-template>
-</li>
+  <li>
+    <xsl:call-template name="subtopicItem">
+      <xsl:with-param name="s" select="."/>
+    </xsl:call-template>
+  </li>
 </xsl:template>
 
 

@@ -656,8 +656,15 @@ margin-right:1em;
   line-height:1.1;
 }
 #left-bar #topic-latest img,
-#left-bar #topic-latest .notes {
+#left-bar #topic-latest .notes,
+#left-bar #topic-latest .halftitle {
   display:none;
+}
+#left-bar #topic-latest .subhead {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 #main .subhead {
   font-style:italic;
@@ -683,11 +690,24 @@ ul.subtopics-map ul {
   height: auto;
 }
 
+/* SUBTOPIC */
+
+#content ul.subtopics {
+  margin: 1em 0;
+}
+#content ul.subtopics li {
+  padding: 0.5em 1em;
+}
+#content ul.subtopics li a:before {
+  content: "\f0c8";
+}
+
 /* ARTICLE */
 
-#article-content .headings .notes {
-  font-size:0.95em;
-  margin-top:0.3em;
+#article-content .headings .notes,
+#article-content .headings .source {
+  font-size:0.9em;
+  margin-top:0.6em;
 }
 #article-content p {
   margin: 1em 0;

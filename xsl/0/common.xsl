@@ -3016,51 +3016,52 @@ new rss_ticker('<xsl:value-of select="$url"/>',<xsl:value-of select="$ttl"/>,'<x
      SUBTOPIC ITEM
      ############################### -->
 <xsl:template name="subtopicItem">
-<xsl:param name="s"/>
-<xsl:param name="with_children" select="false()"/>
-<xsl:param name="with_tags" select="false()"/>
-<xsl:if test="$s/image">
-<a>
-<xsl:attribute name="href">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="$s"/>
-<xsl:with-param name="title" select="$s/description"/>
-</xsl:call-template>
-</xsl:attribute>
-<img width="{$s/image/@width}" height="{$s/image/@height}" alt="{$s/@name}">
-<xsl:attribute name="src">
-<xsl:call-template name="createLinkUrl">
-<xsl:with-param name="node" select="$s/image"/>
-<xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
-</xsl:call-template>
-</xsl:attribute>
-</img>
-</a>
-</xsl:if>
-<xsl:choose>
-<xsl:when test="$with_tags">
-<h4>
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="$s/@name"/>
-<xsl:with-param name="node" select="$s"/>
-</xsl:call-template>
-</h4>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="createLink">
-<xsl:with-param name="name" select="$s/@name"/>
-<xsl:with-param name="node" select="$s"/>
-</xsl:call-template>
-</xsl:otherwise>
-</xsl:choose>
-<xsl:if test="$s/@description"> 
-<div class="description"><xsl:value-of select="$s/@description" disable-output-escaping="yes"/></div>
-</xsl:if>
-<xsl:if test="$with_children">
-<ul class="subtopics">
-<xsl:apply-templates mode="listitem" select="$s/subtopics"/>
-</ul>
-</xsl:if>
+  <xsl:param name="s"/>
+  <xsl:param name="with_children" select="false()"/>
+  <xsl:param name="with_tags" select="false()"/>
+  <xsl:if test="$s/image">
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="createLinkUrl">
+          <xsl:with-param name="node" select="$s"/>
+          <xsl:with-param name="title" select="$s/description"/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <img width="{$s/image/@width}" height="{$s/image/@height}" alt="{$s/@name}">
+        <xsl:attribute name="src">
+          <xsl:call-template name="createLinkUrl">
+            <xsl:with-param name="node" select="$s/image"/>
+            <xsl:with-param name="cdn" select="/root/site/@cdn!=''"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </img>
+    </a>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="$with_tags">
+      <h4>
+        <xsl:call-template name="createLink">
+          <xsl:with-param name="name" select="$s/@name"/>
+          <xsl:with-param name="node" select="$s"/>
+        </xsl:call-template>
+      </h4>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="name" select="$s/@name"/>
+        <xsl:with-param name="node" select="$s"/>
+        <xsl:with-param name="class" select="'icon'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
+  <xsl:if test="$s/@description"> 
+    <div class="description"><xsl:value-of select="$s/@description" disable-output-escaping="yes"/></div>
+  </xsl:if>
+  <xsl:if test="$with_children">
+    <ul class="subtopics">
+      <xsl:apply-templates mode="listitem" select="$s/subtopics"/>
+    </ul>
+  </xsl:if>
 </xsl:template>
 
 
