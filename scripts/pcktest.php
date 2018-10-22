@@ -37,7 +37,7 @@ function HomepageFeature($name,$id_group,$limit=4,$topic_limit=2) {
 
 // 1 tematiche => pace
 $id_pace = 1;
-$tt->gh->GroupUpdate($id_pace, "Pace", "Pace", 0, 0, 1);
+$tt->gh->GroupUpdate($id_pace, "Pace", "Tematiche e mailing list relative alla pace, al disarmo, ai conflitti, alla nonviolenza e ai diritti umani.", 0, 0, 1);
 $tt->TopicUpdateGroup(41,$id_pace); // zanotelli
 $tt->TopicUpdateGroup(19,$id_pace); // kosovo
 $tt->TopicArchive(19);
@@ -49,7 +49,7 @@ HomepageFeature("Pace",$id_pace);
 
 // 6 portale => peacelink
 $id_pck = 6;
-$tt->gh->GroupUpdate($id_pck, "PeaceLink", "Associazione PeaceLink", 0, 0, 1);
+$tt->gh->GroupUpdate($id_pck, "PeaceLink", "Spazio web relativo all'Associazione PeaceLink e alle sue campagne.", 0, 0, 1);
 $tt->TopicUpdateGroup(1,$id_pck); // editoriale
 $tt->TopicUpdateGroup(3,$id_pck); // peacelink
 $tt->TopicUpdateGroup(6,$id_pck); // links
@@ -62,11 +62,13 @@ $tt->TopicUpdateGroup(83,$id_pck);
 $tt->TopicUpdateGroup(50,$id_pck);
 $tt->TopicUpdateGroup(86,$id_pck);
 $tt->TopicUpdateGroup(100,$id_pck);
+$tt->TopicUpdateGroup(108,$id_pck);
+$tt->TopicArchive(108);
 HomepageFeature("PeaceLink",$id_pck,4,1);
 
 // 3 campagne => cultura
 $id_cultura = 3;
-$tt->gh->GroupUpdate($id_cultura, "Cultura", "Cultura", 0, 0, 1);
+$tt->gh->GroupUpdate($id_cultura, "Cultura", "Tematiche e mailing list relative alle forme di cultura di cui si interessa PeaceLink, dalla scuola, al cinema, alla musica, alla letteratura, alla cybercutura.", 0, 0, 1);
 $tt->TopicUpdateGroup(40,$id_cultura); // voltana
 $tt->TopicUpdateGroup(82,$id_cultura); // laboratorio di scrittura
 $tt->TopicUpdateGroup(16,$id_cultura); // cybercultura
@@ -76,7 +78,7 @@ $tt->TopicUpdateGroup(109,$id_cultura); // scuola
 HomepageFeature("Cultura",$id_cultura);
 
 // 11 ecologia
-$id_eco = $tt->gh->GroupInsert("Ecologia", "Ecologia", 0, 1, "");
+$id_eco = $tt->gh->GroupInsert("Ecologia", "Tematiche e mailing list relative all'ecologia, all'educazione ambientale, allo sviluppo sostenibile e alla green economy", 0, 1, "");
 $tt->TopicUpdateGroup(31,$id_eco); // ecologia
 $tt->TopicUpdateGroup(102,$id_eco); // green tour
 $tt->TopicUpdateGroup(106,$id_eco); // processo ilva
@@ -88,7 +90,7 @@ $tt->TopicUpdateGroup(105,$id_eco); // ecodidattica
 HomepageFeature("Ecologia",$id_eco);
 
 // 12 solidarieta'
-$id_sol = $tt->gh->GroupInsert("Solidarietà", "Solidarietà", 0, 1, "");
+$id_sol = $tt->gh->GroupInsert("Solidarietà", "Tematiche e mailing list relative alla costruzione di un mondo più giusto, accogliente, solidale, senza razzismi, barriere e pregiudizi.", 0, 1, "");
 $tt->TopicUpdateGroup(8,$id_sol); // palestina
 $tt->TopicUpdateGroup(24,$id_sol); // latina
 $tt->TopicUpdateGroup(11,$id_sol); // migranti
@@ -97,7 +99,7 @@ $tt->TopicUpdateGroup(101,$id_sol); // legami di ferro
 HomepageFeature("Solidarietà",$id_sol);
 
 // 13 cittadinanza attiva
-$id_citt = $tt->gh->GroupInsert("Cittadinanza attiva", "Cittadinanza attiva", 0, 1, "");
+$id_citt = $tt->gh->GroupInsert("Cittadinanza attiva", "Tematiche e mailing list relative alla tutela dei diritti e alla cittadinanza attiva in tutte le sue forme", 0, 1, "");
 $tt->TopicUpdateGroup(107,$id_citt); // cittadinanza
 $tt->TopicUpdateGroup(103,$id_citt); // citizen science
 $tt->TopicUpdateGroup(34,$id_citt); // diritto in rete
