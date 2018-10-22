@@ -94,7 +94,8 @@
         </xsl:choose>
         <div id="bottom-bar"><xsl:call-template name="bottomBarPck" /></div>
       </div>
-      </body>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc9b38eba9ea563"></script>
+    </body>
   </html>
 </xsl:template>
 
