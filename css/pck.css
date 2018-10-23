@@ -386,7 +386,7 @@ ul.groups ul.topics {
 
 ul.groups li.group h1 {
   padding-right: 0.7em;
-  font-size:2em;
+  font-size:1.8em;
 }
 
 ul.groups li.group h1.group-pace a:before,
@@ -424,9 +424,11 @@ ul.groups li.group h1.cal a:before,
   content: "\f017";
 }
 
-ul.groups li.group h1.search a:before,
-.pckbox#box-group-search > h3 a:before {
+ul.groups li.group h1.search a:before {
   content: "\f002";
+}
+ul.groups li.group h1.rss a:before {
+  content: "\f09e";
 }
 
 ul.groups li.group h1.group-pck a:before,
@@ -443,7 +445,7 @@ ul.groups li.group {
   margin-bottom:1em;
 }
 
-ul.topics li.topic {
+#sitemap ul.topics li.topic {
   padding:1em 0;
   border-top: dashed 1px #333;
   float:left;
@@ -491,6 +493,27 @@ li.topic ul.items {
 li.topic ul.subtopics li {
   margin: 0.3em;
 }
+
+/* FEEDS */
+
+body.feeds h1 {
+  padding-right:0.7em;
+  font-size:1.8em;
+  margin:0.5em;
+}
+body.feeds h1.icon:before {
+  content: "\f09e";  
+}
+ul.feeds {
+  padding:0.5em;
+  margin:0.5em;
+}
+ul.feeds ul.topics {
+  padding:0.5em;
+  margin:0 0.5em;
+  list-style-type:circle;
+}
+
 
 /* FORMS */
 

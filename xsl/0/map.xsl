@@ -38,6 +38,15 @@
               </xsl:call-template>
             </h1>
           </li>
+          <li class="group">
+            <h1 class="rss">
+              <xsl:call-template name="createLink">
+                <xsl:with-param name="name" select="'Feeds RSS'"/>
+                <xsl:with-param name="node" select="/root/site/feeds"/>
+                <xsl:with-param name="class" select="'icon'"/>
+              </xsl:call-template>
+            </h1>
+          </li>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="/root/topics" mode="map"/>

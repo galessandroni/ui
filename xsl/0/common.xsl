@@ -1048,7 +1048,6 @@ getHttpContent('/js/book.php?id_p=<xsl:value-of select="$id_publisher"/><xsl:tex
 </xsl:call-template>
 </xsl:if>
 </xsl:when>
-<xsl:when test="$pagetype='feeds'">Feeds</xsl:when>
 <xsl:otherwise>
 <xsl:apply-templates select="/root/subtopic/breadcrumb" mode="breadcrumb"/>
 </xsl:otherwise>
