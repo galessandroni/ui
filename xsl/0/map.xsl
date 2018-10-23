@@ -15,32 +15,34 @@
 <xsl:template name="content">
   <div id="sitemap">
     <ul class="groups">
-      <xsl:apply-templates select="/root/topics" mode="map">
-        <xsl:with-param name="level" select="'1'"/>
-      </xsl:apply-templates>
-      <xsl:if test="/root/publish/@id='0'">
-        <li class="group level1">
-          <xsl:call-template name="createLink">
-            <xsl:with-param name="node" select="/root/galleries"/>
-          </xsl:call-template>
-          <div><xsl:value-of select="/root/galleries/@description"/></div>
-          <ul class="groups">
-            <xsl:apply-templates select="/root/galleries" mode="map"/>
-          </ul>
-        </li>
-        <li class="level1">
-          <xsl:call-template name="createLink">
-            <xsl:with-param name="name" select="/root/labels/label[@word='calendar']/@tr"/>
-            <xsl:with-param name="node" select="/root/site/events"/>
-          </xsl:call-template>
-        </li>
-        <li class="level1">
-          <xsl:call-template name="createLink">
-            <xsl:with-param name="name" select="/root/labels/label[@word='search_engine']/@tr"/>
-            <xsl:with-param name="node" select="/root/site/search"/>
-          </xsl:call-template>
-        </li>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="/root/publish/@id='0'">
+          <xsl:apply-templates select="/root/topics" mode="map">
+            <xsl:with-param name="details" select="false()"/>
+          </xsl:apply-templates>
+          <li class="group">
+            <h1 class="cal">
+              <xsl:call-template name="createLink">
+                <xsl:with-param name="name" select="/root/labels/label[@word='calendar']/@tr"/>
+                <xsl:with-param name="node" select="/root/site/events"/>
+                <xsl:with-param name="class" select="'icon'"/>
+              </xsl:call-template>
+            </h1>
+          </li>
+          <li class="group">
+            <h1 class="search">
+              <xsl:call-template name="createLink">
+                <xsl:with-param name="name" select="/root/labels/label[@word='search_engine']/@tr"/>
+                <xsl:with-param name="node" select="/root/site/search"/>
+                <xsl:with-param name="class" select="'icon'"/>
+              </xsl:call-template>
+            </h1>
+          </li>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="/root/topics" mode="map"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </ul>
   </div>
 </xsl:template>
@@ -62,19 +64,22 @@
      GROUP
      ############################### -->
 <xsl:template match="group" mode="map">
-  <xsl:param name="level"/>
-  <li class="group level{$level}">
+  <xsl:param name="details" select="true()"/>
+  <li class="group">
     <h1>
       <xsl:attribute name="class">
         <xsl:call-template name="mapGroups">
-          <xsl:with-param name="string" select="'icon group'"/>
+          <xsl:with-param name="string" select="'group'"/>
           <xsl:with-param name="id" select="@id"/>
         </xsl:call-template>
       </xsl:attribute>
-      <xsl:value-of select="@name"/>
+      <xsl:call-template name="createLink">
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="class" select="'icon'"/>
+      </xsl:call-template>
     </h1>
     <div class="description"><xsl:value-of select="@description"/></div>
-    <xsl:if test="topics">
+    <xsl:if test="topics and $details=true()">
       <ul class="topics">
       <xsl:apply-templates mode="map" select="topics/topic[@archived='0']">
         <xsl:sort select="latest/item/@ts" order="descending"/>
@@ -88,16 +93,6 @@
           </xsl:apply-templates>
         </ul>
       </xsl:if>
-    </xsl:if>
-    <xsl:if test="galleries">
-      <ul class="galleries">
-        <xsl:apply-templates mode="map" select="galleries"/>
-      </ul>
-    </xsl:if>
-    <xsl:if test="groups">
-      <ul class="groups">
-        <xsl:apply-templates select="groups" mode="map"/>
-      </ul>
     </xsl:if>
   </li>
 </xsl:template>
